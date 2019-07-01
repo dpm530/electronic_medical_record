@@ -1,0 +1,1 @@
+json.partial! "patient_emergency_contacts/patient_emergency_contact", patient_emergency_contact: @patient_emergency_contact
