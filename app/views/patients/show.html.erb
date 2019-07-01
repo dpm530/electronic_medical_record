@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @patient.comment %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @patient.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @patient.last_name %>
+</p>
+
+<p>
+  <strong>Preferred name:</strong>
+  <%= @patient.preferred_name %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @patient.dob %>
+</p>
+
+<p>
+  <strong>Birth sex:</strong>
+  <%= @patient.birth_sex %>
+</p>
+
+<p>
+  <strong>Gender identity:</strong>
+  <%= @patient.gender_identity %>
+</p>
+
+<p>
+  <strong>Sexual orientation:</strong>
+  <%= @patient.sexual_orientation %>
+</p>
+
+<p>
+  <strong>Race:</strong>
+  <%= @patient.race %>
+</p>
+
+<p>
+  <strong>Languages:</strong>
+  <%= @patient.languages %>
+</p>
+
+<p>
+  <strong>Marital status:</strong>
+  <%= @patient.marital_status %>
+</p>
+
+<p>
+  <strong>Employment:</strong>
+  <%= @patient.employment %>
+</p>
+
+<p>
+  <strong>Hipaa:</strong>
+  <%= @patient.hipaa %>
+</p>
+
+<p>
+  <strong>Pcp release:</strong>
+  <%= @patient.pcp_release %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @patient.user %>
+</p>
+
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>

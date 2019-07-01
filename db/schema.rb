@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_170907) do
+ActiveRecord::Schema.define(version: 2019_07_01_181929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "libraries", force: :cascade do |t|
+    t.string "document"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.text "comment"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "preferred_name"
+    t.date "dob"
+    t.string "birth_sex"
+    t.string "gender_identity"
+    t.string "sexual_orientation"
+    t.string "race"
+    t.string "languages"
+    t.string "marital_status"
+    t.string "employment"
+    t.boolean "hipaa", default: false, null: false
+    t.string "pcp_release"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_patients_on_user_id"
+  end
 
   create_table "user_contact_informations", force: :cascade do |t|
     t.string "address_1"
@@ -47,9 +74,11 @@ ActiveRecord::Schema.define(version: 2019_07_01_170907) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "patients", "users"
   add_foreign_key "user_contact_informations", "users"
 end
