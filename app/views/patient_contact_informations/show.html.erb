@@ -52,8 +52,5 @@
 
 <p>
   <strong>Patient:</strong>
-  <%= @patient_contact_information.patient %>
+  <%= @patient_contact_information.patient.first_name %> <%= @patient_contact_information.patient.last_name %>
 </p>
-
-<%= link_to 'Edit', edit_patient_contact_information_path(@patient_contact_information) %> |
-<%= link_to 'Back', patient_contact_informations_path %>

@@ -1,5 +1,5 @@
 class PatientContactInformationsController < ApplicationController
-  before_action :set_patient_contact_information, only: [:show, :edit, :update, :destroy]
+
 
   # GET /patient_contact_informations
   # GET /patient_contact_informations.json
@@ -7,15 +7,29 @@ class PatientContactInformationsController < ApplicationController
     @patient_contact_informations = PatientContactInformation.all
   end
 
-  # GET /patient_contact_informations/1
-  # GET /patient_contact_informations/1.json
-  def show
-  end
+   # GET /patient_contact_informations/1
+   # GET /patient_contact_informations/1.json
+   def show
+      @patient=Patient.find(params[:patient_id])
+      @patient_contact_information=@patient.patient_contact_informations.find(params[:id])
+   end
 
-  # GET /patient_contact_informations/new
-  def new
-    @patient_contact_information = PatientContactInformation.new
-  end
+   # GET /patient_contact_informations/new
+   def new
+      @patient = Patient.find(params[:patient_id])
+
+      puts '='*100
+      puts @patient
+      puts '='*100
+
+      @patient_contact_information = @patient.patient_contact_informations.build
+
+      respond_to do |format|
+         format.html # new.html.erb
+
+         format.xml  { render :xml => @patient_contact_information }
+      end
+   end
 
   # GET /patient_contact_informations/1/edit
   def edit
@@ -24,11 +38,13 @@ class PatientContactInformationsController < ApplicationController
   # POST /patient_contact_informations
   # POST /patient_contact_informations.json
   def create
-    @patient_contact_information = PatientContactInformation.new(patient_contact_information_params)
+
+     @patient = Patient.find(params[:patient_id])
+     @patient_contact_information = @patient.patient_contact_informations.new(patient_contact_information_params)
 
     respond_to do |format|
       if @patient_contact_information.save
-        format.html { redirect_to @patient_contact_information, notice: 'Patient contact information was successfully created.' }
+        format.html { redirect_to([@patient_contact_information.patient, @patient_contact_information], notice: 'Patient contact information was successfully created.') }
         format.json { render :show, status: :created, location: @patient_contact_information }
       else
         format.html { render :new }

@@ -1,72 +1,56 @@
-<%= form_with(model: patient_contact_information, local: true) do |form| %>
-  <% if patient_contact_information.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(patient_contact_information.errors.count, "error") %> prohibited this patient_contact_information from being saved:</h2>
-
-      <ul>
-      <% patient_contact_information.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for([@patient_contact_information.patient, @patient_contact_information]) do |f| %>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
   </div>
 
   <div class="field">
-    <%= form.label :mobile_phone %>
-    <%= form.text_field :mobile_phone %>
+    <%= f.label :mobile_phone %>
+    <%= f.text_field :mobile_phone %>
   </div>
 
   <div class="field">
-    <%= form.label :home_phone %>
-    <%= form.text_field :home_phone %>
+    <%= f.label :home_phone %>
+    <%= f.text_field :home_phone %>
   </div>
 
   <div class="field">
-    <%= form.label :work_phone %>
-    <%= form.text_field :work_phone %>
+    <%= f.label :work_phone %>
+    <%= f.text_field :work_phone %>
   </div>
 
   <div class="field">
-    <%= form.label :other_phone %>
-    <%= form.text_field :other_phone %>
+    <%= f.label :other_phone %>
+    <%= f.text_field :other_phone %>
   </div>
 
   <div class="field">
-    <%= form.label :address_1 %>
-    <%= form.text_field :address_1 %>
+    <%= f.label :address_1 %>
+    <%= f.text_field :address_1 %>
   </div>
 
   <div class="field">
-    <%= form.label :address_2 %>
-    <%= form.text_field :address_2 %>
+    <%= f.label :address_2 %>
+    <%= f.text_field :address_2 %>
   </div>
 
   <div class="field">
-    <%= form.label :zipcode %>
-    <%= form.text_field :zipcode %>
+    <%= f.label :zipcode %>
+    <%= f.text_field :zipcode %>
   </div>
 
   <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
   </div>
 
   <div class="field">
-    <%= form.label :state %>
-    <%= form.text_field :state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :patient_id %>
-    <%= form.text_field :patient_id %>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

@@ -12,10 +12,11 @@ class PatientsController < ApplicationController
   def show
   end
 
-  # GET /patients/new
-  def new
-    @patient = Patient.new
-  end
+   # GET /patients/new
+   def new
+      @users=User.all
+      @patient = Patient.new
+   end
 
   # GET /patients/1/edit
   def edit

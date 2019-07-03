@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<a href="/patients/<%= @patient.id %>/patient_contact_informations/new"> New </a>
+<br>
 <p>
   <strong>Comment:</strong>
   <%= @patient.comment %>
@@ -72,8 +73,8 @@
 
 <p>
   <strong>User:</strong>
-  <%= @patient.user %>
+  <%= @patient.user.first_name %> <%= @patient.user.last_name %>
 </p>
 
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+<%= link_to 'Back', patients_path %>  |
