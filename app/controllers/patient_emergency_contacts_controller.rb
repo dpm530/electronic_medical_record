@@ -12,10 +12,11 @@ class PatientEmergencyContactsController < ApplicationController
   def show
   end
 
-  # GET /patient_emergency_contacts/new
-  def new
-    @patient_emergency_contact = PatientEmergencyContact.new
-  end
+   # GET /patient_emergency_contacts/new
+   def new
+      @patient= Patient.find(params[:patient_id])
+      @patient_emergency_contact = @patient.patient_emergency_contacts.build
+   end
 
   # GET /patient_emergency_contacts/1/edit
   def edit
@@ -24,11 +25,12 @@ class PatientEmergencyContactsController < ApplicationController
   # POST /patient_emergency_contacts
   # POST /patient_emergency_contacts.json
   def create
-    @patient_emergency_contact = PatientEmergencyContact.new(patient_emergency_contact_params)
+     @patient=Patient.find(params[:patient_id])
+     @patient_emergency_contact = @patient.patient_emergency_contacts.new(patient_emergency_contact_params)
 
     respond_to do |format|
       if @patient_emergency_contact.save
-        format.html { redirect_to @patient_emergency_contact, notice: 'Patient emergency contact was successfully created.' }
+        format.html { redirect_to([@patient_emergency_contact.patient, @patient_emergency_contact], notice: 'Patient emergency contact was successfully created.') }
         format.json { render :show, status: :created, location: @patient_emergency_contact }
       else
         format.html { render :new }
@@ -69,6 +71,6 @@ class PatientEmergencyContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_emergency_contact_params
-      params.require(:patient_emergency_contact).permit(:first_name, :last_name, :contact_type, :relationship, :release_of_info, :dob, :address_1, :address_2, :country, :zipcode, :city, :state, :email, :mobile_phone, :work_phone, :home_phone, :other_phone, :commet, :patient_id)
+      params.require(:patient_emergency_contact).permit(:first_name, :last_name, :contact_type, :relationship, :release_of_info, :dob, :address_1, :address_2, :country, :zipcode, :city, :state, :email, :mobile_phone, :work_phone, :home_phone, :other_phone, :comment, :patient_id)
     end
 end

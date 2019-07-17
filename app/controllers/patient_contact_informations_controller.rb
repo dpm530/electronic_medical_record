@@ -18,15 +18,10 @@ class PatientContactInformationsController < ApplicationController
    def new
       @patient = Patient.find(params[:patient_id])
 
-      puts '='*100
-      puts @patient
-      puts '='*100
-
       @patient_contact_information = @patient.patient_contact_informations.build
 
       respond_to do |format|
-         format.html # new.html.erb
-
+         format.html
          format.xml  { render :xml => @patient_contact_information }
       end
    end

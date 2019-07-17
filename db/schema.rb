@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_194122) do
+ActiveRecord::Schema.define(version: 2019_07_17_183219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_07_01_194122) do
     t.string "work_phone"
     t.string "home_phone"
     t.string "other_phone"
-    t.text "commet"
+    t.text "comment"
     t.bigint "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,6 +82,37 @@ ActiveRecord::Schema.define(version: 2019_07_01_194122) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_patients_on_user_id"
+  end
+
+  create_table "progress_notes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "patient_id"
+    t.date "date"
+    t.time "time"
+    t.string "duration"
+    t.string "location"
+    t.string "participants"
+    t.text "diagnosis_description"
+    t.text "diagnostic_justification"
+    t.string "cognitive_functioning"
+    t.string "affect"
+    t.string "mood"
+    t.string "interpersonal"
+    t.string "functional_status"
+    t.string "safety_issues"
+    t.string "medications"
+    t.text "symptoms_description"
+    t.text "relevant_content"
+    t.string "interventions_used"
+    t.text "additional_notes"
+    t.text "plan"
+    t.string "recommendation"
+    t.string "treatment_frequency"
+    t.boolean "clinician_signature", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_progress_notes_on_patient_id"
+    t.index ["user_id"], name: "index_progress_notes_on_user_id"
   end
 
   create_table "user_contact_informations", force: :cascade do |t|
@@ -124,5 +155,7 @@ ActiveRecord::Schema.define(version: 2019_07_01_194122) do
   add_foreign_key "patient_contact_informations", "patients"
   add_foreign_key "patient_emergency_contacts", "patients"
   add_foreign_key "patients", "users"
+  add_foreign_key "progress_notes", "patients"
+  add_foreign_key "progress_notes", "users"
   add_foreign_key "user_contact_informations", "users"
 end

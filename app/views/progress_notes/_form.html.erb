@@ -1,0 +1,121 @@
+<%= form_for([@progress_note.patient, @progress_note]) do |f| %>
+
+   <div class="field">
+      <%= f.label('Clinician') %>
+      <%= f.select('user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }) %>
+   </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time %>
+    <%= f.time_select :time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :duration %>
+    <%= f.text_field :duration %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :participants %>
+    <%= f.text_field :participants %>
+  </div>
+
+  <div class="field">
+    <%= f.label :diagnosis_description %>
+    <%= f.text_area :diagnosis_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :diagnostic_justification %>
+    <%= f.text_area :diagnostic_justification %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cognitive_functioning %>
+    <%= f.text_field :cognitive_functioning %>
+  </div>
+
+  <div class="field">
+    <%= f.label :affect %>
+    <%= f.text_field :affect %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mood %>
+    <%= f.text_field :mood %>
+  </div>
+
+  <div class="field">
+    <%= f.label :interpersonal %>
+    <%= f.text_field :interpersonal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :functional_status %>
+    <%= f.text_field :functional_status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :safety_issues %>
+    <%= f.text_field :safety_issues %>
+  </div>
+
+  <div class="field">
+    <%= f.label :medications %>
+    <%= f.text_field :medications %>
+  </div>
+
+  <div class="field">
+    <%= f.label :symptoms_description %>
+    <%= f.text_area :symptoms_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :relevant_content %>
+    <%= f.text_area :relevant_content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :interventions_used %>
+    <%= f.text_field :interventions_used %>
+  </div>
+
+  <div class="field">
+    <%= f.label :additional_notes %>
+    <%= f.text_area :additional_notes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :plan %>
+    <%= f.text_area :plan %>
+  </div>
+
+  <div class="field">
+    <%= f.label :recommendation %>
+    <%= f.text_field :recommendation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :treatment_frequency %>
+    <%= f.text_field :treatment_frequency %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clinician_signature %>
+    <%= f.check_box :clinician_signature %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

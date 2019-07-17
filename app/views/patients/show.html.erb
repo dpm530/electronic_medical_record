@@ -1,80 +1,112 @@
-<p id="notice"><%= notice %></p>
-<a href="/patients/<%= @patient.id %>/patient_contact_informations/new"> New </a>
-<br>
-<p>
-  <strong>Comment:</strong>
-  <%= @patient.comment %>
-</p>
+<div class="container">
+   <h1>Patient Show</h1>
+   <a href="/patients/<%= @patient.id %>/patient_contact_informations/new" class="btn btn-primary"> New contact information </a>
+   <a href="/patients/<%= @patient.id %>/patient_emergency_contacts/new" class="btn btn-primary"> New emergency contact </a>
+   <a href="/patients/<%= @patient.id %>/progress_notes/new" class="btn btn-primary">New Progress Note</a>
+   <!-- <div class="dropdown mt-1">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Documents</button>
+      <div class="dropdown-menu">
+         <a class="dropdown-item" href="/patients/<%= @patient.id %>/progress_notes">Progress Notes</a>
+         <a class="dropdown-item" href="#">Intake Notes</a>
+         <a class="dropdown-item" href="#">Treatment Plan</a>
+      </div>
+   </div> -->
+</div>
+<hr>
+<div class="container">
+   <div class="row">
+      <div class="col-md-6 border-right">
+         <h1>Patient:</h1>
+         <p>
+           <strong>Comment:</strong>
+           <%= @patient.comment %>
+         </p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @patient.first_name %>
-</p>
+         <p>
+           <strong>First name:</strong>
+           <%= @patient.first_name %>
+         </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @patient.last_name %>
-</p>
+         <p>
+           <strong>Last name:</strong>
+           <%= @patient.last_name %>
+         </p>
 
-<p>
-  <strong>Preferred name:</strong>
-  <%= @patient.preferred_name %>
-</p>
+         <p>
+           <strong>Preferred name:</strong>
+           <%= @patient.preferred_name %>
+         </p>
 
-<p>
-  <strong>Dob:</strong>
-  <%= @patient.dob %>
-</p>
+         <p>
+           <strong>Dob:</strong>
+           <%= @patient.dob %>
+         </p>
 
-<p>
-  <strong>Birth sex:</strong>
-  <%= @patient.birth_sex %>
-</p>
+         <p>
+           <strong>Birth sex:</strong>
+           <%= @patient.birth_sex %>
+         </p>
 
-<p>
-  <strong>Gender identity:</strong>
-  <%= @patient.gender_identity %>
-</p>
+         <p>
+           <strong>Gender identity:</strong>
+           <%= @patient.gender_identity %>
+         </p>
 
-<p>
-  <strong>Sexual orientation:</strong>
-  <%= @patient.sexual_orientation %>
-</p>
+         <p>
+           <strong>Sexual orientation:</strong>
+           <%= @patient.sexual_orientation %>
+         </p>
 
-<p>
-  <strong>Race:</strong>
-  <%= @patient.race %>
-</p>
+         <p>
+           <strong>Race:</strong>
+           <%= @patient.race %>
+         </p>
 
-<p>
-  <strong>Languages:</strong>
-  <%= @patient.languages %>
-</p>
+         <p>
+           <strong>Languages:</strong>
+           <%= @patient.languages %>
+         </p>
 
-<p>
-  <strong>Marital status:</strong>
-  <%= @patient.marital_status %>
-</p>
+         <p>
+           <strong>Marital status:</strong>
+           <%= @patient.marital_status %>
+         </p>
 
-<p>
-  <strong>Employment:</strong>
-  <%= @patient.employment %>
-</p>
+         <p>
+           <strong>Employment:</strong>
+           <%= @patient.employment %>
+         </p>
 
-<p>
-  <strong>Hipaa:</strong>
-  <%= @patient.hipaa %>
-</p>
+         <p>
+           <strong>Hipaa:</strong>
+           <%= @patient.hipaa %>
+         </p>
 
-<p>
-  <strong>Pcp release:</strong>
-  <%= @patient.pcp_release %>
-</p>
+         <p>
+           <strong>Pcp release:</strong>
+           <%= @patient.pcp_release %>
+         </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @patient.user.first_name %> <%= @patient.user.last_name %>
-</p>
+         <p>
+           <strong>User:</strong>
+           <%= @patient.user.first_name %> <%= @patient.user.last_name %>
+         </p>
 
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>  |
+         <%= link_to 'Edit', edit_patient_path(@patient) %> |
+         <%= link_to 'Back', patients_path %>  |
+      </div>
+
+      <div class="col-md-6">
+         <h1>Contact Information:</h1>
+         <% if @contact_information %>
+            <%= @contact_information.first.email %>
+         <% end %>
+         <hr>
+         <h1>Emergency Contact:</h1>
+         <% if @emergency_contact %>
+            <%= @emergency_contact.first.first_name %> <%= @emergency_contact.first.last_name %>
+         <% end %>
+
+      </div>
+   </div>
+</div>

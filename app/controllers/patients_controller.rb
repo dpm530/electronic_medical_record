@@ -7,10 +7,13 @@ class PatientsController < ApplicationController
     @patients = Patient.all
   end
 
-  # GET /patients/1
-  # GET /patients/1.json
-  def show
-  end
+   # GET /patients/1
+   # GET /patients/1.json
+   def show
+      @patient = Patient.find(params[:id])
+      @contact_information =  @patient.patient_contact_informations
+      @emergency_contact = @patient.patient_emergency_contacts
+   end
 
    # GET /patients/new
    def new
