@@ -10,10 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_183219) do
+ActiveRecord::Schema.define(version: 2019_07_21_204206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "intake_notes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "patient_id"
+    t.date "date"
+    t.time "time"
+    t.string "duration"
+    t.string "location"
+    t.string "participants"
+    t.text "presenting_problems"
+    t.string "general_appearance"
+    t.string "dress"
+    t.string "motor_activity"
+    t.string "insight"
+    t.string "judgement"
+    t.string "affect"
+    t.string "mood"
+    t.string "orientation"
+    t.string "memory"
+    t.string "attention_concentration"
+    t.string "thought_content"
+    t.string "perception"
+    t.string "flow_of_thought"
+    t.string "interview_behavior"
+    t.string "speech"
+    t.string "safety_issues"
+    t.text "identification"
+    t.text "history_present_problem"
+    t.text "past_psychiatric_history"
+    t.text "trauma_history"
+    t.text "family_psychiatric_history"
+    t.text "medical_history"
+    t.text "current_medications"
+    t.text "substance_use"
+    t.text "family_history"
+    t.text "social_history"
+    t.text "development_history"
+    t.text "educational_occupational_history"
+    t.text "legal_history"
+    t.text "strength_limitations"
+    t.text "other_information"
+    t.string "diagnosis_description"
+    t.text "diagnosis_justification"
+    t.boolean "clinician_signature", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_intake_notes_on_patient_id"
+    t.index ["user_id"], name: "index_intake_notes_on_user_id"
+  end
 
   create_table "libraries", force: :cascade do |t|
     t.string "document"
@@ -152,6 +201,8 @@ ActiveRecord::Schema.define(version: 2019_07_17_183219) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "intake_notes", "patients"
+  add_foreign_key "intake_notes", "users"
   add_foreign_key "patient_contact_informations", "patients"
   add_foreign_key "patient_emergency_contacts", "patients"
   add_foreign_key "patients", "users"

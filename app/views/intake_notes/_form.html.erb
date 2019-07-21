@@ -1,0 +1,211 @@
+<%= form_for([@intake_note.patient, @intake_note]) do |f| %>
+
+   <div class="field">
+      <%= f.label('Clinician') %>
+      <%= f.select('user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }) %>
+   </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time %>
+    <%= f.time_select :time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :duration %>
+    <%= f.text_field :duration %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :participants %>
+    <%= f.text_field :participants %>
+  </div>
+
+  <div class="field">
+    <%= f.label :presenting_problems %>
+    <%= f.text_area :presenting_problems %>
+  </div>
+
+  <div class="field">
+    <%= f.label :general_appearance %>
+    <%= f.text_field :general_appearance %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dress %>
+    <%= f.text_field :dress %>
+  </div>
+
+  <div class="field">
+    <%= f.label :motor_activity %>
+    <%= f.text_field :motor_activity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :insight %>
+    <%= f.text_field :insight %>
+  </div>
+
+  <div class="field">
+    <%= f.label :judgement %>
+    <%= f.text_field :judgement %>
+  </div>
+
+  <div class="field">
+    <%= f.label :affect %>
+    <%= f.text_field :affect %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mood %>
+    <%= f.text_field :mood %>
+  </div>
+
+  <div class="field">
+    <%= f.label :orientation %>
+    <%= f.text_field :orientation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :memory %>
+    <%= f.text_field :memory %>
+  </div>
+
+  <div class="field">
+    <%= f.label :attention_concentration %>
+    <%= f.text_field :attention_concentration %>
+  </div>
+
+  <div class="field">
+    <%= f.label :thought_content %>
+    <%= f.text_field :thought_content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :perception %>
+    <%= f.text_field :perception %>
+  </div>
+
+  <div class="field">
+    <%= f.label :flow_of_thought %>
+    <%= f.text_field :flow_of_thought %>
+  </div>
+
+  <div class="field">
+    <%= f.label :interview_behavior %>
+    <%= f.text_field :interview_behavior %>
+  </div>
+
+  <div class="field">
+    <%= f.label :speech %>
+    <%= f.text_field :speech %>
+  </div>
+
+  <div class="field">
+    <%= f.label :safety_issues %>
+    <%= f.text_field :safety_issues %>
+  </div>
+
+  <div class="field">
+    <%= f.label :identification %>
+    <%= f.text_area :identification %>
+  </div>
+
+  <div class="field">
+    <%= f.label :history_present_problem %>
+    <%= f.text_area :history_present_problem %>
+  </div>
+
+  <div class="field">
+    <%= f.label :past_psychiatric_history %>
+    <%= f.text_area :past_psychiatric_history %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trauma_history %>
+    <%= f.text_area :trauma_history %>
+  </div>
+
+  <div class="field">
+    <%= f.label :family_psychiatric_history %>
+    <%= f.text_area :family_psychiatric_history %>
+  </div>
+
+  <div class="field">
+    <%= f.label :medical_history %>
+    <%= f.text_area :medical_history %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_medications %>
+    <%= f.text_area :current_medications %>
+  </div>
+
+  <div class="field">
+    <%= f.label :substance_use %>
+    <%= f.text_area :substance_use %>
+  </div>
+
+  <div class="field">
+    <%= f.label :family_history %>
+    <%= f.text_area :family_history %>
+  </div>
+
+  <div class="field">
+    <%= f.label :social_history %>
+    <%= f.text_area :social_history %>
+  </div>
+
+  <div class="field">
+    <%= f.label :development_history %>
+    <%= f.text_area :development_history %>
+  </div>
+
+  <div class="field">
+    <%= f.label :educational_occupational_history %>
+    <%= f.text_area :educational_occupational_history %>
+  </div>
+
+  <div class="field">
+    <%= f.label :legal_history %>
+    <%= f.text_area :legal_history %>
+  </div>
+
+  <div class="field">
+    <%= f.label :strength_limitations %>
+    <%= f.text_area :strength_limitations %>
+  </div>
+
+  <div class="field">
+    <%= f.label :other_information %>
+    <%= f.text_area :other_information %>
+  </div>
+
+  <div class="field">
+    <%= f.label :diagnosis_description %>
+    <%= f.text_field :diagnosis_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :diagnosis_justification %>
+    <%= f.text_area :diagnosis_justification %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clinician_signature %>
+    <%= f.check_box :clinician_signature %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

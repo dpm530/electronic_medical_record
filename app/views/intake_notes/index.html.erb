@@ -1,0 +1,109 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Intake Notes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Patient</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Duration</th>
+      <th>Location</th>
+      <th>Participants</th>
+      <th>Presenting problems</th>
+      <th>General appearance</th>
+      <th>Dress</th>
+      <th>Motor activity</th>
+      <th>Insight</th>
+      <th>Judgement</th>
+      <th>Affect</th>
+      <th>Mood</th>
+      <th>Orientation</th>
+      <th>Memory</th>
+      <th>Attention concentration</th>
+      <th>Thought content</th>
+      <th>Perception</th>
+      <th>Flow of thought</th>
+      <th>Interview behavior</th>
+      <th>Speech</th>
+      <th>Safety issues</th>
+      <th>Identification</th>
+      <th>History present problem</th>
+      <th>Past psychiatric history</th>
+      <th>Trauma history</th>
+      <th>Family psychiatric history</th>
+      <th>Medical history</th>
+      <th>Current medications</th>
+      <th>Substance use</th>
+      <th>Family history</th>
+      <th>Social history</th>
+      <th>Development history</th>
+      <th>Educational occupational history</th>
+      <th>Legal history</th>
+      <th>Strength limitations</th>
+      <th>Other information</th>
+      <th>Diagnosis description</th>
+      <th>Diagnosis justification</th>
+      <th>Clinician signature</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @intake_notes.each do |intake_note| %>
+      <tr>
+        <td><%= intake_note.user %></td>
+        <td><%= intake_note.patient %></td>
+        <td><%= intake_note.date %></td>
+        <td><%= intake_note.time %></td>
+        <td><%= intake_note.duration %></td>
+        <td><%= intake_note.location %></td>
+        <td><%= intake_note.participants %></td>
+        <td><%= intake_note.presenting_problems %></td>
+        <td><%= intake_note.general_appearance %></td>
+        <td><%= intake_note.dress %></td>
+        <td><%= intake_note.motor_activity %></td>
+        <td><%= intake_note.insight %></td>
+        <td><%= intake_note.judgement %></td>
+        <td><%= intake_note.affect %></td>
+        <td><%= intake_note.mood %></td>
+        <td><%= intake_note.orientation %></td>
+        <td><%= intake_note.memory %></td>
+        <td><%= intake_note.attention_concentration %></td>
+        <td><%= intake_note.thought_content %></td>
+        <td><%= intake_note.perception %></td>
+        <td><%= intake_note.flow_of_thought %></td>
+        <td><%= intake_note.interview_behavior %></td>
+        <td><%= intake_note.speech %></td>
+        <td><%= intake_note.safety_issues %></td>
+        <td><%= intake_note.identification %></td>
+        <td><%= intake_note.history_present_problem %></td>
+        <td><%= intake_note.past_psychiatric_history %></td>
+        <td><%= intake_note.trauma_history %></td>
+        <td><%= intake_note.family_psychiatric_history %></td>
+        <td><%= intake_note.medical_history %></td>
+        <td><%= intake_note.current_medications %></td>
+        <td><%= intake_note.substance_use %></td>
+        <td><%= intake_note.family_history %></td>
+        <td><%= intake_note.social_history %></td>
+        <td><%= intake_note.development_history %></td>
+        <td><%= intake_note.educational_occupational_history %></td>
+        <td><%= intake_note.legal_history %></td>
+        <td><%= intake_note.strength_limitations %></td>
+        <td><%= intake_note.other_information %></td>
+        <td><%= intake_note.diagnosis_description %></td>
+        <td><%= intake_note.diagnosis_justification %></td>
+        <td><%= intake_note.clinician_signature %></td>
+        <td><%= link_to 'Show', intake_note %></td>
+        <td><%= link_to 'Edit', edit_intake_note_path(intake_note) %></td>
+        <td><%= link_to 'Destroy', intake_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Intake Note', new_intake_note_path %>

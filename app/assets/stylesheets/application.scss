@@ -1,3 +1,22 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+
+body{
+   width: 100%;
+   background-color: #f9f9f9;
+}
+nav{
+   background-color: #126ea4;
+}
+footer{
+
+   background-color: #f2f2f2;
+}
+.navbar-nav .nav-link,a{
+   // color: white;
+}
+#blocks{
+   background-color: white;
+}

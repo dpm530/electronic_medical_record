@@ -1,26 +1,37 @@
-<h2>Log in</h2>
+<%= render "shared/navbar_signed_out"%>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="container py-5">
+   <div class="row">
+      <div id="blocks" class="col-md-5 mx-auto border py-4">
+         <h2>Log in</h2>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+           <div class="form-group">
+             <%= f.label :email %><br />
+             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
+           </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+           <div class="form-group">
+             <%= f.label :password %><br />
+             <%= f.password_field :password, autocomplete: "current-password", class:'form-control' %>
+           </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+            <% if devise_mapping.rememberable? %>
+               <div class="form-check-inline">
+                  <div class="form-check-label">
+                     <%= f.check_box :remember_me, class:'form-check-input'  %>
+                     <%= f.label :remember_me %>
+                  </div>
+               </div>
+            <% end %>
 
-<%= render "users/shared/links" %>
+
+           <div class="form-group">
+             <%= f.submit "Log in", class:'btn btn-primary' %>
+           </div>
+         <% end %>
+      </div>
+   </div>
+</div>
+
+<%= render "shared/footer" %>

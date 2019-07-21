@@ -13,6 +13,7 @@ class PatientsController < ApplicationController
       @patient = Patient.find(params[:id])
       @contact_information =  @patient.patient_contact_informations
       @emergency_contact = @patient.patient_emergency_contacts
+      @progress_notes = @patient.progress_notes
    end
 
    # GET /patients/new
