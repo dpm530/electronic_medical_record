@@ -5,6 +5,7 @@
    <a href="/patients/<%= @patient.id %>/progress_notes/new" class="btn btn-primary">New Progress Note</a>
    <a href="/patients/<%= @patient.id %>/intake_notes/new" class="btn btn-primary">New Intake Note</a>
    <a href="/patients/<%= @patient.id %>/treatment_plans/new" class="btn btn-primary">New Treatment Plan</a>
+   <a href="/patients/<%= @patient.id %>/termination_notes/new" class="btn btn-primary">New Termination Note</a>
    <!-- <div class="dropdown mt-1">
       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Documents</button>
       <div class="dropdown-menu">
@@ -111,6 +112,15 @@
          <hr>
          <h1>Progress Notes</h1>
          <%= @progress_notes.length %>
+         <hr>
+         <h1>Intake Notes</h1>
+         <%= @intake_notes.length %>
+         <hr>
+         <h1>Treatment Plan</h1>
+         <%= @treatment_plans.length %>
+         <hr>
+         <h1>Termination Note</h1>
+         <%= @termination_notes.length %>
 
       </div>
    </div>

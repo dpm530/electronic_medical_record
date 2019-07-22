@@ -14,6 +14,9 @@ class PatientsController < ApplicationController
       @contact_information =  @patient.patient_contact_informations
       @emergency_contact = @patient.patient_emergency_contacts
       @progress_notes = @patient.progress_notes
+      @intake_notes = @patient.intake_notes
+      @treatment_plans = @patient.treatment_plans
+      @termination_notes = @patient.termination_notes
    end
 
    # GET /patients/new

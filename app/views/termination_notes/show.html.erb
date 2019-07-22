@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @termination_note.user %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @termination_note.patient %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @termination_note.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @termination_note.time %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @termination_note.reason %>
+</p>
+
+<p>
+  <strong>Main complaint:</strong>
+  <%= @termination_note.main_complaint %>
+</p>
+
+<p>
+  <strong>Most recent diagnosis:</strong>
+  <%= @termination_note.most_recent_diagnosis %>
+</p>
+
+<p>
+  <strong>Recent diagnosis justification:</strong>
+  <%= @termination_note.recent_diagnosis_justification %>
+</p>
+
+<p>
+  <strong>Treatment modality:</strong>
+  <%= @termination_note.treatment_modality %>
+</p>
+
+<p>
+  <strong>Treatment goals:</strong>
+  <%= @termination_note.treatment_goals %>
+</p>
+
+<p>
+  <strong>Clinician signature:</strong>
+  <%= @termination_note.clinician_signature %>
+</p>
+
+<%= link_to 'Edit', edit_termination_note_path(@termination_note) %> |
+<%= link_to 'Back', termination_notes_path %>

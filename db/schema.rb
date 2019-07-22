@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_211129) do
+ActiveRecord::Schema.define(version: 2019_07_22_165003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,6 +164,24 @@ ActiveRecord::Schema.define(version: 2019_07_21_211129) do
     t.index ["user_id"], name: "index_progress_notes_on_user_id"
   end
 
+  create_table "termination_notes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "patient_id"
+    t.date "date"
+    t.time "time"
+    t.string "reason"
+    t.text "main_complaint"
+    t.string "most_recent_diagnosis"
+    t.text "recent_diagnosis_justification"
+    t.text "treatment_modality"
+    t.text "treatment_goals"
+    t.boolean "clinician_signature", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_termination_notes_on_patient_id"
+    t.index ["user_id"], name: "index_termination_notes_on_user_id"
+  end
+
   create_table "treatment_plans", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "patient_id"
@@ -230,6 +248,8 @@ ActiveRecord::Schema.define(version: 2019_07_21_211129) do
   add_foreign_key "patients", "users"
   add_foreign_key "progress_notes", "patients"
   add_foreign_key "progress_notes", "users"
+  add_foreign_key "termination_notes", "patients"
+  add_foreign_key "termination_notes", "users"
   add_foreign_key "treatment_plans", "patients"
   add_foreign_key "treatment_plans", "users"
   add_foreign_key "user_contact_informations", "users"

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :progress_notes
       resources :intake_notes
       resources :treatment_plans
+      resources :termination_notes
    end
 
    resources :users
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
    resources :intake_notes
    resources :progress_notes
    resources :treatment_plans
+   resources :termination_notes
 
 
 end

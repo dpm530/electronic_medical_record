@@ -1,0 +1,2 @@
+module TerminationNotesHelper
+end

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Termination Notes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Patient</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Reason</th>
+      <th>Main complaint</th>
+      <th>Most recent diagnosis</th>
+      <th>Recent diagnosis justification</th>
+      <th>Treatment modality</th>
+      <th>Treatment goals</th>
+      <th>Clinician signature</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @termination_notes.each do |termination_note| %>
+      <tr>
+        <td><%= termination_note.user %></td>
+        <td><%= termination_note.patient %></td>
+        <td><%= termination_note.date %></td>
+        <td><%= termination_note.time %></td>
+        <td><%= termination_note.reason %></td>
+        <td><%= termination_note.main_complaint %></td>
+        <td><%= termination_note.most_recent_diagnosis %></td>
+        <td><%= termination_note.recent_diagnosis_justification %></td>
+        <td><%= termination_note.treatment_modality %></td>
+        <td><%= termination_note.treatment_goals %></td>
+        <td><%= termination_note.clinician_signature %></td>
+        <td><%= link_to 'Show', termination_note %></td>
+        <td><%= link_to 'Edit', edit_termination_note_path(termination_note) %></td>
+        <td><%= link_to 'Destroy', termination_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Termination Note', new_termination_note_path %>
