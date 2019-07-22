@@ -1,0 +1,42 @@
+<%= render "shared/navbar_signed_in"%>
+
+<div class="container-fluid py-4">
+   <div class="container-fluid mb-2">
+      <div class="row">
+         <div class="col-md-6">
+            <h3>Staff</h3>
+         </div>
+         <div class="col-md-6">
+            <a href="/" class="btn btn-primary float-right">Create New User</a>
+         </div>
+      </div>
+   </div>
+   <div class="container-fluid border bg-white py-4">
+      <table class="table table-bordered table-hover">
+         <thead>
+            <tr>
+               <th>First Name</th>
+               <th>Last Name</th>
+               <th>Email</th>
+               <th>Phone Number</th>
+               <th>Default Location</th>
+               <th>Role</th>
+            </tr>
+         </thead>
+         <tbody>
+            <% @users.each do |user| %>
+               <tr>
+                  <td><%= user.first_name %></td>
+                  <td><%= user.last_name %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.user_contact_information.mobile_phone %></td>
+                  <td><%= user.default_location %></td>
+                  <td><%= user.role %></td>
+                  <td><%= link_to 'Show', user %></td>
+               </tr>
+            <% end %>
+         </tbody>
+      </table>
+
+   </div>
+</div>

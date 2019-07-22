@@ -13,7 +13,12 @@ Rails.application.routes.draw do
       resources :termination_notes
    end
 
-   resources :users
+   resources :users do
+      collection do
+         get 'staff' => 'users#staff'
+      end
+   end
+
    resources :user_contact_informations
    resources :libraries
    resources :intake_notes
