@@ -1,0 +1,77 @@
+<%= form_for([@treatment_plan.patient, @treatment_plan]) do |f| %>
+
+
+  <div class="field">
+     <%= f.label('Clinician') %>
+     <%= f.select('user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time %>
+    <%= f.time_select :time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :diagnosis_description %>
+    <%= f.text_field :diagnosis_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :diagnostic_justification %>
+    <%= f.text_area :diagnostic_justification %>
+  </div>
+
+  <div class="field">
+    <%= f.label :presenting_problem %>
+    <%= f.text_area :presenting_problem %>
+  </div>
+
+  <div class="field">
+    <%= f.label :treatment_goal %>
+    <%= f.text_area :treatment_goal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :goal_estimated_completion %>
+    <%= f.text_field :goal_estimated_completion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objective %>
+    <%= f.text_area :objective %>
+  </div>
+
+  <div class="field">
+    <%= f.label :treatment_strategy %>
+    <%= f.text_field :treatment_strategy %>
+  </div>
+
+  <div class="field">
+    <%= f.label :objective_estimated_completion %>
+    <%= f.text_field :objective_estimated_completion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :treatment_frequency %>
+    <%= f.text_field :treatment_frequency %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clinician_declaration %>
+    <%= f.check_box :clinician_declaration %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clinician_signature %>
+    <%= f.check_box :clinician_signature %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

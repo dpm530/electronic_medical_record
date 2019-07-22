@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :patient_emergency_contacts
       resources :progress_notes
       resources :intake_notes
+      resources :treatment_plans
    end
 
    resources :users
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
    resources :libraries
    resources :intake_notes
    resources :progress_notes
+   resources :treatment_plans
 
 
 end

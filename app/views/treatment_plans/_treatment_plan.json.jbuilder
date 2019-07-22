@@ -1,0 +1,2 @@
+json.extract! treatment_plan, :id, :user_id, :patient_id, :date, :time, :diagnosis_description, :diagnostic_justification, :presenting_problem, :treatment_goal, :goal_estimated_completion, :objective, :treatment_strategy, :objective_estimated_completion, :treatment_frequency, :clinician_declaration, :clinician_signature, :created_at, :updated_at
+json.url treatment_plan_url(treatment_plan, format: :json)

@@ -4,5 +4,6 @@ class Patient < ApplicationRecord
   has_many :patient_emergency_contacts
   has_many :progress_notes
   has_many :intake_notes
+  has_many :treatment_plans
 
 end

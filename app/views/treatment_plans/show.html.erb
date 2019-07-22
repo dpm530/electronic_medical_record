@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @treatment_plan.user %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @treatment_plan.patient %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @treatment_plan.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @treatment_plan.time %>
+</p>
+
+<p>
+  <strong>Diagnosis description:</strong>
+  <%= @treatment_plan.diagnosis_description %>
+</p>
+
+<p>
+  <strong>Diagnostic justification:</strong>
+  <%= @treatment_plan.diagnostic_justification %>
+</p>
+
+<p>
+  <strong>Presenting problem:</strong>
+  <%= @treatment_plan.presenting_problem %>
+</p>
+
+<p>
+  <strong>Treatment goal:</strong>
+  <%= @treatment_plan.treatment_goal %>
+</p>
+
+<p>
+  <strong>Goal estimated completion:</strong>
+  <%= @treatment_plan.goal_estimated_completion %>
+</p>
+
+<p>
+  <strong>Objective:</strong>
+  <%= @treatment_plan.objective %>
+</p>
+
+<p>
+  <strong>Treatment strategy:</strong>
+  <%= @treatment_plan.treatment_strategy %>
+</p>
+
+<p>
+  <strong>Objective estimated completion:</strong>
+  <%= @treatment_plan.objective_estimated_completion %>
+</p>
+
+<p>
+  <strong>Treatment frequency:</strong>
+  <%= @treatment_plan.treatment_frequency %>
+</p>
+
+<p>
+  <strong>Clinician declaration:</strong>
+  <%= @treatment_plan.clinician_declaration %>
+</p>
+
+<p>
+  <strong>Clinician signature:</strong>
+  <%= @treatment_plan.clinician_signature %>
+</p>
+
+<%= link_to 'Edit', edit_treatment_plan_path(@treatment_plan) %> |
+<%= link_to 'Back', treatment_plans_path %>

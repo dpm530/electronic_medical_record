@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Treatment Plans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Patient</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Diagnosis description</th>
+      <th>Diagnostic justification</th>
+      <th>Presenting problem</th>
+      <th>Treatment goal</th>
+      <th>Goal estimated completion</th>
+      <th>Objective</th>
+      <th>Treatment strategy</th>
+      <th>Objective estimated completion</th>
+      <th>Treatment frequency</th>
+      <th>Clinician declaration</th>
+      <th>Clinician signature</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @treatment_plans.each do |treatment_plan| %>
+      <tr>
+        <td><%= treatment_plan.user %></td>
+        <td><%= treatment_plan.patient %></td>
+        <td><%= treatment_plan.date %></td>
+        <td><%= treatment_plan.time %></td>
+        <td><%= treatment_plan.diagnosis_description %></td>
+        <td><%= treatment_plan.diagnostic_justification %></td>
+        <td><%= treatment_plan.presenting_problem %></td>
+        <td><%= treatment_plan.treatment_goal %></td>
+        <td><%= treatment_plan.goal_estimated_completion %></td>
+        <td><%= treatment_plan.objective %></td>
+        <td><%= treatment_plan.treatment_strategy %></td>
+        <td><%= treatment_plan.objective_estimated_completion %></td>
+        <td><%= treatment_plan.treatment_frequency %></td>
+        <td><%= treatment_plan.clinician_declaration %></td>
+        <td><%= treatment_plan.clinician_signature %></td>
+        <td><%= link_to 'Show', treatment_plan %></td>
+        <td><%= link_to 'Edit', edit_treatment_plan_path(treatment_plan) %></td>
+        <td><%= link_to 'Destroy', treatment_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Treatment Plan', new_treatment_plan_path %>

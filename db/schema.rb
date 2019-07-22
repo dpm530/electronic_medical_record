@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_204206) do
+ActiveRecord::Schema.define(version: 2019_07_21_211129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,6 +164,28 @@ ActiveRecord::Schema.define(version: 2019_07_21_204206) do
     t.index ["user_id"], name: "index_progress_notes_on_user_id"
   end
 
+  create_table "treatment_plans", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "patient_id"
+    t.date "date"
+    t.time "time"
+    t.string "diagnosis_description"
+    t.text "diagnostic_justification"
+    t.text "presenting_problem"
+    t.text "treatment_goal"
+    t.string "goal_estimated_completion"
+    t.text "objective"
+    t.string "treatment_strategy"
+    t.string "objective_estimated_completion"
+    t.string "treatment_frequency"
+    t.boolean "clinician_declaration", default: false, null: false
+    t.boolean "clinician_signature", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_treatment_plans_on_patient_id"
+    t.index ["user_id"], name: "index_treatment_plans_on_user_id"
+  end
+
   create_table "user_contact_informations", force: :cascade do |t|
     t.string "address_1"
     t.string "address_2"
@@ -208,5 +230,7 @@ ActiveRecord::Schema.define(version: 2019_07_21_204206) do
   add_foreign_key "patients", "users"
   add_foreign_key "progress_notes", "patients"
   add_foreign_key "progress_notes", "users"
+  add_foreign_key "treatment_plans", "patients"
+  add_foreign_key "treatment_plans", "users"
   add_foreign_key "user_contact_informations", "users"
 end
