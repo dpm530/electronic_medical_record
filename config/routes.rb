@@ -11,11 +11,21 @@ Rails.application.routes.draw do
       resources :intake_notes
       resources :treatment_plans
       resources :termination_notes
+      collection do
+         get ':id/clinician' => 'patients#clinician'
+         get ':id/notes' => 'patients#notes'
+      end
    end
 
    resources :users do
       collection do
          get 'staff' => 'users#staff'
+      end
+   end
+
+   resources :documents do
+      collection do
+         get 'patient/:id' => 'documents#index'
       end
    end
 

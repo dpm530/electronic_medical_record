@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  layout 'patient_layout', :only => [:show, :clinician, :notes]
 
   # GET /patients
   # GET /patients.json
@@ -17,6 +18,25 @@ class PatientsController < ApplicationController
       @intake_notes = @patient.intake_notes
       @treatment_plans = @patient.treatment_plans
       @termination_notes = @patient.termination_notes
+   end
+
+   def clinician
+      @patient = Patient.find(params[:id])
+      @clinician = @patient.user
+   end
+
+   def notes
+      @patient = Patient.find(params[:id])
+      @intake_notes = @patient.intake_notes
+      @progress_notes = @patient.progress_notes
+      @treatment_plans = @patient.treatment_plans
+      @termination_notes = @patient.termination_notes
+
+      puts '='*100
+      puts @intake_notes.length
+      puts '='*100
+
+
    end
 
    # GET /patients/new

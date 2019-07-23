@@ -1,0 +1,60 @@
+<div class="container-fluid py-2">
+   <div class="container-fluid bg-white border py-4">
+      <div class="row">
+         <div class="col-md-6">
+            <h4>Notes for this Patient :</h4>
+         </div>
+         <div class="col-md-6">
+            <a href="/" class="btn btn-outline-secondary float-right">Create Note</a>
+         </div>
+      </div>
+      <br>
+      <div class="row">
+         <div class="col-md-12">
+            <table class="table table-bordered table-hover">
+               <thead>
+                  <tr>
+                     <th>Type</th>
+                     <th>Date</th>
+                     <th>Author</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <% @intake_notes.each do |i| %>
+                     <tr>
+                        <td>Intake Note</td>
+                        <td><%= i.date %></td>
+                        <td><%= i.user.first_name %> <%= i.user.last_name %></td>
+                     </tr>
+                  <% end %>
+
+                  <% @progress_notes.each do |p| %>
+                     <tr>
+                        <td>Progress Note</td>
+                        <td><%= p.date %></td>
+                        <td><%= p.user.first_name %> <%= p.user.last_name %></td>
+                     </tr>
+                  <% end %>
+
+                  <% @treatment_plans.each do |t| %>
+                     <tr>
+                        <td>Treatment Plan</td>
+                        <td><%= t.date %></td>
+                        <td><%= t.user.first_name %> <%= t.user.last_name %></td>
+                     </tr>
+                  <% end %>
+
+                  <%  @termination_notes.each do |tn| %>
+                     <tr>
+                        <td>Termination Note</td>
+                        <td><%= tn.date %></td>
+                        <td><%= tn.user.first_name %> <%= tn.user.last_name %></td>
+                     </tr>
+                  <% end %>
+
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</div>
