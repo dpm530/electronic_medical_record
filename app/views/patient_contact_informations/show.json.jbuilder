@@ -1,1 +1,0 @@
-json.partial! "patient_contact_informations/patient_contact_information", patient_contact_information: @patient_contact_information

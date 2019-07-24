@@ -1,5 +1,6 @@
 class IntakeNotesController < ApplicationController
   before_action :set_intake_note, only: [:show, :edit, :update, :destroy]
+  layout 'patient_layout'
 
   # GET /intake_notes
   # GET /intake_notes.json
@@ -7,10 +8,11 @@ class IntakeNotesController < ApplicationController
     @intake_notes = IntakeNote.all
   end
 
-  # GET /intake_notes/1
-  # GET /intake_notes/1.json
-  def show
-  end
+   # GET /intake_notes/1
+   # GET /intake_notes/1.json
+   def show
+      @patient = Patient.find(params[:patient_id])
+   end
 
    # GET /intake_notes/new
    def new
@@ -19,9 +21,11 @@ class IntakeNotesController < ApplicationController
       @intake_note = @patient.intake_notes.build
    end
 
-  # GET /intake_notes/1/edit
-  def edit
-  end
+   # GET /intake_notes/1/edit
+   def edit
+      @users = User.all
+      @patient = Patient.find(params[:patient_id])
+   end
 
    # POST /intake_notes
    # POST /intake_notes.json
@@ -31,7 +35,7 @@ class IntakeNotesController < ApplicationController
 
       respond_to do |format|
          if @intake_note.save
-            format.html { redirect_to([@intake_note.patient, @intake_note], notice: 'Intake note was successfully created.')}
+            format.html { redirect_to patient_path(@patient), notice: 'Intake note was successfully created.'}
             format.json { render :show, status: :created, location: @intake_note }
          else
             format.html { render :new }

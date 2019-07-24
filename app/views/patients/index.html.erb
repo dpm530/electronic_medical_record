@@ -7,7 +7,7 @@
             <h3>Patients</h3>
          </div>
          <div class="col-md-6">
-            <a href="/" class="btn btn-primary float-right">Create New Patient</a>
+            <%= link_to 'Create New Patient', new_patient_path, class:"btn btn-primary float-right" %>
          </div>
       </div>
    </div>
@@ -23,7 +23,6 @@
                <th>Phone Number</th>
                <th>DOB</th>
                <th>Clinician</th>
-               <!-- <th colspan="1"></th> -->
             </tr>
          </thead>
          <tbody>
@@ -31,11 +30,13 @@
                <tr>
                   <td><%= patient.first_name %></td>
                   <td><%= patient.last_name %></td>
-                  <td><%= patient.patient_contact_informations.first.email %></td>
-                  <td><%= patient.patient_contact_informations.first.mobile_phone %></td>
+                  <td><%= patient.email %></td>
+                  <td><%=  patient.mobile_phone %></td>
                   <td><%= patient.dob %></td>
                   <td><%= patient.user.first_name %> <%= patient.user.last_name %></td>
                   <td><%= link_to 'Show', patient %></td>
+                  <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+                  <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                </tr>
             <% end %>
          </tbody>
@@ -45,7 +46,7 @@
 </div>
 
 
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Comment</th>
@@ -95,4 +96,4 @@
 
 <br>
 
-<%= link_to 'New Patient', new_patient_path %>
+<%= link_to 'New Patient', new_patient_path %> -->

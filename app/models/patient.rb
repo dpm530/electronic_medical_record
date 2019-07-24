@@ -1,11 +1,10 @@
 class Patient < ApplicationRecord
   belongs_to :user
-  has_many :patient_contact_informations
-  has_many :patient_emergency_contacts
-  has_many :progress_notes
-  has_many :intake_notes
-  has_many :treatment_plans
-  has_many :termination_notes
-  has_many :documents
+  has_many :patient_emergency_contacts, dependent: :destroy
+  has_many :progress_notes, dependent: :destroy
+  has_many :intake_notes, dependent: :destroy
+  has_many :treatment_plans, dependent: :destroy
+  has_many :termination_notes, dependent: :destroy
+  has_many :documents, dependent: :destroy
 
 end

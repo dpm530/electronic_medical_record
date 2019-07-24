@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_153049) do
+ActiveRecord::Schema.define(version: 2019_07_24_154230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,23 +78,6 @@ ActiveRecord::Schema.define(version: 2019_07_23_153049) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "patient_contact_informations", force: :cascade do |t|
-    t.string "email"
-    t.string "mobile_phone"
-    t.string "home_phone"
-    t.string "work_phone"
-    t.string "other_phone"
-    t.string "address_1"
-    t.string "address_2"
-    t.string "zipcode"
-    t.string "city"
-    t.string "state"
-    t.bigint "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["patient_id"], name: "index_patient_contact_informations_on_patient_id"
-  end
-
   create_table "patient_emergency_contacts", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -138,6 +121,16 @@ ActiveRecord::Schema.define(version: 2019_07_23_153049) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "mobile_phone"
+    t.string "home_phone"
+    t.string "work_phone"
+    t.string "other_phone"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "zipcode"
+    t.string "city"
+    t.string "state"
     t.index ["user_id"], name: "index_patients_on_user_id"
   end
 
@@ -252,7 +245,6 @@ ActiveRecord::Schema.define(version: 2019_07_23_153049) do
   add_foreign_key "documents", "patients"
   add_foreign_key "intake_notes", "patients"
   add_foreign_key "intake_notes", "users"
-  add_foreign_key "patient_contact_informations", "patients"
   add_foreign_key "patient_emergency_contacts", "patients"
   add_foreign_key "patients", "users"
   add_foreign_key "progress_notes", "patients"

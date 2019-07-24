@@ -2,18 +2,17 @@ class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
   layout 'patient_layout', :only => [:show, :clinician, :notes]
 
-  # GET /patients
-  # GET /patients.json
-  def index
-    @patients = Patient.all
-  end
+   # GET /patients
+   # GET /patients.json
+   def index
+   @patients = Patient.all
+   end
 
    # GET /patients/1
    # GET /patients/1.json
    def show
       @patient = Patient.find(params[:id])
-      @contact_information =  @patient.patient_contact_informations
-      @emergency_contact = @patient.patient_emergency_contacts
+      @emergency_contacts = @patient.patient_emergency_contacts
       @progress_notes = @patient.progress_notes
       @intake_notes = @patient.intake_notes
       @treatment_plans = @patient.treatment_plans
@@ -32,11 +31,6 @@ class PatientsController < ApplicationController
       @treatment_plans = @patient.treatment_plans
       @termination_notes = @patient.termination_notes
 
-      puts '='*100
-      puts @intake_notes.length
-      puts '='*100
-
-
    end
 
    # GET /patients/new
@@ -45,9 +39,10 @@ class PatientsController < ApplicationController
       @patient = Patient.new
    end
 
-  # GET /patients/1/edit
-  def edit
-  end
+   # GET /patients/1/edit
+   def edit
+      @users=User.all
+   end
 
   # POST /patients
   # POST /patients.json
@@ -97,6 +92,6 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:comment, :first_name, :last_name, :preferred_name, :dob, :birth_sex, :gender_identity, :sexual_orientation, :race, :languages, :marital_status, :employment, :hipaa, :pcp_release, :user_id)
+      params.require(:patient).permit(:comment, :first_name, :last_name, :preferred_name, :dob, :birth_sex, :gender_identity, :sexual_orientation, :race, :languages, :marital_status, :employment, :hipaa, :pcp_release, :user_id, :address_1, :address_2, :zipcode, :city, :state, :mobile_phone, :home_phone, :work_phone, :other_phone, :email)
     end
 end

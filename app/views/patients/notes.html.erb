@@ -5,7 +5,15 @@
             <h4>Notes for this Patient :</h4>
          </div>
          <div class="col-md-6">
-            <a href="/" class="btn btn-outline-secondary float-right">Create Note</a>
+            <div class="dropdown">
+               <button type="button" class="btn btn-primary dropdown-toggle float-right" data-toggle="dropdown">Create Note</button>
+               <div class="dropdown-menu">
+                  <%= link_to 'Intake Note', new_patient_intake_note_path(@patient), class:"dropdown-item" %>
+                  <%= link_to 'Treatment Plan', new_patient_treatment_plan_path(@patient), class:"dropdown-item" %>
+                  <%= link_to 'Progress Note', new_patient_progress_note_path(@patient), class:"dropdown-item" %>
+                  <%= link_to 'Termination Note', new_patient_termination_note_path(@patient), class:"dropdown-item" %>
+               </div>
+            </div>
          </div>
       </div>
       <br>
@@ -25,6 +33,9 @@
                         <td>Intake Note</td>
                         <td><%= i.date %></td>
                         <td><%= i.user.first_name %> <%= i.user.last_name %></td>
+                        <td><%= link_to 'Show', patient_intake_note_path(i.patient, i) %></td>
+                        <td><%= link_to 'Edit', edit_patient_intake_note_path(i.patient, i) %></td>
+                        <td><%= link_to 'Destroy', [i.patient, i], method: :delete, data: { confirm: 'Are you sure?' } %></td>
                      </tr>
                   <% end %>
 

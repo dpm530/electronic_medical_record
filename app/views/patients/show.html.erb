@@ -45,23 +45,23 @@
                   </tr>
                   <tr>
                      <td>Email Address:</td>
-                     <td><%= @patient%></td>
+                     <td><%= @patient.email %></td>
                   </tr>
                   <tr>
                      <td>Mobile Phone:</td>
-                     <td><%= @patient %></td>
+                     <td><%= @patient.mobile_phone %></td>
                   </tr>
                   <tr>
                      <td>Home Phone:</td>
-                     <td><%= @patient%></td>
+                     <td><%= @patient.home_phone %></td>
                   </tr>
                   <tr>
                      <td>Work Phone:</td>
-                     <td><%= @patient%></td>
+                     <td><%= @patient.work_phone %></td>
                   </tr>
                   <tr>
                      <td>Address:</td>
-                     <td><%= @patient%></td>
+                     <td><%= @patient.address_1 %></td>
                   </tr>
                </body>
             </table>
@@ -120,71 +120,77 @@
             <h4>Emergency Contact:</h4>
          </div>
          <div class="col-md-6">
-            <a href="/" class="btn btn-outline-secondary float-right">Edit</a>
+            <%= link_to 'New Emergency Contact', new_patient_patient_emergency_contact_path(@patient), class:"btn btn-primary float-right" %>
          </div>
       </div>
-      <div class="row">
-         <div class="col-md-6">
-            <table>
-               <body>
-                  <tr>
-                     <td>Name:</td>
-                     <td><%= @patient.first_name %> <%= @patient.last_name %></td>
-                  </tr>
-                  <tr>
-                     <td>Contact Type:</td>
-                     <td><%=%></td>
-                  </tr>
-                  <tr>
-                     <td>Relationship:</td>
-                     <td><%=%></td>
-                  </tr>
-                  <tr>
-                     <td>Release of Info:</td>
-                     <td><%=%></td>
-                  </tr>
-                  <tr>
-                     <td>Date of Birth:</td>
-                     <td><%=%></td>
-                  </tr>
-                  <tr>
-                     <td>Address:</td>
-                     <td><%=%></td>
-                  </tr>
-               </body>
-            </table>
+      <hr>
+      <% @emergency_contacts.each do |ec| %>
+         <div class="row">
+            <div class="col-md-6">
+               <table>
+                  <body>
+                     <tr>
+                        <td>Name:</td>
+                        <td><%= ec.first_name %> <%= ec.last_name %></td>
+                     </tr>
+                     <tr>
+                        <td>Contact Type:</td>
+                        <td><%= ec.contact_type %></td>
+                     </tr>
+                     <tr>
+                        <td>Relationship:</td>
+                        <td><%= ec.relationship %></td>
+                     </tr>
+                     <tr>
+                        <td>Release of Info:</td>
+                        <td><%= ec.release_of_info %></td>
+                     </tr>
+                     <tr>
+                        <td>Date of Birth:</td>
+                        <td><%= ec.dob %></td>
+                     </tr>
+                     <tr>
+                        <td>Address:</td>
+                        <td><%= ec.address_1 %></td>
+                     </tr>
+                  </body>
+               </table>
+            </div>
+            <div class="col-md-6">
+               <table>
+                  <body>
+                     <tr>
+                        <td>Email:</td>
+                        <td><%= ec.email %></td>
+                     </tr>
+                     <tr>
+                        <td>Mobile Phone:</td>
+                        <td><%= ec.mobile_phone %></td>
+                     </tr>
+                     <tr>
+                        <td>Home Phone:</td>
+                        <td><%= ec.home_phone %></td>
+                     </tr>
+                     <tr>
+                        <td>Work Phone:</td>
+                        <td><%= ec.work_phone %></td>
+                     </tr>
+                     <tr>
+                        <td>Other Phone:</td>
+                        <td><%= ec.other_phone %></td>
+                     </tr>
+                     <tr>
+                        <td>Comments:</td>
+                        <td><%= ec.comment %></td>
+                     </tr>
+                  </body>
+               </table>
+            </div>
          </div>
-         <div class="col-md-6">
-            <table>
-               <body>
-                  <tr>
-                     <td>Email:</td>
-                     <td><%=%></td>
-                  </tr>
-                  <tr>
-                     <td>Mobile Phone:</td>
-                     <td><%=%></td>
-                  </tr>
-                  <tr>
-                     <td>Home Phone:</td>
-                     <td><%=%></td>
-                  </tr>
-                  <tr>
-                     <td>Work Phone:</td>
-                     <td><%=%></td>
-                  </tr>
-                  <tr>
-                     <td>Other Phone:</td>
-                     <td><%=%></td>
-                  </tr>
-                  <tr>
-                     <td>Comments:</td>
-                     <td><%=%></td>
-                  </tr>
-               </body>
-            </table>
-         </div>
-      </div>
+         <td><%= link_to 'Edit', edit_patient_patient_emergency_contact_path(ec.patient, ec) %></td> |
+         <td><%= link_to 'Delete', [ec.patient, ec], :confirm => 'Are you sure?', :method => :delete %></td>
+         <hr>
+      <% end %>
    </div>
 
 </div>

@@ -1,90 +1,137 @@
 <%= form_with(model: patient, local: true) do |form| %>
-  <% if patient.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
 
-      <ul>
-      <% patient.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="container">
+     <div class="row">
+        <div class="co-md-6">
+           <div class="field">
+             <%= form.label :comment %>
+             <%= form.text_area :comment %>
+           </div>
 
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
+           <div class="field">
+             <%= form.label :first_name %>
+             <%= form.text_field :first_name %>
+           </div>
+
+           <div class="field">
+             <%= form.label :last_name %>
+             <%= form.text_field :last_name %>
+           </div>
+
+           <div class="field">
+             <%= form.label :preferred_name %>
+             <%= form.text_field :preferred_name %>
+           </div>
+
+           <div class="field">
+             <%= form.label :dob %>
+             <%= form.date_select :dob %>
+           </div>
+
+           <div class="field">
+             <%= form.label :birth_sex %>
+             <%= form.text_field :birth_sex %>
+           </div>
+
+           <div class="field">
+             <%= form.label :gender_identity %>
+             <%= form.text_field :gender_identity %>
+           </div>
+
+           <div class="field">
+             <%= form.label :sexual_orientation %>
+             <%= form.text_field :sexual_orientation %>
+           </div>
+
+           <div class="field">
+             <%= form.label :race %>
+             <%= form.text_field :race %>
+           </div>
+
+           <div class="field">
+             <%= form.label :languages %>
+             <%= form.text_field :languages %>
+           </div>
+
+           <div class="field">
+             <%= form.label :marital_status %>
+             <%= form.text_field :marital_status %>
+           </div>
+
+           <div class="field">
+             <%= form.label :employment %>
+             <%= form.text_field :employment %>
+           </div>
+
+           <div class="field">
+             <%= form.label :hipaa %>
+             <%= form.check_box :hipaa %>
+           </div>
+
+           <div class="field">
+             <%= form.label :pcp_release %>
+             <%= form.text_field :pcp_release %>
+           </div>
+
+           <div class="field">
+            <%= form.label('Clinician') %>
+            <%= form.select('user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }) %>
+          </div>
+        </div>
+
+        <div class="co-md-6">
+           <div class="field">
+             <%= form.label :email %>
+             <%= form.text_field :email %>
+           </div>
+
+           <div class="field">
+             <%= form.label :mobile_phone %>
+             <%= form.text_field :mobile_phone %>
+           </div>
+
+           <div class="field">
+             <%= form.label :home_phone %>
+             <%= form.text_field :home_phone %>
+           </div>
+
+           <div class="field">
+             <%= form.label :work_phone %>
+             <%= form.text_field :work_phone %>
+           </div>
+
+           <div class="field">
+             <%= form.label :other_phone %>
+             <%= form.text_field :other_phone %>
+           </div>
+
+           <div class="field">
+             <%= form.label :address_1 %>
+             <%= form.text_field :address_1 %>
+           </div>
+
+           <div class="field">
+             <%= form.label :address_2 %>
+             <%= form.text_field :address_2 %>
+           </div>
+
+           <div class="field">
+             <%= form.label :zipcode %>
+             <%= form.text_field :zipcode %>
+           </div>
+
+           <div class="field">
+             <%= form.label :city %>
+             <%= form.text_field :city %>
+           </div>
+
+           <div class="field">
+             <%= form.label :state %>
+             <%= form.text_field :state %>
+           </div>
+        </div>
+     </div>
   </div>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :preferred_name %>
-    <%= form.text_field :preferred_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dob %>
-    <%= form.date_select :dob %>
-  </div>
-
-  <div class="field">
-    <%= form.label :birth_sex %>
-    <%= form.text_field :birth_sex %>
-  </div>
-
-  <div class="field">
-    <%= form.label :gender_identity %>
-    <%= form.text_field :gender_identity %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sexual_orientation %>
-    <%= form.text_field :sexual_orientation %>
-  </div>
-
-  <div class="field">
-    <%= form.label :race %>
-    <%= form.text_field :race %>
-  </div>
-
-  <div class="field">
-    <%= form.label :languages %>
-    <%= form.text_field :languages %>
-  </div>
-
-  <div class="field">
-    <%= form.label :marital_status %>
-    <%= form.text_field :marital_status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :employment %>
-    <%= form.text_field :employment %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hipaa %>
-    <%= form.check_box :hipaa %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pcp_release %>
-    <%= form.text_field :pcp_release %>
-  </div>
-
-  <div class="field">
-   <%= form.label('Clinician') %>
-   <%= form.select('user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }) %>
- </div>
 
   <div class="actions">
     <%= form.submit %>
