@@ -35,7 +35,7 @@
                         <td><%= i.user.first_name %> <%= i.user.last_name %></td>
                         <td><%= link_to 'Show', patient_intake_note_path(i.patient, i) %></td>
                         <td><%= link_to 'Edit', edit_patient_intake_note_path(i.patient, i) %></td>
-                        <td><%= link_to 'Destroy', [i.patient, i], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Delete', [i.patient, i], method: :delete, data: { confirm: 'Are you sure?' } %></td>
                      </tr>
                   <% end %>
 

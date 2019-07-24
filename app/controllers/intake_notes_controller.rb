@@ -23,8 +23,9 @@ class IntakeNotesController < ApplicationController
 
    # GET /intake_notes/1/edit
    def edit
-      @users = User.all
       @patient = Patient.find(params[:patient_id])
+      @intake_note = @patient.intake_notes.find(params[:id])
+      @users = User.all
    end
 
    # POST /intake_notes
@@ -44,29 +45,34 @@ class IntakeNotesController < ApplicationController
       end
    end
 
-  # PATCH/PUT /intake_notes/1
-  # PATCH/PUT /intake_notes/1.json
-  def update
-    respond_to do |format|
-      if @intake_note.update(intake_note_params)
-        format.html { redirect_to @intake_note, notice: 'Intake note was successfully updated.' }
-        format.json { render :show, status: :ok, location: @intake_note }
-      else
-        format.html { render :edit }
-        format.json { render json: @intake_note.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+   # PATCH/PUT /intake_notes/1
+   # PATCH/PUT /intake_notes/1.json
+   def update
+      @patient = Patient.find(params[:patient_id])
+      @intake_note = @patient.intake_notes.find(params[:id])
 
-  # DELETE /intake_notes/1
-  # DELETE /intake_notes/1.json
-  def destroy
-    @intake_note.destroy
-    respond_to do |format|
-      format.html { redirect_to intake_notes_url, notice: 'Intake note was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+      respond_to do |format|
+         if @intake_note.update(intake_note_params)
+            format.html { redirect_to patient_path(@patient), notice: 'Intake note was successfully updated.' }
+            format.json { render :show, status: :ok, location: @intake_note }
+         else
+            format.html { render :edit }
+            format.json { render json: @intake_note.errors, status: :unprocessable_entity }
+         end
+      end
+   end
+
+   # DELETE /intake_notes/1
+   # DELETE /intake_notes/1.json
+   def destroy
+      @patient = Patient.find(params[:patient_id])
+      @intake_note = @patient.intake_notes.find(params[:id])
+      @intake_note.destroy
+      respond_to do |format|
+         format.html { redirect_to patient_path(@patient), notice: 'Intake note was successfully destroyed.' }
+         format.json { head :no_content }
+      end
+   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
