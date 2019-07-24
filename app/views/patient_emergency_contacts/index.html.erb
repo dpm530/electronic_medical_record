@@ -48,16 +48,12 @@
         <td><%= patient_emergency_contact.work_phone %></td>
         <td><%= patient_emergency_contact.home_phone %></td>
         <td><%= patient_emergency_contact.other_phone %></td>
-        <td><%= patient_emergency_contact.commet %></td>
+        <td><%= patient_emergency_contact.comment %></td>
         <td><%= patient_emergency_contact.patient %></td>
-        <td><%= link_to 'Show', patient_emergency_contact %></td>
-        <td><%= link_to 'Edit', edit_patient_emergency_contact_path(patient_emergency_contact) %></td>
-        <td><%= link_to 'Destroy', patient_emergency_contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Patient Emergency Contact', new_patient_emergency_contact_path %>

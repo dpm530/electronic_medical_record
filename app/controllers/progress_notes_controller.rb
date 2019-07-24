@@ -1,5 +1,6 @@
 class ProgressNotesController < ApplicationController
   before_action :set_progress_note, only: [:show, :edit, :update, :destroy]
+  layout 'patient_layout'
 
   # GET /progress_notes
   # GET /progress_notes.json
@@ -7,10 +8,11 @@ class ProgressNotesController < ApplicationController
     @progress_notes = ProgressNote.all
   end
 
-  # GET /progress_notes/1
-  # GET /progress_notes/1.json
-  def show
-  end
+   # GET /progress_notes/1
+   # GET /progress_notes/1.json
+   def show
+      @patient = Patient.find(params[:patient_id])
+   end
 
    # GET /progress_notes/new
    def new
@@ -19,9 +21,12 @@ class ProgressNotesController < ApplicationController
       @progress_note = @patient.progress_notes.build
    end
 
-  # GET /progress_notes/1/edit
-  def edit
-  end
+   # GET /progress_notes/1/edit
+   def edit
+      @users = User.all
+      @patient = Patient.find(params[:patient_id])
+      @progress_note = @patient.progress_notes.find(params[:id])
+   end
 
    # POST /progress_notes
    # POST /progress_notes.json
@@ -31,7 +36,7 @@ class ProgressNotesController < ApplicationController
 
       respond_to do |format|
          if @progress_note.save
-            format.html { redirect_to([@progress_note.patient, @progress_note], notice: 'Progress note was successfully created.')}
+            format.html { redirect_to patient_path(@patient), notice: 'Progress note was successfully created.'}
             format.json { render :show, status: :created, location: @progress_note }
          else
             format.html { render :new }
@@ -40,29 +45,35 @@ class ProgressNotesController < ApplicationController
       end
    end
 
-  # PATCH/PUT /progress_notes/1
-  # PATCH/PUT /progress_notes/1.json
-  def update
-    respond_to do |format|
-      if @progress_note.update(progress_note_params)
-        format.html { redirect_to @progress_note, notice: 'Progress note was successfully updated.' }
-        format.json { render :show, status: :ok, location: @progress_note }
-      else
-        format.html { render :edit }
-        format.json { render json: @progress_note.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+   # PATCH/PUT /progress_notes/1
+   # PATCH/PUT /progress_notes/1.json
+   def update
+      @patient = Patient.find(params[:patient_id])
+      @progress_note = @patient.progress_notes.find(params[:id])
 
-  # DELETE /progress_notes/1
-  # DELETE /progress_notes/1.json
-  def destroy
-    @progress_note.destroy
-    respond_to do |format|
-      format.html { redirect_to progress_notes_url, notice: 'Progress note was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+      respond_to do |format|
+         if @progress_note.update(progress_note_params)
+            format.html { redirect_to patient_path(@patient), notice: 'Progress note was successfully updated.' }
+            format.json { render :show, status: :ok, location: @progress_note }
+         else
+            format.html { render :edit }
+            format.json { render json: @progress_note.errors, status: :unprocessable_entity }
+         end
+      end
+   end
+
+   # DELETE /progress_notes/1
+   # DELETE /progress_notes/1.json
+   def destroy
+      @patient = Patient.find(params[:patient_id])
+      @progress_note = @patient.progress_notes.find(params[:id])
+      @progress_note.destroy
+
+      respond_to do |format|
+         format.html { redirect_to patient_path(@patient), notice: 'Progress note was successfully destroyed.' }
+         format.json { head :no_content }
+      end
+   end
 
   private
     # Use callbacks to share common setup or constraints between actions.

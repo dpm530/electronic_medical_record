@@ -12,7 +12,7 @@
       </div>
    </div>
    <div class="container-fluid border bg-white py-4">
-      <h5>Displaying all active patients</h5>
+      <h5>Displaying all active Patients</h5>
       <br>
       <table class="table table-bordered table-hover">
          <thead>
@@ -36,7 +36,7 @@
                   <td><%= patient.user.first_name %> <%= patient.user.last_name %></td>
                   <td><%= link_to 'Show', patient %></td>
                   <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-                  <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                </tr>
             <% end %>
          </tbody>

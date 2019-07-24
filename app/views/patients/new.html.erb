@@ -1,5 +1,8 @@
-<h1>New Patient</h1>
+<%= render "shared/navbar_signed_in"%>
 
-<%= render 'form', patient: @patient %>
-
-<%= link_to 'Back', patients_path %>
+<div class="container-fluid py-2">
+   <h3>Create a New Patient</h3>
+   <div class="container-fluid bg-white border py-4">
+      <%= render 'form', patient: @patient %>
+   </div>
+</div>

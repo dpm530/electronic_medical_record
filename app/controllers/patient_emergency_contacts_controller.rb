@@ -1,5 +1,6 @@
 class PatientEmergencyContactsController < ApplicationController
   before_action :set_patient_emergency_contact, only: [:show, :edit, :update, :destroy]
+  layout 'patient_layout'
 
   # GET /patient_emergency_contacts
   # GET /patient_emergency_contacts.json
@@ -7,10 +8,11 @@ class PatientEmergencyContactsController < ApplicationController
     @patient_emergency_contacts = PatientEmergencyContact.all
   end
 
-  # GET /patient_emergency_contacts/1
-  # GET /patient_emergency_contacts/1.json
-  def show
-  end
+   # GET /patient_emergency_contacts/1
+   # GET /patient_emergency_contacts/1.json
+   def show
+      @patient = Patient.find(params[:patient_id])
+   end
 
    # GET /patient_emergency_contacts/new
    def new
@@ -32,7 +34,7 @@ class PatientEmergencyContactsController < ApplicationController
 
       respond_to do |format|
          if @patient_emergency_contact.save
-            format.html { redirect_to([@patient_emergency_contact.patient, @patient_emergency_contact], notice: 'Patient emergency contact was successfully created.') }
+            format.html { redirect_to patient_path(@patient), notice: 'Patient emergency contact was successfully created.'}
             format.json { render :show, status: :created, location: @patient_emergency_contact }
          else
             format.html { render :new }

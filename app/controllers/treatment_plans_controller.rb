@@ -1,5 +1,6 @@
 class TreatmentPlansController < ApplicationController
   before_action :set_treatment_plan, only: [:show, :edit, :update, :destroy]
+  layout 'patient_layout'
 
   # GET /treatment_plans
   # GET /treatment_plans.json
@@ -10,6 +11,7 @@ class TreatmentPlansController < ApplicationController
   # GET /treatment_plans/1
   # GET /treatment_plans/1.json
   def show
+     @patient = Patient.find(params[:patient_id])
   end
 
    # GET /treatment_plans/new
@@ -19,9 +21,12 @@ class TreatmentPlansController < ApplicationController
       @treatment_plan = @patient.treatment_plans.build
    end
 
-  # GET /treatment_plans/1/edit
-  def edit
-  end
+   # GET /treatment_plans/1/edit
+   def edit
+      @patient = Patient.find(params[:patient_id])
+      @treatment_plan = @patient.treatment_plans.find(params[:id])
+      @users = User.all
+   end
 
    # POST /treatment_plans
    # POST /treatment_plans.json
@@ -31,7 +36,7 @@ class TreatmentPlansController < ApplicationController
 
       respond_to do |format|
          if @treatment_plan.save
-            format.html { redirect_to([@treatment_plan.patient, @treatment_plan], notice: 'Treatment plan was successfully created.')}
+            format.html { redirect_to patient_path(@patient), notice: 'Treatment plan was successfully created.'}
             format.json { render :show, status: :created, location: @treatment_plan }
          else
             format.html { render :new }
@@ -40,29 +45,35 @@ class TreatmentPlansController < ApplicationController
       end
    end
 
-  # PATCH/PUT /treatment_plans/1
-  # PATCH/PUT /treatment_plans/1.json
-  def update
-    respond_to do |format|
-      if @treatment_plan.update(treatment_plan_params)
-        format.html { redirect_to @treatment_plan, notice: 'Treatment plan was successfully updated.' }
-        format.json { render :show, status: :ok, location: @treatment_plan }
-      else
-        format.html { render :edit }
-        format.json { render json: @treatment_plan.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+   # PATCH/PUT /treatment_plans/1
+   # PATCH/PUT /treatment_plans/1.json
+   def update
+      @patient = Patient.find(params[:patient_id])
+      @treatment_plan = @patient.treatment_plans.find(params[:id])
 
-  # DELETE /treatment_plans/1
-  # DELETE /treatment_plans/1.json
-  def destroy
-    @treatment_plan.destroy
-    respond_to do |format|
-      format.html { redirect_to treatment_plans_url, notice: 'Treatment plan was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+      respond_to do |format|
+         if @treatment_plan.update(treatment_plan_params)
+            format.html { redirect_to patient_path(@patient), notice: 'Treatment plan was successfully updated.' }
+            format.json { render :show, status: :ok, location: @treatment_plan }
+         else
+            format.html { render :edit }
+            format.json { render json: @treatment_plan.errors, status: :unprocessable_entity }
+         end
+      end
+   end
+
+   # DELETE /treatment_plans/1
+   # DELETE /treatment_plans/1.json
+   def destroy
+      @patient = Patient.find(params[:patient_id])
+      @treatment_plan = @patient.treatment_plans.find(params[:id])
+      @treatment_plan.destroy
+
+      respond_to do |format|
+         format.html { redirect_to patient_path(@patient), notice: 'Treatment plan was successfully destroyed.' }
+         format.json { head :no_content }
+      end
+   end
 
   private
     # Use callbacks to share common setup or constraints between actions.

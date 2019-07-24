@@ -44,6 +44,9 @@
                         <td>Progress Note</td>
                         <td><%= p.date %></td>
                         <td><%= p.user.first_name %> <%= p.user.last_name %></td>
+                        <td><%= link_to 'Show', patient_progress_note_path(p.patient, p) %></td>
+                        <td><%= link_to 'Edit', edit_patient_progress_note_path(p.patient, p) %></td>
+                        <td><%= link_to 'Delete', [p.patient, p], method: :delete, data: { confirm: 'Are you sure?' } %></td>
                      </tr>
                   <% end %>
 
@@ -52,6 +55,9 @@
                         <td>Treatment Plan</td>
                         <td><%= t.date %></td>
                         <td><%= t.user.first_name %> <%= t.user.last_name %></td>
+                        <td><%= link_to 'Show', patient_treatment_plan_path(t.patient, t) %></td>
+                        <td><%= link_to 'Edit', edit_patient_treatment_plan_path(t.patient, t) %></td>
+                        <td><%= link_to 'Delete', [t.patient, t], method: :delete, data: { confirm: 'Are you sure?' } %></td>
                      </tr>
                   <% end %>
 
@@ -60,6 +66,9 @@
                         <td>Termination Note</td>
                         <td><%= tn.date %></td>
                         <td><%= tn.user.first_name %> <%= tn.user.last_name %></td>
+                        <td><%= link_to 'Show', patient_termination_note_path(tn.patient, tn) %></td>
+                        <td><%= link_to 'Edit', edit_patient_termination_note_path(tn.patient, tn) %></td>
+                        <td><%= link_to 'Delete', [tn.patient, tn], method: :delete, data: { confirm: 'Are you sure?' } %></td>
                      </tr>
                   <% end %>
 
