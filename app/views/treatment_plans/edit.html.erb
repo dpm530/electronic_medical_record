@@ -1,6 +1,15 @@
-<h1>Editing Treatment Plan</h1>
-
-<%= render 'form', treatment_plan: @treatment_plan %>
-
-<%= link_to 'Show', @treatment_plan %> |
-<%= link_to 'Back', treatment_plans_path %>
+<div class="container-fluid py-2">
+   <div class="container-fluid bg-white border py-4">
+      <div class="row">
+         <div class="col-md-12">
+            <h5>Edit Treatment Plan:</h5>
+         </div>
+      </div>
+      <br>
+      <div class="row">
+         <div class="col-md-12">
+            <%= render 'form', treatment_plan: @treatment_plan %>
+         </div>
+      </div>
+   </div>
+</div>

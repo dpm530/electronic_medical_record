@@ -1,7 +1,160 @@
 <%= form_for([@treatment_plan.patient, @treatment_plan]) do |f| %>
 
+   <div class="row">
+      <div class="col-md-6">
 
-  <div class="field">
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Clinician:</span>
+            </div>
+            <%= f.select :user_id, @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }, class:'form-control' %>
+         </div>
+
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Patient:</span>
+            </div>
+            <input type="text" name="" placeholder="<%= @treatment_plan.patient.first_name%> <%= @treatment_plan.patient.last_name %>" class="form-control">
+         </div>
+
+      </div>
+      <div class="col-md-6">
+
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Date:</span>
+            </div>
+            <%= f.date_field :date, class:"form-control" %>
+         </div>
+
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Time:</span>
+            </div>
+            <%= f.time_field :time, class:"form-control" %>
+         </div>
+
+      </div>
+   </div>
+
+   <hr>
+
+   <h5>Diagnosis:</h5>
+   <div class="row">
+      <div class="col-md-12">
+
+         <div class="form-group">
+            <%= f.text_field :diagnosis_description, class:'form-control', placeholder:'Description' %>
+         </div>
+
+         <div class="form-group">
+            <%= f.text_area :diagnostic_justification, class:'form-control', rows:'2', placeholder:'Diagnostic justfication and/or assessment measures'  %>
+         </div>
+
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <h5>Presenting Problem:</h5>
+         <div class="form-group">
+            <%= f.text_area :presenting_problem, class:'form-control' %>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <h5>Treatment Goals:</h5>
+         <div class="form-group">
+            <%= f.text_area :treatment_goal, class:'form-control' %>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-4">
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Estimated Completion:</span>
+            </div>
+            <%= f.select :goal_estimated_completion,['1 month', '2 months', '3 months'],{ include_blank: true }, class:'form-control'  %>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <h5>Objective:</h5>
+         <div class="form-group">
+            <%= f.text_area :objective, class:'form-control' %>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Treatment Strategy / Interventions:</span>
+            </div>
+            <%= f.text_field :treatment_strategy, class:'form-control' %>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-4">
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Estimated Completion:</span>
+            </div>
+            <%= f.select :objective_estimated_completion,['1 month', '2 months', '3 months'],{ include_blank: true }, class:'form-control'  %>
+         </div>
+      </div>
+   </div>
+
+   <h5>Frequency of Treatment:</h5>
+
+   <div class="row">
+      <div class="col-md-6">
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Prescribed Frequency of Treatment:</span>
+            </div>
+            <%= f.text_field :treatment_frequency, class:'form-control' %>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <div class="form-group">
+            <%= f.check_box :clinician_declaration %>
+            <label for="intake_note[clinician_signature]">I declare that these services are medically necessary and appropriate to the recipient's diagnosis and needs.</label>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <div class="form-group">
+            <%= f.check_box :clinician_signature %>
+            <label for="intake_note[clinician_signature]">Sign this Form: I, <%= current_user.first_name %> <%= current_user.last_name %>, Clinical Psychologist, declare this information to be accurate and complete.</label>
+         </div>
+      </div>
+   </div>
+
+   <div class="actions">
+     <%= f.submit 'Create', class:'btn btn-success' %>
+   </div>
+
+
+
+
+
+
+  <!-- <div class="field">
      <%= f.label('Clinician') %>
      <%= f.select('user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }) %>
   </div>
@@ -69,9 +222,6 @@
   <div class="field">
     <%= f.label :clinician_signature %>
     <%= f.check_box :clinician_signature %>
-  </div>
+  </div> -->
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

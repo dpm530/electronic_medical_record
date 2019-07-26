@@ -1,6 +1,15 @@
-<h1>Editing Progress Note</h1>
-
-<%= render 'form', progress_note: @progress_note %>
-
-<%= link_to 'Show', @progress_note %> |
-<%= link_to 'Back', progress_notes_path %>
+<div class="container-fluid py-2">
+   <div class="container-fluid bg-white border py-4">
+      <div class="row">
+         <div class="col-md-12">
+            <h5>Edit Progress Note:</h5>
+         </div>
+      </div>
+      <br>
+      <div class="row">
+         <div class="col-md-12">
+            <%= render 'form', progress_note: @progress_note %>
+         </div>
+      </div>
+   </div>
+</div>
