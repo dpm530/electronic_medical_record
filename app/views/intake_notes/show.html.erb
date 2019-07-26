@@ -1,214 +1,228 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid py-2">
+   <div class="container-fluid bg-white border py-4">
+      <div class="row">
+         <div class="col-md-6">
+            <h4>Intake Note:</h4>
+         </div>
+         <div class="col-md-6">
+            <%= link_to 'Edit', edit_intake_note_path(@intake_note), class:"btn btn-outline-secondary float-right" %>
+         </div>
+      </div>
+      <br>
+      <div class="row">
+         <div class="col-md-6">
+            <p>
+              <strong>User:</strong>
+              <%= @intake_note.user %>
+            </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @intake_note.user %>
-</p>
+            <p>
+              <strong>Patient:</strong>
+              <%= @intake_note.patient %>
+            </p>
 
-<p>
-  <strong>Patient:</strong>
-  <%= @intake_note.patient %>
-</p>
+            <p>
+              <strong>Date:</strong>
+              <%= @intake_note.date %>
+            </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @intake_note.date %>
-</p>
+            <p>
+              <strong>Time:</strong>
+              <%= @intake_note.time %>
+            </p>
 
-<p>
-  <strong>Time:</strong>
-  <%= @intake_note.time %>
-</p>
+            <p>
+              <strong>Duration:</strong>
+              <%= @intake_note.duration %>
+            </p>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @intake_note.duration %>
-</p>
+            <p>
+              <strong>Location:</strong>
+              <%= @intake_note.location %>
+            </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @intake_note.location %>
-</p>
+            <p>
+              <strong>Participants:</strong>
+              <%= @intake_note.participants %>
+            </p>
 
-<p>
-  <strong>Participants:</strong>
-  <%= @intake_note.participants %>
-</p>
+            <p>
+              <strong>Presenting problems:</strong>
+              <%= @intake_note.presenting_problems %>
+            </p>
 
-<p>
-  <strong>Presenting problems:</strong>
-  <%= @intake_note.presenting_problems %>
-</p>
+            <p>
+              <strong>General appearance:</strong>
+              <%= @intake_note.general_appearance %>
+            </p>
 
-<p>
-  <strong>General appearance:</strong>
-  <%= @intake_note.general_appearance %>
-</p>
+            <p>
+              <strong>Dress:</strong>
+              <%= @intake_note.dress %>
+            </p>
 
-<p>
-  <strong>Dress:</strong>
-  <%= @intake_note.dress %>
-</p>
+            <p>
+              <strong>Motor activity:</strong>
+              <%= @intake_note.motor_activity %>
+            </p>
 
-<p>
-  <strong>Motor activity:</strong>
-  <%= @intake_note.motor_activity %>
-</p>
+            <p>
+              <strong>Insight:</strong>
+              <%= @intake_note.insight %>
+            </p>
 
-<p>
-  <strong>Insight:</strong>
-  <%= @intake_note.insight %>
-</p>
+            <p>
+              <strong>Judgement:</strong>
+              <%= @intake_note.judgement %>
+            </p>
 
-<p>
-  <strong>Judgement:</strong>
-  <%= @intake_note.judgement %>
-</p>
+            <p>
+              <strong>Affect:</strong>
+              <%= @intake_note.affect %>
+            </p>
 
-<p>
-  <strong>Affect:</strong>
-  <%= @intake_note.affect %>
-</p>
+            <p>
+              <strong>Mood:</strong>
+              <%= @intake_note.mood %>
+            </p>
 
-<p>
-  <strong>Mood:</strong>
-  <%= @intake_note.mood %>
-</p>
+            <p>
+              <strong>Orientation:</strong>
+              <%= @intake_note.orientation %>
+            </p>
 
-<p>
-  <strong>Orientation:</strong>
-  <%= @intake_note.orientation %>
-</p>
+            <p>
+              <strong>Memory:</strong>
+              <%= @intake_note.memory %>
+            </p>
 
-<p>
-  <strong>Memory:</strong>
-  <%= @intake_note.memory %>
-</p>
+            <p>
+              <strong>Attention concentration:</strong>
+              <%= @intake_note.attention_concentration %>
+            </p>
 
-<p>
-  <strong>Attention concentration:</strong>
-  <%= @intake_note.attention_concentration %>
-</p>
+            <p>
+              <strong>Thought content:</strong>
+              <%= @intake_note.thought_content %>
+            </p>
 
-<p>
-  <strong>Thought content:</strong>
-  <%= @intake_note.thought_content %>
-</p>
+            <p>
+              <strong>Perception:</strong>
+              <%= @intake_note.perception %>
+            </p>
 
-<p>
-  <strong>Perception:</strong>
-  <%= @intake_note.perception %>
-</p>
+            <p>
+              <strong>Flow of thought:</strong>
+              <%= @intake_note.flow_of_thought %>
+            </p>
 
-<p>
-  <strong>Flow of thought:</strong>
-  <%= @intake_note.flow_of_thought %>
-</p>
+            <p>
+              <strong>Interview behavior:</strong>
+              <%= @intake_note.interview_behavior %>
+            </p>
 
-<p>
-  <strong>Interview behavior:</strong>
-  <%= @intake_note.interview_behavior %>
-</p>
+            <p>
+              <strong>Speech:</strong>
+              <%= @intake_note.speech %>
+            </p>
+         </div>
+         <div class="col-md-6">
 
-<p>
-  <strong>Speech:</strong>
-  <%= @intake_note.speech %>
-</p>
+            <p>
+              <strong>Safety issues:</strong>
+              <%= @intake_note.safety_issues %>
+            </p>
 
-<p>
-  <strong>Safety issues:</strong>
-  <%= @intake_note.safety_issues %>
-</p>
+            <p>
+              <strong>Identification:</strong>
+              <%= @intake_note.identification %>
+            </p>
 
-<p>
-  <strong>Identification:</strong>
-  <%= @intake_note.identification %>
-</p>
+            <p>
+              <strong>History present problem:</strong>
+              <%= @intake_note.history_present_problem %>
+            </p>
 
-<p>
-  <strong>History present problem:</strong>
-  <%= @intake_note.history_present_problem %>
-</p>
+            <p>
+              <strong>Past psychiatric history:</strong>
+              <%= @intake_note.past_psychiatric_history %>
+            </p>
 
-<p>
-  <strong>Past psychiatric history:</strong>
-  <%= @intake_note.past_psychiatric_history %>
-</p>
+            <p>
+              <strong>Trauma history:</strong>
+              <%= @intake_note.trauma_history %>
+            </p>
 
-<p>
-  <strong>Trauma history:</strong>
-  <%= @intake_note.trauma_history %>
-</p>
+            <p>
+              <strong>Family psychiatric history:</strong>
+              <%= @intake_note.family_psychiatric_history %>
+            </p>
 
-<p>
-  <strong>Family psychiatric history:</strong>
-  <%= @intake_note.family_psychiatric_history %>
-</p>
+            <p>
+              <strong>Medical history:</strong>
+              <%= @intake_note.medical_history %>
+            </p>
 
-<p>
-  <strong>Medical history:</strong>
-  <%= @intake_note.medical_history %>
-</p>
+            <p>
+              <strong>Current medications:</strong>
+              <%= @intake_note.current_medications %>
+            </p>
 
-<p>
-  <strong>Current medications:</strong>
-  <%= @intake_note.current_medications %>
-</p>
+            <p>
+              <strong>Substance use:</strong>
+              <%= @intake_note.substance_use %>
+            </p>
 
-<p>
-  <strong>Substance use:</strong>
-  <%= @intake_note.substance_use %>
-</p>
+            <p>
+              <strong>Family history:</strong>
+              <%= @intake_note.family_history %>
+            </p>
 
-<p>
-  <strong>Family history:</strong>
-  <%= @intake_note.family_history %>
-</p>
+            <p>
+              <strong>Social history:</strong>
+              <%= @intake_note.social_history %>
+            </p>
 
-<p>
-  <strong>Social history:</strong>
-  <%= @intake_note.social_history %>
-</p>
+            <p>
+              <strong>Development history:</strong>
+              <%= @intake_note.development_history %>
+            </p>
 
-<p>
-  <strong>Development history:</strong>
-  <%= @intake_note.development_history %>
-</p>
+            <p>
+              <strong>Educational occupational history:</strong>
+              <%= @intake_note.educational_occupational_history %>
+            </p>
 
-<p>
-  <strong>Educational occupational history:</strong>
-  <%= @intake_note.educational_occupational_history %>
-</p>
+            <p>
+              <strong>Legal history:</strong>
+              <%= @intake_note.legal_history %>
+            </p>
 
-<p>
-  <strong>Legal history:</strong>
-  <%= @intake_note.legal_history %>
-</p>
+            <p>
+              <strong>Strength limitations:</strong>
+              <%= @intake_note.strength_limitations %>
+            </p>
 
-<p>
-  <strong>Strength limitations:</strong>
-  <%= @intake_note.strength_limitations %>
-</p>
+            <p>
+              <strong>Other information:</strong>
+              <%= @intake_note.other_information %>
+            </p>
 
-<p>
-  <strong>Other information:</strong>
-  <%= @intake_note.other_information %>
-</p>
+            <p>
+              <strong>Diagnosis description:</strong>
+              <%= @intake_note.diagnosis_description %>
+            </p>
 
-<p>
-  <strong>Diagnosis description:</strong>
-  <%= @intake_note.diagnosis_description %>
-</p>
+            <p>
+              <strong>Diagnosis justification:</strong>
+              <%= @intake_note.diagnosis_justification %>
+            </p>
 
-<p>
-  <strong>Diagnosis justification:</strong>
-  <%= @intake_note.diagnosis_justification %>
-</p>
-
-<p>
-  <strong>Clinician signature:</strong>
-  <%= @intake_note.clinician_signature %>
-</p>
-
-<%= link_to 'Edit', edit_intake_note_path(@intake_note) %> |
-<%= link_to 'Back', intake_notes_path %>
+            <p>
+              <strong>Clinician signature:</strong>
+              <%= @intake_note.clinician_signature %>
+            </p>
+         </div>
+      </div>
+   </div>
+</div>

@@ -1,11 +1,11 @@
 class UserContactInformationsController < ApplicationController
   before_action :set_user_contact_information, only: [:show, :edit, :update, :destroy]
 
-  # GET /user_contact_informations
-  # GET /user_contact_informations.json
-  def index
-    @user_contact_informations = UserContactInformation.all
-  end
+   # GET /user_contact_informations
+   # GET /user_contact_informations.json
+   def index
+      @user_contact_information = current_user.user_contact_information
+   end
 
   # GET /user_contact_informations/1
   # GET /user_contact_informations/1.json
@@ -28,7 +28,7 @@ class UserContactInformationsController < ApplicationController
 
     respond_to do |format|
       if @user_contact_information.save
-        format.html { redirect_to @user_contact_information, notice: 'User contact information was successfully created.' }
+        format.html { redirect_to user_contact_informations_path, notice: 'User contact information was successfully created.' }
         format.json { render :show, status: :created, location: @user_contact_information }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class UserContactInformationsController < ApplicationController
   def update
     respond_to do |format|
       if @user_contact_information.update(user_contact_information_params)
-        format.html { redirect_to @user_contact_information, notice: 'User contact information was successfully updated.' }
+        format.html { redirect_to user_contact_informations_url, notice: 'User contact information was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_contact_information }
       else
         format.html { render :edit }

@@ -19,6 +19,8 @@ class IntakeNotesController < ApplicationController
       @users = User.all
       @patient = Patient.find(params[:patient_id])
       @intake_note = @patient.intake_notes.build
+      @location = ['Aventura', 'Doral', 'Phone', 'Other']
+      @participants = ['Client Only', 'Client and Others', 'Others Only']
    end
 
    # GET /intake_notes/1/edit
@@ -26,6 +28,8 @@ class IntakeNotesController < ApplicationController
       @patient = Patient.find(params[:patient_id])
       @intake_note = @patient.intake_notes.find(params[:id])
       @users = User.all
+      @location = ['Aventura', 'Doral', 'Phone', 'Other']
+      @participants = ['Client Only', 'Client and Others', 'Others Only']
    end
 
    # POST /intake_notes
