@@ -1,6 +1,119 @@
 <%= form_for([@termination_note.patient, @termination_note]) do |f| %>
 
-   <div class="field">
+
+   <div class="row">
+      <div class="col-md-6">
+
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Clinician:</span>
+            </div>
+            <%= f.select :user_id, @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }, class:'form-control' %>
+         </div>
+
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Patient:</span>
+            </div>
+            <input type="text" name="" value="<%= @termination_note.patient.first_name%> <%= @termination_note.patient.last_name %>" class="form-control">
+         </div>
+      </div>
+      <div class="col-md-6">
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Date:</span>
+            </div>
+             <%= f.date_field( :date, class:"form-control") %>
+         </div>
+
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Time:</span>
+            </div>
+            <%= f.time_field :time, class:'form-control' %>
+         </div>
+      </div>
+   </div>
+
+   <hr>
+
+   <h5>Reason for Termination:</h5>
+   <div class="row">
+      <div class="col-md-12">
+
+         <div class="form-group">
+            <%= f.text_field :reason, class:'form-control' %>
+         </div>
+
+      </div>
+   </div>
+
+   <h5>Chief Complaint:</h5>
+   <div class="row">
+      <div class="col-md-12">
+
+         <div class="form-group">
+            <%= f.text_area :main_complaint, class:'form-control', rows:'2' %>
+         </div>
+
+      </div>
+   </div>
+
+   <h5>Most Recent Diagnosis:</h5>
+   <div class="row">
+      <div class="col-md-12">
+
+         <div class="form-group">
+            <%= f.text_field :most_recent_diagnosis, class:'form-control', placeholder:'Description' %>
+         </div>
+
+         <div class="form-group">
+            <%= f.text_area :recent_diagnosis_justification, class:'form-control', rows:'2', placeholder:'Diagnostic justfication and/or assessment measures'  %>
+         </div>
+
+      </div>
+   </div>
+
+   <h5>Treatment Modality and Interventions:</h5>
+   <div class="row">
+      <div class="col-md-12">
+
+         <div class="form-group">
+            <%= f.text_area :treatment_modality, class:'form-control', rows:'3' %>
+         </div>
+
+      </div>
+   </div>
+
+   <h5>Treatment Goals and Outcome:</h5>
+   <div class="row">
+      <div class="col-md-12">
+
+         <div class="form-group">
+            <%= f.text_area :treatment_goals, class:'form-control', rows:'3' %>
+         </div>
+
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <div class="form-group">
+            <%= f.check_box :clinician_signature %>
+            <label for="intake_note[clinician_signature]">Sign this Form: I, <%= current_user.first_name %> <%= current_user.last_name %>, Clinical Psychologist, declare this information to be accurate and complete.</label>
+         </div>
+      </div>
+   </div>
+
+   <div class="actions">
+     <%= f.submit 'Create', class:'btn btn-success' %>
+   </div>
+
+
+
+
+
+   <!-- <div class="field">
       <%= f.label('Clinician') %>
       <%= f.select('user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }) %>
    </div>
@@ -48,9 +161,6 @@
   <div class="field">
     <%= f.label :clinician_signature %>
     <%= f.check_box :clinician_signature %>
-  </div>
+  </div> -->
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
