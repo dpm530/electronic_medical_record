@@ -19,6 +19,8 @@ class TerminationNotesController < ApplicationController
       @users = User.all
       @patient = Patient.find(params[:patient_id])
       @termination_note = @patient.termination_notes.build
+      @location = ['Aventura', 'Doral', 'Phone', 'Other']
+      @participants = ['Client Only', 'Client and Others', 'Others Only']
    end
 
    # GET /termination_notes/1/edit
@@ -26,6 +28,8 @@ class TerminationNotesController < ApplicationController
       @users = User.all
       @patient = Patient.find(params[:patient_id])
       @termination_note = @patient.termination_notes.find(params[:id])
+      @location = ['Aventura', 'Doral', 'Phone', 'Other']
+      @participants = ['Client Only', 'Client and Others', 'Others Only']
    end
 
    # POST /termination_notes

@@ -61,12 +61,197 @@
       </div>
    </div>
 
+   <hr>
+
+   <h5>Diagnosis:</h5>
+   <div class="row">
+      <div class="col-md-12">
+
+         <div class="form-group">
+            <%= f.text_field :diagnosis_description, class:'form-control', placeholder:'Description' %>
+         </div>
+
+         <div class="form-group">
+            <%= f.text_area :diagnostic_justification, class:'form-control', rows:'2', placeholder:'Diagnostic justfication and/or assessment measures'  %>
+         </div>
+
+      </div>
+   </div>
+
+   <h5>Patient Presentation:</h5>
+   <div class="row">
+
+      <div class="col-md-6">
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Cognitive Functioning:</span>
+            </div>
+            <%= f.text_field :cognitive_functioning, class:'form-control', list:'options' %>
+         </div>
+
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Affect:</span>
+            </div>
+            <%= f.text_field :affect, class:'form-control', list:'options' %>
+         </div>
+
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Mood:</span>
+            </div>
+            <%= f.text_field :mood, class:'form-control', list:'options' %>
+         </div>
+
+      </div>
+
+      <div class="col-md-6">
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Interpersonal:</span>
+            </div>
+            <%= f.text_field :interpersonal, class:'form-control', list:'options' %>
+         </div>
+
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Functional Status:</span>
+            </div>
+            <%= f.text_field :functional_status, class:'form-control', list:'options' %>
+         </div>
+
+      </div>
+   </div>
+
+   <h5>Safety Issues</h5>
+   <div class="row">
+      <div class="col-md-6">
+
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Saftey Issues:</span>
+            </div>
+            <%= f.text_field :safety_issues, list:'safety_issues', class:'form-control' %>
+            <datalist id="safety_issues">
+               <option value="None">
+               <option value="Suicidal Ideation">
+               <option value="Hommicidal Ideation">
+            </datalist>
+         </div>
+
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <h5>Medications:</h5>
+         <div class="form-group">
+            <%= f.text_area :medications, class:'form-control', rows:'2' %>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <h5>Symptom Description and Subjective Report:</h5>
+         <div class="form-group">
+            <%= f.text_area :symptoms_description, class:'form-control', rows:'3' %>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <h5>Relevant Content:</h5>
+         <div class="form-group">
+            <%= f.text_area :relevant_content, class:'form-control', rows:'3', placeholder:'Objective information discussed during the session.' %>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Interventions Used:</span>
+            </div>
+            <%= f.text_field :interventions_used, class:'form-control', list:'options' %>
+            <datalist id="options">
+               <option value="Appropiate">
+               <option value="Eccentric">
+            </datalist>
+         </div>
+      </div>
+   </div>
+   <hr>
+   <h5>Treatment Plam Progress:</h5>
+   <h6>No objectives specified. If you first specify objectives in a treatment plan for this patient, you can describe the progress on each objective here.</h6>
+   <br>
+   <div class="row">
+      <div class="col-md-12">
+         <h6>Additional Notes Regarding Goals and Objectives:</h6>
+         <div class="form-group">
+            <%= f.text_area :additional_notes, class:'form-control', rows:'2' %>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <h6>Plan:</h6>
+         <div class="form-group">
+            <%= f.text_area :plan, class:'form-control', rows:'2' %>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-6">
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Recommendation:</span>
+            </div>
+            <%= f.text_field :recommendation, class:'form-control', list:'options1' %>
+            <datalist id="options1">
+               <option value="Continue">
+               <option value="Change">
+            </datalist>
+         </div>
+      </div>
+
+      <div class="col-md-6">
+         <div class="input-group mb-3 input-group-sm">
+            <div class="input-group-prepend">
+               <span class="input-group-text">Prescribed Frequency of Treatment:</span>
+            </div>
+            <%= f.text_field :treatment_frequency, class:'form-control', list:'options2' %>
+            <datalist id="options2">
+               <option value="Weekly">
+               <option value="Monthly">
+            </datalist>
+         </div>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-md-12">
+         <div class="form-group">
+            <%= f.check_box :clinician_signature %>
+            <label for="intake_note[clinician_signature]">Sign this Form: I, <%= current_user.first_name %> <%= current_user.last_name %>, Clinical Psychologist, declare this information to be accurate and complete.</label>
+         </div>
+      </div>
+   </div>
+
+   <div class="actions">
+     <%= f.submit 'Create', class:'btn btn-success' %>
+   </div>
 
 
 
 
 
-   <div class="field">
+
+   <!-- <div class="field">
       <%= f.label('Clinician') %>
       <%= f.select('user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }) %>
    </div>
@@ -179,9 +364,7 @@
   <div class="field">
     <%= f.label :clinician_signature %>
     <%= f.check_box :clinician_signature %>
-  </div>
+  </div> -->
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

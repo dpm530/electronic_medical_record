@@ -19,6 +19,8 @@ class ProgressNotesController < ApplicationController
       @users = User.all
       @patient = Patient.find(params[:patient_id])
       @progress_note = @patient.progress_notes.build
+      @location = ['Aventura', 'Doral', 'Phone', 'Other']
+      @participants = ['Client Only', 'Client and Others', 'Others Only']
    end
 
    # GET /progress_notes/1/edit
@@ -26,6 +28,8 @@ class ProgressNotesController < ApplicationController
       @users = User.all
       @patient = Patient.find(params[:patient_id])
       @progress_note = @patient.progress_notes.find(params[:id])
+      @location = ['Aventura', 'Doral', 'Phone', 'Other']
+      @participants = ['Client Only', 'Client and Others', 'Others Only']
    end
 
    # POST /progress_notes
