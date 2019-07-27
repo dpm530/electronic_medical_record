@@ -1,3 +1,101 @@
+<div class="container-fluid py-2">
+   <div class="container-fluid bg-white border py-4">
+
+      <h5>Psychotherapy Termination Note:</h5>
+      <div class="row">
+         <div class="col-md-6">
+            <table>
+               <body>
+                  <tr>
+                     <td>Clinician:</td>
+                     <td><%= @termination_note.user.first_name %> <%= @termination_note.user.last_name %></td>
+                  </tr>
+                  <tr>
+                     <td>Patient:</td>
+                     <td><%= @termination_note.patient.first_name %> <%= @termination_note.patient.last_name %></td>
+                  </tr>
+               </body>
+            </table>
+         </div>
+         <div class="col-md-6">
+            <table>
+               <body>
+                  <tr>
+                     <td>Date:</td>
+                     <td><%= @termination_note.date %></td>
+                  </tr>
+                  <tr>
+                     <td>Time:</td>
+                     <td><%= @termination_note.time %></td>
+                  </tr>
+               </body>
+            </table>
+         </div>
+      </div>
+
+      <hr>
+
+      <h5>Reason for Termination</h5>
+      <div class="row">
+         <div class="col-md-12">
+            <%= @termination_note.reason %>
+         </div>
+      </div>
+
+      <h5>Chief Complaint</h5>
+      <div class="row">
+         <div class="col-md-12">
+            <%= @termination_note.main_complaint %>
+         </div>
+      </div>
+
+      <h5>Most Recent Diagnosis</h5>
+      <div class="row">
+         <div class="col-md-12">
+            <p>
+              <strong>Diagnosis description:</strong>
+              <%= @termination_note.most_recent_diagnosis %>
+            </p>
+
+            <p>
+              <strong>Diagnostic justification:</strong>
+              <%= @termination_note.recent_diagnosis_justification %>
+            </p>
+         </div>
+      </div>
+
+      <h5>Treatment Modality and Interventions</h5>
+      <div class="row">
+         <div class="col-md-12">
+            <%= @termination_note.treatment_modality %>
+         </div>
+      </div>
+
+      <h5>Treatment Goals and Outcome</h5>
+      <div class="row">
+         <div class="col-md-12">
+            <%= @termination_note.treatment_goals %>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-md-12">
+            <p>
+             <strong>Clinician signature:</strong>
+             <%= @termination_note.clinician_signature %>
+           </p>
+         </div>
+      </div>
+
+   </div>
+</div>
+
+
+
+
+
+<!--
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -56,4 +154,4 @@
 </p>
 
 <%= link_to 'Edit', edit_termination_note_path(@termination_note) %> |
-<%= link_to 'Back', termination_notes_path %>
+<%= link_to 'Back', termination_notes_path %> -->

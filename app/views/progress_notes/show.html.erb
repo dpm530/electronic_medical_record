@@ -1,3 +1,193 @@
+<div class="container-fluid py-2">
+   <div class="container-fluid bg-white border py-4">
+
+      <h5>Psychotherapy Progress Note:</h5>
+      <div class="row">
+         <div class="col-md-6">
+            <table>
+               <body>
+                  <tr>
+                     <td>Clinician:</td>
+                     <td><%= @progress_note.user.first_name %> <%= @progress_note.user.last_name %></td>
+                  </tr>
+                  <tr>
+                     <td>Patient:</td>
+                     <td><%= @progress_note.patient.first_name %> <%= @progress_note.patient.last_name %></td>
+                  </tr>
+                  <tr>
+                     <td>Date:</td>
+                     <td><%= @progress_note.date %></td>
+                  </tr>
+                  <tr>
+                     <td>Time:</td>
+                     <td><%= @progress_note.time %></td>
+                  </tr>
+               </body>
+            </table>
+         </div>
+         <div class="col-md-6">
+            <table>
+               <body>
+                  <tr>
+                     <td>Duration:</td>
+                     <td><%= @progress_note.duration %> minutes</td>
+                  </tr>
+                  <tr>
+                     <td>Location:</td>
+                     <td><%= @progress_note.location %></td>
+                  </tr>
+                  <tr>
+                     <td>Participants:</td>
+                     <td><%= @progress_note.participants %></td>
+                  </tr>
+               </body>
+            </table>
+         </div>
+      </div>
+
+      <hr>
+
+      <h5>Diagnosis</h5>
+      <div class="row">
+         <div class="col-md-12">
+            <p>
+              <strong>Diagnosis description:</strong>
+              <%= @progress_note.diagnosis_description %>
+            </p>
+
+            <p>
+              <strong>Diagnostic justification:</strong>
+              <%= @progress_note.diagnostic_justification %>
+            </p>
+         </div>
+      </div>
+
+      <h5>Patient Presentation</h5>
+      <div class="row">
+         <div class="col-md-6">
+            <p>
+              <strong>Cognitive functioning:</strong>
+              <%= @progress_note.cognitive_functioning %>
+            </p>
+
+            <p>
+              <strong>Affect:</strong>
+              <%= @progress_note.affect %>
+            </p>
+
+            <p>
+              <strong>Mood:</strong>
+              <%= @progress_note.mood %>
+            </p>
+
+         </div>
+         <div class="col-md-6">
+            <p>
+              <strong>Interpersonal:</strong>
+              <%= @progress_note.interpersonal %>
+            </p>
+
+            <p>
+              <strong>Functional status:</strong>
+              <%= @progress_note.functional_status %>
+            </p>
+         </div>
+      </div>
+
+      <h5>Safety Issues</h5>
+      <div class="row">
+         <div class="col-md-6">
+            <%= @progress_note.safety_issues %>
+         </div>
+      </div>
+
+      <h5>Medications</h5>
+      <div class="row">
+         <div class="col-md-12">
+            <%= @progress_note.medications %>
+         </div>
+      </div>
+
+      <h5>Sympton Description and Subjective Report</h5>
+      <div class="row">
+         <div class="col-md-12">
+            <%= @progress_note.symptoms_description %>
+         </div>
+      </div>
+
+      <h5>Relevant Content</h5>
+      <div class="row">
+         <div class="col-md-12">
+            <%= @progress_note.relevant_content %>
+         </div>
+      </div>
+
+      <h5>Interventions Used</h5>
+      <div class="row">
+         <div class="col-md-12">
+            <%= @progress_note.interventions_used %>
+         </div>
+      </div>
+
+      <h5>Treatment Plan Progress</h5>
+      <div class="row">
+         <div class="col-md-12">
+         </div>
+      </div>
+
+      <h5>Additional Notes Regarding Goals and Objectives</h5>
+      <div class="row">
+         <div class="col-md-12">
+            <%= @progress_note.additional_notes %>
+         </div>
+      </div>
+
+      <h5>Plan</h5>
+      <div class="row">
+         <div class="col-md-12">
+            <%= @progress_note.plan %>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-md-12">
+            <p>
+              <strong>Treatment frequency:</strong>
+              <%= @progress_note.treatment_frequency %>
+            </p>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-md-12">
+            <p>
+              <strong>Recommendation:</strong>
+              <%= @progress_note.recommendation %>
+            </p>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-md-12">
+            <p>
+              <strong>Clinician signature:</strong>
+              <%= @progress_note.clinician_signature %>
+            </p>
+         </div>
+      </div>
+
+
+
+   </div>
+</div>
+
+
+
+
+
+
+<!--
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -121,4 +311,4 @@
 </p>
 
 <%= link_to 'Edit', edit_progress_note_path(@progress_note) %> |
-<%= link_to 'Back', progress_notes_path %>
+<%= link_to 'Back', progress_notes_path %> -->
