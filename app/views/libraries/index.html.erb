@@ -44,10 +44,11 @@
   <tbody>
     <% @libraries.each do |library| %>
       <tr>
-        <td><%= library.document %></td>
+        <td><%= library.library_document %></td>
         <td><%= link_to 'Show', library %></td>
         <td><%= link_to 'Edit', edit_library_path(library) %></td>
         <td><%= link_to 'Destroy', library, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to image_tag(library[0].to_s) %>
       </tr>
     <% end %>
   </tbody>

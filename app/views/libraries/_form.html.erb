@@ -1,4 +1,4 @@
-<%= form_with(model: library, local: true) do |form| %>
+<%= form_with(model: library, local: true, :html => {multipart: true}) do |form| %>
   <% if library.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(library.errors.count, "error") %> prohibited this library from being saved:</h2>
@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :document %>
-    <%= form.text_field :document %>
+    <%= form.label :library_document %>
+    <%= form.file_field :library_document, multiple: true %>
   </div>
 
   <div class="actions">
