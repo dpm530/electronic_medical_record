@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_27_221608) do
+ActiveRecord::Schema.define(version: 2019_07_28_171006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 2019_07_27_221608) do
     t.json "file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.bigint "user_id"
     t.index ["patient_id"], name: "index_documents_on_patient_id"
+    t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
   create_table "intake_notes", force: :cascade do |t|
@@ -76,6 +79,7 @@ ActiveRecord::Schema.define(version: 2019_07_27_221608) do
     t.json "library_document"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "patient_emergency_contacts", force: :cascade do |t|
@@ -243,6 +247,7 @@ ActiveRecord::Schema.define(version: 2019_07_27_221608) do
   end
 
   add_foreign_key "documents", "patients"
+  add_foreign_key "documents", "users"
   add_foreign_key "intake_notes", "patients"
   add_foreign_key "intake_notes", "users"
   add_foreign_key "patient_emergency_contacts", "patients"

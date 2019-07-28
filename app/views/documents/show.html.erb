@@ -2,13 +2,20 @@
 
 <p>
   <strong>Patient:</strong>
+  <%= @document.user %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
   <%= @document.patient %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @document.name %>
 </p>
 
 <p>
   <strong>File:</strong>
   <%= @document.file %>
 </p>
-
-<%= link_to 'Edit', edit_document_path(@document) %> |
-<%= link_to 'Back', documents_path %>

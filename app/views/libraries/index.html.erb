@@ -7,7 +7,7 @@
             <h3>Library</h3>
          </div>
          <div class="col-md-6">
-            <a href="/" class="btn btn-primary float-right">Upload File</a>
+            <%= link_to 'Upload File', new_library_path, class:"btn btn-primary float-right" %>
          </div>
       </div>
    </div>
@@ -22,38 +22,18 @@
             </tr>
          </thead>
          <tbody>
+            <% @libraries.each do |l| %>
+               <tr>
+                  <td><%= l.name %></td>
+                  <td><%= l.created_at %></td>
+                  <td><%= link_to 'Show', l %></td>
+                  <td><%= link_to 'Edit', edit_library_path(l) %></td>
+                  <td><%= link_to 'Destroy', l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+               </tr>
+            <% end %>
 
          </tbody>
       </table>
 
    </div>
 </div>
-
-
-
-<h1>Libraries</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Document</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @libraries.each do |library| %>
-      <tr>
-        <td><%= library.library_document %></td>
-        <td><%= link_to 'Show', library %></td>
-        <td><%= link_to 'Edit', edit_library_path(library) %></td>
-        <td><%= link_to 'Destroy', library, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%= link_to image_tag(library[0].to_s) %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Library', new_library_path %>

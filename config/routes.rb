@@ -5,15 +5,16 @@ Rails.application.routes.draw do
    devise_for :users
 
    resources :patients do
+      collection do
+         get ':id/clinician' => 'patients#clinician'
+         get ':id/notes' => 'patients#notes'
+      end
       resources :patient_emergency_contacts
       resources :progress_notes
       resources :intake_notes
       resources :treatment_plans
       resources :termination_notes
-      collection do
-         get ':id/clinician' => 'patients#clinician'
-         get ':id/notes' => 'patients#notes'
-      end
+      resources :documents
    end
 
    resources :users do
@@ -22,11 +23,7 @@ Rails.application.routes.draw do
       end
    end
 
-   resources :documents do
-      collection do
-         get 'patient/:id' => 'documents#index'
-      end
-   end
+   
 
    resources :user_contact_informations
    resources :libraries

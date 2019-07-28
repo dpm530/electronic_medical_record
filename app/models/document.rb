@@ -1,4 +1,7 @@
 class Document < ApplicationRecord
    belongs_to :patient
-   mount_uploaders :file, FileUploader
+   belongs_to :user
+
+   mount_uploaders :file, DocumentUploader
+
 end

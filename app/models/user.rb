@@ -6,6 +6,7 @@ class User < ApplicationRecord
    has_many :intake_notes
    has_many :treatment_plans
    has_many :termination_notes
+   has_many :documents
 
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
