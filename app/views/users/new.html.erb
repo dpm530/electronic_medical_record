@@ -1,1 +1,34 @@
-<h1>new user</h1>
+
+<div class="container">
+   <form class="form-signin" action="/users/add-user" method="post" >
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+
+
+      <div class="form-label-group">
+         <input type="text" name="user[first_name]" id="first_name" placeholder="First Name" class="form-control">
+      </div>
+      <div class="form-label-group">
+         <input type="text" name="user[last_name]" id="last_name" placeholder="Last Name" class="form-control">
+      </div>
+
+      <div class="form-label-group">
+         <input type="text" id="inputEmail" class="form-control" placeholder="Email" name="user[email]" required autofocus>
+      </div>
+
+      <div class="form-label-group">
+         <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="user[password]" required>
+      </div>
+
+      <div class="form-label-group">
+         <input type="password" name="user[password_confirmation]" id="password_confirmation" placeholder="Password" class="form-control">
+      </div>
+
+
+      <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Create</button>
+
+   </form>
+
+</div>
+
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+<input type="hidden" name="_method" value="patch">

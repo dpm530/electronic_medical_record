@@ -1,0 +1,30 @@
+<div class="container">
+   <form class="form-signin" action="/users/<%= @user.id %>" method="post" >
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+      <input type="hidden" name="_method" value="patch">
+
+      <div class="form-label-group">
+         <input type="text" name="user[first_name]" value="<%= @user.first_name %>" class="form-control">
+      </div>
+      <div class="form-label-group">
+         <input type="text" name="user[last_name]" id="last_name" value="<%= @user.last_name %>" class="form-control">
+      </div>
+
+      <div class="form-label-group">
+         <input type="text" id="inputEmail" class="form-control" value="<%= @user.email %>" name="user[email]" required autofocus>
+      </div>
+
+      <div class="form-label-group">
+         <input type="password" id="inputPassword" class="form-control" value="<%= @user.password %>" name="user[password]" required>
+      </div>
+
+      <div class="form-label-group">
+         <input type="password" name="user[password_confirmation]" id="password_confirmation" value="<%= @user.password_confirmation %>" class="form-control">
+      </div>
+
+
+      <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Edit</button>
+
+   </form>
+
+</div>

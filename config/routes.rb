@@ -20,10 +20,12 @@ Rails.application.routes.draw do
    resources :users do
       collection do
          get 'staff' => 'users#staff'
+         get 'add-user' => 'users#new'
+         post 'add-user' => 'users#create'
       end
    end
 
-   
+
 
    resources :user_contact_informations
    resources :libraries
