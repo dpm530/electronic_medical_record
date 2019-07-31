@@ -1,6 +1,13 @@
-<h1>Editing Library</h1>
+<%= render "shared/navbar_signed_in"%>
 
-<%= render 'form', library: @library %>
+<div class="container py-5">
 
-<%= link_to 'Show', @library %> |
-<%= link_to 'Back', libraries_path %>
+   <div class="row">
+      <div class="col-md-6 border mx-auto bg-white py-4">
+         <div class="container-fluid text-center mb-4">
+            <h1>Edit</h1>
+         </div>
+         <%= render 'form', library: @library %>
+      </div>
+   </div>
+</div>

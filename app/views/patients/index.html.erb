@@ -12,7 +12,7 @@
       </div>
    </div>
    <div class="container-fluid border bg-white py-4">
-      <h5>Displaying all active Patients</h5>
+      <h5>Displaying all Patients</h5>
       <br>
       <table class="table table-bordered table-hover">
          <thead>
@@ -35,7 +35,7 @@
                   <td><%= patient.dob %></td>
                   <td><%= patient.user.first_name %> <%= patient.user.last_name %></td>
                   <td><%= link_to 'Show', patient %></td>
-                  <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+                  <!-- <td><%= link_to 'Edit', edit_patient_path(patient) %></td> -->
                   <td><%= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                </tr>
             <% end %>
@@ -44,56 +44,3 @@
 
    </div>
 </div>
-
-
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Comment</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Preferred name</th>
-      <th>Dob</th>
-      <th>Birth sex</th>
-      <th>Gender identity</th>
-      <th>Sexual orientation</th>
-      <th>Race</th>
-      <th>Languages</th>
-      <th>Marital status</th>
-      <th>Employment</th>
-      <th>Hipaa</th>
-      <th>Pcp release</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @patients.each do |patient| %>
-      <tr>
-        <td><%= patient.comment %></td>
-        <td><%= patient.first_name %></td>
-        <td><%= patient.last_name %></td>
-        <td><%= patient.preferred_name %></td>
-        <td><%= patient.dob %></td>
-        <td><%= patient.birth_sex %></td>
-        <td><%= patient.gender_identity %></td>
-        <td><%= patient.sexual_orientation %></td>
-        <td><%= patient.race %></td>
-        <td><%= patient.languages %></td>
-        <td><%= patient.marital_status %></td>
-        <td><%= patient.employment %></td>
-        <td><%= patient.hipaa %></td>
-        <td><%= patient.pcp_release %></td>
-        <td><%= patient.user %></td>
-        <td><%= link_to 'Show', patient %></td>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Patient', new_patient_path %> -->

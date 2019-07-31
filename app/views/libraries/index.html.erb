@@ -25,10 +25,11 @@
             <% @libraries.each do |l| %>
                <tr>
                   <td><%= l.name %></td>
-                  <td><%= l.created_at %></td>
-                  <td><%= link_to 'Show', l %></td>
+                  <td><%= l.created_at.strftime('%D') %></td>
+                  <!-- <td><%= link_to 'Show', l %></td> -->
+                  <td><a href="<%= (l.library_document[0]).to_s %>" target='_blank'>Show</a></td>
                   <td><%= link_to 'Edit', edit_library_path(l) %></td>
-                  <td><%= link_to 'Destroy', l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= link_to 'Delete', l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                </tr>
             <% end %>
 
