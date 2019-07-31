@@ -1,102 +1,147 @@
 <%= form_for([@patient_emergency_contact.patient, @patient_emergency_contact]) do |f| %>
 
-   <div class="row">
-      <div class="col-md-6">
-         <div class="field">
-           <%= f.label :first_name %>
-           <%= f.text_field :first_name %>
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group row">
+               <%= f.label 'First Name:', class:"col-sm-4 col-form-label col-form-label-sm" %>
+               <div class="col-sm-8">
+                  <%= f.text_field :first_name, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'Last Name:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :last_name, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'Contact Type:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :last_name, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'Relationship:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :last_name, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'Release of Information:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :last_name, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'Date of Birth:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :last_name, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+            <div class="form-group row">
+               <%= f.label 'Address 1:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :address_1, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'Address 2:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :address_2, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'Country:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :country, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'City:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :city, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'State/Zip:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-6">
+                  <%= f.text_field :state, class:"form-control form-control-sm" %>
+               </div>
+               <div class="col-sm-2">
+                  <%= f.text_field :zipcode, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
          </div>
 
-         <div class="field">
-           <%= f.label :last_name %>
-           <%= f.text_field :last_name %>
+         <div class="col-md-6">
+
+            <div class="form-group row">
+               <%= f.label 'Email Address:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :email, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'Mobile Phone:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :mobile_phone, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'Home Phone:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :home_phone, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'Work Phone:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :work_phone, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'Other Phone:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_field :other_phone, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= f.label 'Comments:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= f.text_area :comment, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
          </div>
 
-         <div class="field">
-           <%= f.label :contact_type %>
-           <%= f.text_field :contact_type %>
-         </div>
+      </div>
 
-         <div class="field">
-           <%= f.label :relationship %>
-           <%= f.text_field :relationship %>
-         </div>
+      <br>
 
-         <div class="field">
-           <%= f.label :release_of_info %>
-           <%= f.date_select :release_of_info %>
-         </div>
-
-         <div class="field">
-           <%= f.label :dob %>
-           <%= f.date_select :dob %>
-         </div>
-
-         <div class="field">
-           <%= f.label :address_1 %>
-           <%= f.text_field :address_1 %>
-         </div>
-
-         <div class="field">
-           <%= f.label :address_2 %>
-           <%= f.text_field :address_2 %>
-         </div>
-
-         <div class="field">
-           <%= f.label :country %>
-           <%= f.text_field :country %>
-         </div>
-
-         <div class="field">
-           <%= f.label :zipcode %>
-           <%= f.text_field :zipcode %>
-         </div>
-
-         <div class="field">
-           <%= f.label :city %>
-           <%= f.text_field :city %>
-         </div>
-
-         <div class="field">
-           <%= f.label :state %>
-           <%= f.text_field :state %>
+      <div class="row">
+         <div class="col-md-6">
+            <div class="actions">
+               <%= f.submit class:'btn btn-primary'%>
+            </div>
          </div>
       </div>
-      <div class="col-md-6">
-         <div class="field">
-           <%= f.label :email %>
-           <%= f.text_field :email %>
-         </div>
 
-         <div class="field">
-           <%= f.label :mobile_phone %>
-           <%= f.text_field :mobile_phone %>
-         </div>
-
-         <div class="field">
-           <%= f.label :work_phone %>
-           <%= f.text_field :work_phone %>
-         </div>
-
-         <div class="field">
-           <%= f.label :home_phone %>
-           <%= f.text_field :home_phone %>
-         </div>
-
-         <div class="field">
-           <%= f.label :other_phone %>
-           <%= f.text_field :other_phone %>
-         </div>
-
-         <div class="field">
-           <%= f.label :comment %>
-           <%= f.text_area :comment %>
-         </div>
-      </div>
-   </div>
-
-   <div class="actions">
-      <%= f.submit %>
    </div>
 
 <% end %>

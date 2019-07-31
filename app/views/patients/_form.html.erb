@@ -5,7 +5,7 @@
          <div class="col-md-12">
             <h5>Patient Comments</h5>
             <div class="form-group">
-               <%= form.text_area :comment, class:'form-control', placeholder:'For nonclinical information.' %>
+               <%= form.text_area :comment, class:'form-control', placeholder:'For non-clinical information.' %>
             </div>
          </div>
       </div>
@@ -19,130 +19,185 @@
       <div class="row">
          <div class="col-md-6">
 
-            <div class="form-group">
-               <%= form.label 'Name:' %>
-               <%= form.text_field :first_name, class:'form-control-inline' %>  <%= form.text_field :last_name, class:'form-control-inline' %>
+            <div class="form-group row">
+               <%= form.label 'First Name:', class:"col-sm-4 col-form-label col-form-label-sm" %>
+               <div class="col-sm-8">
+                  <%= form.text_field :first_name, class:"form-control form-control-sm" %>
+               </div>
             </div>
 
-            <div class="form-group">
-              <%= form.label :preferred_name %>
-              <%= form.text_field :preferred_name, class:'form-control-inline'  %>
+            <div class="form-group row">
+               <%= form.label 'Last Name:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :last_name, class:"form-control form-control-sm" %>
+               </div>
             </div>
 
-            <div class="form-group">
-              <%= form.label :dob %>
-              <%= form.date_select :dob, class:'form-control-inline'  %>
+            <div class="form-group row">
+               <%= form.label 'Preferred Name:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :preferred_name, class:"form-control form-control-sm" %>
+               </div>
             </div>
-            <div class="field">
-             <%= form.label :email %>
-             <%= form.text_field :email %>
-           </div>
 
-           <div class="field">
-             <%= form.label :mobile_phone %>
-             <%= form.text_field :mobile_phone %>
-           </div>
+            <div class="form-group row">
+               <%= form.label 'Date of Birth:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :dob, class:"form-control form-control-sm" %>
+               </div>
+            </div>
 
-           <div class="field">
-             <%= form.label :home_phone %>
-             <%= form.text_field :home_phone %>
-           </div>
+            <div class="form-group row">
+               <%= form.label 'Email Address:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :email, class:"form-control form-control-sm" %>
+               </div>
+            </div>
 
-           <div class="field">
-             <%= form.label :work_phone %>
-             <%= form.text_field :work_phone %>
-           </div>
+            <div class="form-group row">
+               <%= form.label 'Mobile Phone:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :mobile_phone, class:"form-control form-control-sm" %>
+               </div>
+            </div>
 
-           <div class="field">
-             <%= form.label :other_phone %>
-             <%= form.text_field :other_phone %>
-           </div>
+            <div class="form-group row">
+               <%= form.label 'Home Phone:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :home_phone, class:"form-control form-control-sm" %>
+               </div>
+            </div>
 
-           <div class="field">
-             <%= form.label :address_1 %>
-             <%= form.text_field :address_1 %>
-           </div>
+            <div class="form-group row">
+               <%= form.label 'Work Phone:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :work_phone, class:"form-control form-control-sm" %>
+               </div>
+            </div>
 
-           <div class="field">
-             <%= form.label :address_2 %>
-             <%= form.text_field :address_2 %>
-           </div>
+            <div class="form-group row">
+               <%= form.label 'Other Phone:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :other_phone, class:"form-control form-control-sm" %>
+               </div>
+            </div>
 
-           <div class="field">
-             <%= form.label :zipcode %>
-             <%= form.text_field :zipcode %>
-           </div>
+            <div class="form-group row">
+               <%= form.label 'Address 1:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :address_1, class:"form-control form-control-sm" %>
+               </div>
+            </div>
 
-           <div class="field">
-             <%= form.label :city %>
-             <%= form.text_field :city %>
-           </div>
+            <div class="form-group row">
+               <%= form.label 'Address 2:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :address_2, class:"form-control form-control-sm" %>
+               </div>
+            </div>
 
-           <div class="field">
-             <%= form.label :state %>
-             <%= form.text_field :state %>
-           </div>
+            <div class="form-group row">
+               <%= form.label 'City:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :city, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
+            <div class="form-group row">
+               <%= form.label 'State/Zip:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-6">
+                  <%= form.text_field :state, class:"form-control form-control-sm" %>
+               </div>
+               <div class="col-sm-2">
+                  <%= form.text_field :zipcode, class:"form-control form-control-sm" %>
+               </div>
+            </div>
+
          </div>
 
          <div class="col-md-6">
 
-            <div class="form-group">
-               <%= form.label :birth_sex %>
-               <%= form.select :birth_sex,['male', 'female', 'other'],{ include_blank: true }, class:'form-control-inline'  %>
+            <div class="form-group row">
+               <%= form.label 'Birth Sex:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.select :birth_sex,['male', 'female', 'other'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               </div>
             </div>
 
-            <div class="field">
-              <%= form.label :gender_identity %>
-              <%= form.text_field :gender_identity, class:'form-control-inline' %>
+            <div class="form-group row">
+               <%= form.label 'Gender Identity:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :gender_identity, class:"form-control form-control-sm" %>
+               </div>
             </div>
 
-            <div class="field">
-              <%= form.label :sexual_orientation %>
-              <%= form.text_field :sexual_orientation, class:'form-control-inline'%>
+            <div class="form-group row">
+               <%= form.label 'Sexual Orientation:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :sexual_orientation, class:"form-control form-control-sm" %>
+               </div>
             </div>
 
-            <div class="field">
-              <%= form.label :race %>
-              <%= form.text_field :race, class:'form-control-inline' %>
+            <div class="form-group row">
+               <%= form.label 'Race:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :race, class:"form-control form-control-sm" %>
+               </div>
             </div>
 
-            <div class="field">
-              <%= form.label :languages %>
-              <%= form.text_field :languages, class:'form-control-inline' %>
+            <div class="form-group row">
+               <%= form.label 'Languages:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :languages, class:"form-control form-control-sm" %>
+               </div>
             </div>
 
-            <div class="field">
-              <%= form.label :marital_status %>
-              <%= form.text_field :marital_status, class:'form-control-inline' %>
+            <div class="form-group row">
+               <%= form.label 'Marital Status:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :marital_status, class:"form-control form-control-sm" %>
+               </div>
             </div>
 
-            <div class="field">
-              <%= form.label :employment %>
-              <%= form.text_field :employment, class:'form-control-inline' %>
+            <div class="form-group row">
+               <%= form.label 'Employment:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :employment, class:"form-control form-control-sm" %>
+               </div>
             </div>
 
-            <div class="field">
-              <%= form.label :hipaa %>
-              <%= form.check_box :hipaa, class:'form-control-inline' %>
+            <div class="form-group row">
+               <%= form.label 'HIPAA:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.check_box :hipaa, class:"form-control form-control-sm" %>
+               </div>
             </div>
 
-            <div class="field">
-              <%= form.label :pcp_release %>
-              <%= form.text_field :pcp_release, class:'form-control-inline'%>
+            <div class="form-group row">
+               <%= form.label 'PCP Release:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-8">
+                  <%= form.text_field :pcp_release, class:"form-control form-control-sm" %>
+               </div>
             </div>
          </div>
-
       </div>
 
+      <hr>
+
       <div class="row">
-         <div class="col-md-12">
-            <div class="field">
-               <%= form.label('Clinician') %>
-               <%= form.select('user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }) %>
+         <div class="col-md-6">
+
+            <div class="form-group row">
+               <%= form.label 'Assigned Clinician:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+               <div class="col-sm-8">
+                  <%= form.select 'user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }, class:'form-control form-control-sm' %>
+               </div>
             </div>
 
+            <br>
+
             <div class="actions">
-               <%= form.submit %>
+               <%= form.submit class:'btn btn-primary' %>
             </div>
          </div>
       </div>

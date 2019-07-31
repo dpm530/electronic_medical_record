@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
-  layout 'patient_layout', :only => [:show, :clinician, :notes]
+  layout 'patient_layout', :only => [:show, :clinician, :notes, :edit]
 
    # GET /patients
    # GET /patients.json
