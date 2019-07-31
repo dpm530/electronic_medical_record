@@ -35,6 +35,7 @@ class UsersController < ApplicationController
 
    def show
       @user = User.find(params[:id])
+      @contact_information = @user.user_contact_information
    end
 
    def new
