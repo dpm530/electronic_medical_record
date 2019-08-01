@@ -127,8 +127,8 @@
       </div>
    </div>
 
-   <div class="row">
-      <div class="col-md-12">
+   <div class="row px-3">
+      <div class="col-md-12 border bg-light bg-light p-2">
          <div class="form-check">
             <%= f.check_box :clinician_declaration, class:'form-check-input' %>
             <label for="intake_note[clinician_signature]">I declare that these services are medically necessary and appropriate to the recipient's diagnosis and needs.</label>
@@ -136,8 +136,10 @@
       </div>
    </div>
 
-   <div class="row">
-      <div class="col-md-12">
+   <br>
+
+   <div class="row px-3">
+      <div class="col-md-12 border bg-light bg-light p-2">
          <div class="form-check">
             <%= f.check_box :clinician_signature, class:'form-check-input' %>
             <label class="form-check-label"> Sign this Form: I, <%= current_user.first_name %> <%= current_user.last_name %>, Clinical Psychologist, declare this information to be accurate and complete.</label>
@@ -148,7 +150,7 @@
    <br>
 
    <div class="actions">
-     <%= f.submit 'Create', class:'btn btn-outline-primary' %>
+     <%= f.submit class:'btn btn-outline-primary' %>
    </div>
 
 

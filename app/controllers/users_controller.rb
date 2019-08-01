@@ -49,13 +49,13 @@ class UsersController < ApplicationController
    def create
       @user = User.new(user_params)
       if @user.save!
-         redirect_to "/users/staff"
+         redirect_to user_path(@user)
       else
          redirect_to '/'
       end
    end
 
-   def update
+   def update_user
       @user = User.find(params[:id])
       if @user.update(user_params)
          redirect_to user_path(@user)
@@ -73,7 +73,7 @@ class UsersController < ApplicationController
    private
 
       def user_params
-         params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+         params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :languages, :role, :default_location)
       end
 
 

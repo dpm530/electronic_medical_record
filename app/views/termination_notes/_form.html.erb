@@ -4,34 +4,37 @@
    <div class="row">
       <div class="col-md-6">
 
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Clinician:</span>
+         <div class="form-group row">
+            <%= f.label 'Clinician:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.select 'user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }, class:'form-control form-control-sm' %>
             </div>
-            <%= f.select :user_id, @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }, class:'form-control' %>
          </div>
 
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Patient:</span>
+         <div class="form-group row">
+            <%= f.label 'Patient:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <input type="text" name="" value="<%= @termination_note.patient.first_name%> <%= @termination_note.patient.last_name %>" class="form-control form-control-sm">
             </div>
-            <input type="text" name="" value="<%= @termination_note.patient.first_name%> <%= @termination_note.patient.last_name %>" class="form-control">
          </div>
+
       </div>
       <div class="col-md-6">
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Date:</span>
+
+         <div class="form-group row">
+            <%= f.label 'Date:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+            <div class="col-sm-8">
+               <%= f.date_field :date, class:"form-control form-control-sm" %>
             </div>
-             <%= f.date_field( :date, class:"form-control") %>
          </div>
 
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Time:</span>
+         <div class="form-group row">
+            <%= f.label 'Time:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+            <div class="col-sm-8">
+               <%= f.time_field :time, class:"form-control form-control-sm" %>
             </div>
-            <%= f.time_field :time, class:'form-control' %>
          </div>
+
       </div>
    </div>
 
@@ -42,7 +45,7 @@
       <div class="col-md-12">
 
          <div class="form-group">
-            <%= f.text_field :reason, class:'form-control' %>
+            <%= f.text_field :reason, class:'form-control form-control-sm' %>
          </div>
 
       </div>
@@ -53,7 +56,7 @@
       <div class="col-md-12">
 
          <div class="form-group">
-            <%= f.text_area :main_complaint, class:'form-control', rows:'2' %>
+            <%= f.text_area :main_complaint, class:'form-control form-control-sm', rows:'2' %>
          </div>
 
       </div>
@@ -64,11 +67,11 @@
       <div class="col-md-12">
 
          <div class="form-group">
-            <%= f.text_field :most_recent_diagnosis, class:'form-control', placeholder:'Description' %>
+            <%= f.text_field :most_recent_diagnosis, class:'form-control form-control-sm', placeholder:'Description' %>
          </div>
 
          <div class="form-group">
-            <%= f.text_area :recent_diagnosis_justification, class:'form-control', rows:'2', placeholder:'Diagnostic justfication and/or assessment measures'  %>
+            <%= f.text_area :recent_diagnosis_justification, class:'form-control form-control-sm', rows:'2', placeholder:'Diagnostic justfication and/or assessment measures'  %>
          </div>
 
       </div>
@@ -79,7 +82,7 @@
       <div class="col-md-12">
 
          <div class="form-group">
-            <%= f.text_area :treatment_modality, class:'form-control', rows:'3' %>
+            <%= f.text_area :treatment_modality, class:'form-control form-control-sm', rows:'3' %>
          </div>
 
       </div>
@@ -90,77 +93,26 @@
       <div class="col-md-12">
 
          <div class="form-group">
-            <%= f.text_area :treatment_goals, class:'form-control', rows:'3' %>
+            <%= f.text_area :treatment_goals, class:'form-control form-control-sm', rows:'3' %>
          </div>
 
       </div>
    </div>
 
-   <div class="row">
-      <div class="col-md-12">
-         <div class="form-group">
-            <%= f.check_box :clinician_signature %>
-            <label for="intake_note[clinician_signature]">Sign this Form: I, <%= current_user.first_name %> <%= current_user.last_name %>, Clinical Psychologist, declare this information to be accurate and complete.</label>
+   <div class="row px-3">
+      <div class="col-md-12 border bg-light bg-light p-2">
+         <div class="form-check">
+            <%= f.check_box :clinician_signature, class:'form-check-input' %>
+            <label class="form-check-label"> Sign this Form: I, <%= current_user.first_name %> <%= current_user.last_name %>, Clinical Psychologist, declare this information to be accurate and complete.</label>
          </div>
       </div>
    </div>
+
+   <br>
 
    <div class="actions">
-     <%= f.submit 'Create', class:'btn btn-success' %>
+     <%= f.submit 'Create', class:'btn btn-outline-primary' %>
    </div>
 
-
-
-
-
-   <!-- <div class="field">
-      <%= f.label('Clinician') %>
-      <%= f.select('user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }) %>
-   </div>
-
-  <div class="field">
-    <%= f.label :date %>
-    <%= f.date_select :date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :time %>
-    <%= f.time_select :time %>
-  </div>
-
-  <div class="field">
-    <%= f.label :reason %>
-    <%= f.text_field :reason %>
-  </div>
-
-  <div class="field">
-    <%= f.label :main_complaint %>
-    <%= f.text_area :main_complaint %>
-  </div>
-
-  <div class="field">
-    <%= f.label :most_recent_diagnosis %>
-    <%= f.text_field :most_recent_diagnosis %>
-  </div>
-
-  <div class="field">
-    <%= f.label :recent_diagnosis_justification %>
-    <%= f.text_area :recent_diagnosis_justification %>
-  </div>
-
-  <div class="field">
-    <%= f.label :treatment_modality %>
-    <%= f.text_area :treatment_modality %>
-  </div>
-
-  <div class="field">
-    <%= f.label :treatment_goals %>
-    <%= f.text_area :treatment_goals %>
-  </div>
-
-  <div class="field">
-    <%= f.label :clinician_signature %>
-    <%= f.check_box :clinician_signature %>
-  </div> -->
 
 <% end %>

@@ -3,61 +3,59 @@
    <div class="row">
       <div class="col-md-6">
 
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Clinician:</span>
+         <div class="form-group row">
+            <%= f.label 'Clinician:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.select 'user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }, class:'form-control form-control-sm' %>
             </div>
-            <%= f.select :user_id, @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }, class:'form-control' %>
          </div>
 
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Patient:</span>
+         <div class="form-group row">
+            <%= f.label 'Patient:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <input type="text" name="" value="<%= @progress_note.patient.first_name%> <%= @progress_note.patient.last_name %>" class="form-control form-control-sm">
             </div>
-            <input type="text" name="" value="<%= @progress_note.patient.first_name%> <%= @progress_note.patient.last_name %>" class="form-control">
          </div>
 
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Date:</span>
+         <div class="form-group row">
+            <%= f.label 'Date:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+            <div class="col-sm-8">
+               <%= f.date_field :date, class:"form-control form-control-sm" %>
             </div>
-             <%= f.date_field( :date, class:"form-control") %>
          </div>
 
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Time:</span>
+         <div class="form-group row">
+            <%= f.label 'Time:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+            <div class="col-sm-8">
+               <%= f.time_field :time, class:"form-control form-control-sm" %>
             </div>
-            <%= f.time_field :time, class:'form-control' %>
          </div>
 
       </div>
+
       <div class="col-md-6">
 
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Duration:</span>
-            </div>
-            <%= f.text_field :duration, class:'form-control' %>
-            <div class="input-group-append">
-               <span class="input-group-text">minutes</span>
+         <div class="form-group row">
+            <%= f.label 'Duration:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.text_field :duration, class:"form-control form-control-sm" %>
             </div>
          </div>
 
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Location:</span>
+         <div class="form-group row">
+            <%= f.label 'Location:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.select :location, @location.collect{|l| [l, l]}, { include_blank: true }, class:'form-control form-control-sm' %>
             </div>
-            <%= f.select :location, @location.collect{|l| [l, l]}, { include_blank: true }, class:'form-control' %>
          </div>
 
-
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Participants:</span>
+         <div class="form-group row">
+            <%= f.label 'Participants:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.select :participants, @participants.collect{|l| [l, l]}, { include_blank: true }, class:'form-control form-control-sm' %>
             </div>
-            <%= f.select :participants, @participants.collect{|p| [p, p]}, { include_blank: true }, class:'form-control' %>
          </div>
+
       </div>
    </div>
 
@@ -68,85 +66,92 @@
       <div class="col-md-12">
 
          <div class="form-group">
-            <%= f.text_field :diagnosis_description, class:'form-control', placeholder:'Description' %>
+            <%= f.text_field :diagnosis_description, class:'form-control form-control-sm', placeholder:'Description' %>
          </div>
 
          <div class="form-group">
-            <%= f.text_area :diagnostic_justification, class:'form-control', rows:'2', placeholder:'Diagnostic justfication and/or assessment measures'  %>
+            <%= f.text_area :diagnostic_justification, class:'form-control form-control-sm', rows:'2', placeholder:'Diagnostic justfication and/or assessment measures'  %>
          </div>
 
       </div>
    </div>
+
+   <hr>
 
    <h5>Patient Presentation:</h5>
    <div class="row">
 
       <div class="col-md-6">
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Cognitive Functioning:</span>
+
+         <div class="form-group row">
+            <%= f.label 'Cognitive Functioning:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.text_field :cognitive_functioning, class:'form-control form-control-sm', list:'options' %>
             </div>
-            <%= f.text_field :cognitive_functioning, class:'form-control', list:'options' %>
          </div>
 
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Affect:</span>
+         <div class="form-group row">
+            <%= f.label 'Affect:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.text_field :affect, class:'form-control form-control-sm', list:'options' %>
             </div>
-            <%= f.text_field :affect, class:'form-control', list:'options' %>
          </div>
 
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Mood:</span>
+         <div class="form-group row">
+            <%= f.label 'Mood:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.text_field :mood, class:'form-control form-control-sm', list:'options' %>
             </div>
-            <%= f.text_field :mood, class:'form-control', list:'options' %>
          </div>
 
       </div>
 
       <div class="col-md-6">
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Interpersonal:</span>
+
+         <div class="form-group row">
+            <%= f.label 'Interpersonal:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.text_field :interpersonal, class:'form-control form-control-sm', list:'options' %>
             </div>
-            <%= f.text_field :interpersonal, class:'form-control', list:'options' %>
          </div>
 
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Functional Status:</span>
+         <div class="form-group row">
+            <%= f.label 'Functional Status:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.text_field :functional_status, class:'form-control form-control-sm', list:'options' %>
             </div>
-            <%= f.text_field :functional_status, class:'form-control', list:'options' %>
          </div>
 
       </div>
    </div>
+
+   <hr>
 
    <h5>Safety Issues</h5>
+
    <div class="row">
       <div class="col-md-6">
-
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Saftey Issues:</span>
+         <div class="form-group row">
+            <%= f.label 'Safety Issues:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.text_field :safety_issues, class:"form-control form-control-sm", list:'safety_issues' %>
+               <datalist id="safety_issues">
+                  <option value="None">
+                  <option value="Suicidal Ideation">
+                  <option value="Hommicidal Ideation">
+               </datalist>
             </div>
-            <%= f.text_field :safety_issues, list:'safety_issues', class:'form-control' %>
-            <datalist id="safety_issues">
-               <option value="None">
-               <option value="Suicidal Ideation">
-               <option value="Hommicidal Ideation">
-            </datalist>
          </div>
-
       </div>
    </div>
+
+   <hr>
 
    <div class="row">
       <div class="col-md-12">
          <h5>Medications:</h5>
          <div class="form-group">
-            <%= f.text_area :medications, class:'form-control', rows:'2' %>
+            <%= f.text_area :medications, class:'form-control form-control-sm', rows:'2' %>
          </div>
       </div>
    </div>
@@ -155,7 +160,7 @@
       <div class="col-md-12">
          <h5>Symptom Description and Subjective Report:</h5>
          <div class="form-group">
-            <%= f.text_area :symptoms_description, class:'form-control', rows:'3' %>
+            <%= f.text_area :symptoms_description, class:'form-control form-control-sm', rows:'3' %>
          </div>
       </div>
    </div>
@@ -164,34 +169,36 @@
       <div class="col-md-12">
          <h5>Relevant Content:</h5>
          <div class="form-group">
-            <%= f.text_area :relevant_content, class:'form-control', rows:'3', placeholder:'Objective information discussed during the session.' %>
+            <%= f.text_area :relevant_content, class:'form-control form-control-sm', rows:'3', placeholder:'Objective information discussed during the session.' %>
          </div>
       </div>
    </div>
 
    <div class="row">
-      <div class="col-md-12">
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Interventions Used:</span>
+      <div class="col-md-6">
+
+         <div class="form-group row">
+            <%= f.label 'Interventions Used:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.text_field :interventions_used, class:'form-control form-control-sm', list:'options' %>
+               <datalist id="options">
+                  <option value="Appropiate">
+                  <option value="Eccentric">
+               </datalist>
             </div>
-            <%= f.text_field :interventions_used, class:'form-control', list:'options' %>
-            <datalist id="options">
-               <option value="Appropiate">
-               <option value="Eccentric">
-            </datalist>
          </div>
       </div>
    </div>
+
    <hr>
-   <h5>Treatment Plam Progress:</h5>
-   <h6>No objectives specified. If you first specify objectives in a treatment plan for this patient, you can describe the progress on each objective here.</h6>
+
+   <h5>Treatment Plan Progress:</h5>
    <br>
    <div class="row">
       <div class="col-md-12">
          <h6>Additional Notes Regarding Goals and Objectives:</h6>
          <div class="form-group">
-            <%= f.text_area :additional_notes, class:'form-control', rows:'2' %>
+            <%= f.text_area :additional_notes, class:'form-control form-control-sm', rows:'2' %>
          </div>
       </div>
    </div>
@@ -200,171 +207,59 @@
       <div class="col-md-12">
          <h6>Plan:</h6>
          <div class="form-group">
-            <%= f.text_area :plan, class:'form-control', rows:'2' %>
+            <%= f.text_area :plan, class:'form-control form-control-sm', rows:'2' %>
          </div>
       </div>
    </div>
 
    <div class="row">
       <div class="col-md-6">
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Recommendation:</span>
+
+         <div class="form-group row">
+            <%= f.label 'Recommendation:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <div class="col-sm-8">
+               <%= f.text_field :recommendation, class:'form-control form-control-sm', list:'recommendation' %>
+               <datalist id="recommendation">
+                  <option value="Continue current therapeutic focus">
+                  <option value="Change treatment goasl or objectives">
+                  <option value="Terminate treatment">
+               </datalist>
             </div>
-            <%= f.text_field :recommendation, class:'form-control', list:'options1' %>
-            <datalist id="options1">
-               <option value="Continue">
-               <option value="Change">
-            </datalist>
          </div>
       </div>
 
       <div class="col-md-6">
-         <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">Prescribed Frequency of Treatment:</span>
+
+         <div class="form-group row">
+            <%= f.label 'Prescribed Frequency of Treatment:', class:"col-sm-6 col-form-label col-form-label-md"  %>
+            <div class="col-sm-6">
+               <%= f.text_field :treatment_frequency, class:'form-control form-control-sm', list:'frequency' %>
+               <datalist id="frequency">
+                  <option value="As needed">
+                  <option value="Twice a week">
+                  <option value="Weekly">
+                  <option value="Once every two weeks">
+                  <option value="Once a month">
+               </datalist>
             </div>
-            <%= f.text_field :treatment_frequency, class:'form-control', list:'options2' %>
-            <datalist id="options2">
-               <option value="Weekly">
-               <option value="Monthly">
-            </datalist>
+         </div>
+      </div>
+
+   </div>
+
+   <div class="row px-3">
+      <div class="col-md-12 border bg-light bg-light p-2">
+         <div class="form-check">
+            <%= f.check_box :clinician_signature, class:'form-check-input' %>
+            <label class="form-check-label"> Sign this Form: I, <%= current_user.first_name %> <%= current_user.last_name %>, Clinical Psychologist, declare this information to be accurate and complete.</label>
          </div>
       </div>
    </div>
 
-   <div class="row">
-      <div class="col-md-12">
-         <div class="form-group">
-            <%= f.check_box :clinician_signature %>
-            <label for="intake_note[clinician_signature]">Sign this Form: I, <%= current_user.first_name %> <%= current_user.last_name %>, Clinical Psychologist, declare this information to be accurate and complete.</label>
-         </div>
-      </div>
-   </div>
+   <br>
 
    <div class="actions">
-     <%= f.submit 'Create', class:'btn btn-success' %>
+     <%= f.submit 'Create', class:'btn btn-outline-primary' %>
    </div>
-
-
-
-
-
-
-   <!-- <div class="field">
-      <%= f.label('Clinician') %>
-      <%= f.select('user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }) %>
-   </div>
-
-  <div class="field">
-    <%= f.label :date %>
-    <%= f.date_select :date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :time %>
-    <%= f.time_select :time %>
-  </div>
-
-  <div class="field">
-    <%= f.label :duration %>
-    <%= f.text_field :duration %>
-  </div>
-
-  <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </div>
-
-  <div class="field">
-    <%= f.label :participants %>
-    <%= f.text_field :participants %>
-  </div>
-
-  <div class="field">
-    <%= f.label :diagnosis_description %>
-    <%= f.text_area :diagnosis_description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :diagnostic_justification %>
-    <%= f.text_area :diagnostic_justification %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cognitive_functioning %>
-    <%= f.text_field :cognitive_functioning %>
-  </div>
-
-  <div class="field">
-    <%= f.label :affect %>
-    <%= f.text_field :affect %>
-  </div>
-
-  <div class="field">
-    <%= f.label :mood %>
-    <%= f.text_field :mood %>
-  </div>
-
-  <div class="field">
-    <%= f.label :interpersonal %>
-    <%= f.text_field :interpersonal %>
-  </div>
-
-  <div class="field">
-    <%= f.label :functional_status %>
-    <%= f.text_field :functional_status %>
-  </div>
-
-  <div class="field">
-    <%= f.label :safety_issues %>
-    <%= f.text_field :safety_issues %>
-  </div>
-
-  <div class="field">
-    <%= f.label :medications %>
-    <%= f.text_field :medications %>
-  </div>
-
-  <div class="field">
-    <%= f.label :symptoms_description %>
-    <%= f.text_area :symptoms_description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :relevant_content %>
-    <%= f.text_area :relevant_content %>
-  </div>
-
-  <div class="field">
-    <%= f.label :interventions_used %>
-    <%= f.text_field :interventions_used %>
-  </div>
-
-  <div class="field">
-    <%= f.label :additional_notes %>
-    <%= f.text_area :additional_notes %>
-  </div>
-
-  <div class="field">
-    <%= f.label :plan %>
-    <%= f.text_area :plan %>
-  </div>
-
-  <div class="field">
-    <%= f.label :recommendation %>
-    <%= f.text_field :recommendation %>
-  </div>
-
-  <div class="field">
-    <%= f.label :treatment_frequency %>
-    <%= f.text_field :treatment_frequency %>
-  </div>
-
-  <div class="field">
-    <%= f.label :clinician_signature %>
-    <%= f.check_box :clinician_signature %>
-  </div> -->
-
 
 <% end %>

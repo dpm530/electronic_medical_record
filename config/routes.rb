@@ -22,6 +22,7 @@ Rails.application.routes.draw do
          get 'staff' => 'users#staff'
          get 'add-user' => 'users#new'
          post 'add-user' => 'users#create'
+         patch 'edit-user/:id' => 'users#update_user'
       end
    end
 
