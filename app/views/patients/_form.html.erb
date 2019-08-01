@@ -20,16 +20,12 @@
          <div class="col-md-6">
 
             <div class="form-group row">
-               <%= form.label 'First Name:', class:"col-sm-4 col-form-label col-form-label-sm" %>
-               <div class="col-sm-8">
-                  <%= form.text_field :first_name, class:"form-control form-control-sm" %>
+               <%= form.label 'Name:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-4">
+                  <%= form.text_field :first_name, class:"form-control form-control-sm", placeholder:'First' %>
                </div>
-            </div>
-
-            <div class="form-group row">
-               <%= form.label 'Last Name:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
-               <div class="col-sm-8">
-                  <%= form.text_field :last_name, class:"form-control form-control-sm" %>
+               <div class="col-sm-4">
+                  <%= form.text_field :last_name, class:"form-control form-control-sm", placeholder:'Last' %>
                </div>
             </div>
 
@@ -43,7 +39,7 @@
             <div class="form-group row">
                <%= form.label 'Date of Birth:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.text_field :dob, class:"form-control form-control-sm" %>
+                  <%= form.date_field :dob, class:"form-control form-control-sm" %>
                </div>
             </div>
 
@@ -105,10 +101,10 @@
 
             <div class="form-group row">
                <%= form.label 'State/Zip:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
-               <div class="col-sm-6">
-                  <%= form.text_field :state, class:"form-control form-control-sm" %>
+               <div class="col-sm-3">
+                  <%= form.select :state, @states.collect{|p| [p,p]}, { include_blank: true }, class:'form-control form-control-sm' %>
                </div>
-               <div class="col-sm-2">
+               <div class="col-sm-5">
                   <%= form.text_field :zipcode, class:"form-control form-control-sm" %>
                </div>
             </div>
@@ -120,28 +116,28 @@
             <div class="form-group row">
                <%= form.label 'Birth Sex:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.select :birth_sex,['male', 'female', 'other'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+                  <%= form.select :birth_sex,['Male', 'Female', 'Other'],{ include_blank: true }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'Gender Identity:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.text_field :gender_identity, class:"form-control form-control-sm" %>
+                  <%= form.select :gender_identity,['Select Gender Identity', 'Male', 'Female', 'Other'],{ include_blank: false }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'Sexual Orientation:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.text_field :sexual_orientation, class:"form-control form-control-sm" %>
+                  <%= form.select :sexual_orientation,['Select Sexual Orientation', 'Straight or Heterosexual', 'Lesbian Gay or Homosexual', 'Bisexual'],{ include_blank: false }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'Race:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.text_field :race, class:"form-control form-control-sm" %>
+                  <%= form.select :race,['Select Race'],{ include_blank: false }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 

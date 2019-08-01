@@ -37,11 +37,13 @@ class PatientsController < ApplicationController
    def new
       @users=User.all
       @patient = Patient.new
+      @states = ['FL', 'TX', 'CO', 'NY']
    end
 
    # GET /patients/1/edit
    def edit
       @users=User.all
+      @states = ['FL', 'TX', 'CO', 'NY']
    end
 
   # POST /patients

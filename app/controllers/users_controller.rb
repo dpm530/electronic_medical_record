@@ -4,7 +4,7 @@ class UsersController < ApplicationController
    def index
       @users = User.all
       @patients = Patient.all
-      @Library = Library.all
+      @library = Library.all
       @intake_notes = IntakeNote.all
       @progress_notes = ProgressNote.all
       @treatment_plans = TreatmentPlan.all
