@@ -3,47 +3,45 @@
    <div class="container-fluid">
       <div class="row">
          <div class="col-md-6">
-            <div class="form-group row">
-               <%= f.label 'First Name:', class:"col-sm-4 col-form-label col-form-label-sm" %>
-               <div class="col-sm-8">
-                  <%= f.text_field :first_name, class:"form-control form-control-sm" %>
-               </div>
-            </div>
 
             <div class="form-group row">
-               <%= f.label 'Last Name:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
-               <div class="col-sm-8">
-                  <%= f.text_field :last_name, class:"form-control form-control-sm" %>
+               <%= f.label 'Name:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-4">
+                  <%= f.text_field :first_name, class:"form-control form-control-sm", placeholder:'First' %>
+               </div>
+               <div class="col-sm-4">
+                  <%= f.text_field :last_name, class:"form-control form-control-sm", placeholder:'Last' %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= f.label 'Contact Type:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= f.text_field :last_name, class:"form-control form-control-sm" %>
+                  <%= f.select :contact_type,['PCP', 'Emergency Contact', 'Guardian', 'Responsible Party for Billing'],{ include_blank: true }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= f.label 'Relationship:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= f.text_field :last_name, class:"form-control form-control-sm" %>
+                  <%= f.select :relationship,['Parent', 'Sibling', 'Guardian', 'Friend'],{ include_blank: true }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= f.label 'Release of Information:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= f.text_field :last_name, class:"form-control form-control-sm" %>
+                  <%= f.date_field :release_of_info, class:"form-control form-control-sm" %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= f.label 'Date of Birth:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= f.text_field :last_name, class:"form-control form-control-sm" %>
+                  <%= f.date_field :dob, class:"form-control form-control-sm" %>
                </div>
             </div>
+
             <div class="form-group row">
                <%= f.label 'Address 1:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">

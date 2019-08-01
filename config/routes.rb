@@ -2,7 +2,17 @@ Rails.application.routes.draw do
 
    root to: 'users#index'
 
+
    devise_for :users
+   
+   resources :users do
+      collection do
+         patch 'update-user/:id' => 'users#update_user'
+         get 'staff' => 'users#staff'
+         get 'add-user' => 'users#new'
+         post 'add-user' => 'users#create'
+      end
+   end
 
    resources :patients do
       collection do
@@ -17,14 +27,7 @@ Rails.application.routes.draw do
       resources :documents
    end
 
-   resources :users do
-      collection do
-         get 'staff' => 'users#staff'
-         get 'add-user' => 'users#new'
-         post 'add-user' => 'users#create'
-         patch 'edit-user/:id' => 'users#update_user'
-      end
-   end
+
 
 
 

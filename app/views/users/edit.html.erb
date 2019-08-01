@@ -15,7 +15,7 @@
          <div class="row">
             <div class="col-md-12">
                <div class="container">
-                  <form  action="/users/edit-user/<%= @user.id %>" method="post" >
+                  <form  action="/users/update-user/<%= @user.id %>" method="post" >
                      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
                      <input type="hidden" name="_method" value="patch">
 
@@ -43,7 +43,7 @@
                               <option values='<%= @user.default_location %>'><%= @user.default_location %></option>
                               <option values='Aventura'>Aventura</option>
                               <option value='Doral' >Doral</option>
-                              <option value='other'>Other</option>
+                              <option value='Other'>Other</option>
                            </select>
                         </div>
                      </div>

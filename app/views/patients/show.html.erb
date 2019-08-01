@@ -31,95 +31,171 @@
          <div class="col-md-6">
 
             <div class="row">
-               <div class="col-md-4">
+               <div class="col-sm-4">
                   <p>Name:</p>
                </div>
-               <div class="col-md-8">
+               <div class="col-sm-8">
+                  <p><%= @patient.first_name %> <%= @patient.last_name %></p>
+               </div>
+            </div>
 
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Preferred Name:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.preferred_name %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Date of Birth:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.dob.strftime('%D') %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Email Address:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.email %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Mobile Phone:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.mobile_phone %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Home Phone:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.home_phone %></p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Work Phone:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.work_phone %></p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Adress:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.address_1 %></p>
+                  <p><%= @patient.address_2 %></p>
+                  <p><%= @patient.city %> <%= @patient.state %>, <%= @patient.zipcode %></p>
                </div>
             </div>
 
 
 
-            <table>
-               <body>
-                  <tr>
-                     <td>Name:</td>
-                     <td><%= @patient.first_name %> <%= @patient.last_name %></td>
-                  </tr>
-                  <tr>
-                     <td>Preferred Name:</td>
-                     <td><%= @patient.preferred_name %></td>
-                  </tr>
-                  <tr>
-                     <td>Date of Birth:</td>
-                     <td><%= @patient.dob %></td>
-                  </tr>
-                  <tr>
-                     <td>Email Address:</td>
-                     <td><%= @patient.email %></td>
-                  </tr>
-                  <tr>
-                     <td>Mobile Phone:</td>
-                     <td><%= @patient.mobile_phone %></td>
-                  </tr>
-                  <tr>
-                     <td>Home Phone:</td>
-                     <td><%= @patient.home_phone %></td>
-                  </tr>
-                  <tr>
-                     <td>Work Phone:</td>
-                     <td><%= @patient.work_phone %></td>
-                  </tr>
-                  <tr>
-                     <td>Address:</td>
-                     <td><%= @patient.address_1 %></td>
-                  </tr>
-               </body>
-            </table>
+
          </div>
+
          <div class="col-md-6">
-            <table>
-               <body>
-                  <tr>
-                     <td>Birth Sex:</td>
-                     <td><%= @patient.birth_sex %></td>
-                  </tr>
-                  <tr>
-                     <td>Gender Identity:</td>
-                     <td><%= @patient.gender_identity %></td>
-                  </tr>
-                  <tr>
-                     <td>Sexual Orientation:</td>
-                     <td><%= @patient.sexual_orientation %></td>
-                  </tr>
-                  <tr>
-                     <td>Race:</td>
-                     <td><%= @patient.race %></td>
-                  </tr>
-                  <tr>
-                     <td>Languages:</td>
-                     <td><%= @patient.languages %></td>
-                  </tr>
-                  <tr>
-                     <td>Marital Status:</td>
-                     <td><%= @patient.marital_status %></td>
-                  </tr>
-                  <tr>
-                     <td>Employment:</td>
-                     <td><%= @patient.employment %></td>
-                  </tr>
-                  <tr>
-                     <td>HIPAA</td>
-                     <td><%= @patient.hipaa %></td>
-                  </tr>
-                  <tr>
-                     <td>PCP Release:</td>
-                     <td><%= @patient.pcp_release %></td>
-                  </tr>
-               </body>
-            </table>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Birth Sex:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.birth_sex %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Gender Identity:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.gender_identity %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Sexual Oritentaion:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.sexual_orientation %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Race:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.race %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Languages:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.languages %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Marital Status:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.marital_status %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>Employment:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.employment %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>HIPPA:</p>
+               </div>
+               <div class="col-sm-8">
+                  <% if @patient.hipaa == true %>
+                     <p>Patient/guardian signed HIPAA NPP</p>
+                  <% else %>
+                     <p>Patient/guardian has not signed HIPAA NPP</p>
+                  <% end %>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p>PCP Release:</p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @patient.pcp_release %></p>
+               </div>
+            </div>
+
          </div>
+
       </div>
    </div>
 
@@ -139,64 +215,120 @@
       <% @emergency_contacts.each do |ec| %>
          <div class="row">
             <div class="col-md-6">
-               <table>
-                  <body>
-                     <tr>
-                        <td>Name:</td>
-                        <td><%= ec.first_name %> <%= ec.last_name %></td>
-                     </tr>
-                     <tr>
-                        <td>Contact Type:</td>
-                        <td><%= ec.contact_type %></td>
-                     </tr>
-                     <tr>
-                        <td>Relationship:</td>
-                        <td><%= ec.relationship %></td>
-                     </tr>
-                     <tr>
-                        <td>Release of Info:</td>
-                        <td><%= ec.release_of_info %></td>
-                     </tr>
-                     <tr>
-                        <td>Date of Birth:</td>
-                        <td><%= ec.dob %></td>
-                     </tr>
-                     <tr>
-                        <td>Address:</td>
-                        <td><%= ec.address_1 %></td>
-                     </tr>
-                  </body>
-               </table>
+
+               <div class="row">
+                  <div class="col-sm-4">
+                     <p>Name:</p>
+                  </div>
+                  <div class="col-sm-8">
+                     <p><%= ec.first_name %> <%= ec.last_name %></p>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-sm-4">
+                     <p>Contact Type:</p>
+                  </div>
+                  <div class="col-sm-8">
+                     <p><%= ec.contact_type %></p>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-sm-4">
+                     <p>Relationship:</p>
+                  </div>
+                  <div class="col-sm-8">
+                     <p><%= ec.relationship %></p>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-sm-4">
+                     <p>Release of Information:</p>
+                  </div>
+                  <div class="col-sm-8">
+                     <p><%= ec.release_of_info.strftime('%D') %></p>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-sm-4">
+                     <p>Date of Birth:</p>
+                  </div>
+                  <div class="col-sm-8">
+                     <p><%= ec.dob.strftime('%D') %></p>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-sm-4">
+                     <p>Address:</p>
+                  </div>
+                  <div class="col-sm-8">
+                     <p><%= ec.address_1 %></p>
+                     <p><%= ec.address_2 %></p>
+                     <p><%= ec.city %> <%= ec.state %> <%= ec.zipcode %></p>
+                  </div>
+               </div>
+
             </div>
             <div class="col-md-6">
-               <table>
-                  <body>
-                     <tr>
-                        <td>Email:</td>
-                        <td><%= ec.email %></td>
-                     </tr>
-                     <tr>
-                        <td>Mobile Phone:</td>
-                        <td><%= ec.mobile_phone %></td>
-                     </tr>
-                     <tr>
-                        <td>Home Phone:</td>
-                        <td><%= ec.home_phone %></td>
-                     </tr>
-                     <tr>
-                        <td>Work Phone:</td>
-                        <td><%= ec.work_phone %></td>
-                     </tr>
-                     <tr>
-                        <td>Other Phone:</td>
-                        <td><%= ec.other_phone %></td>
-                     </tr>
-                     <tr>
-                        <td>Comments:</td>
-                        <td><%= ec.comment %></td>
-                     </tr>
-                  </body>
-               </table>
+
+               <div class="row">
+                  <div class="col-sm-4">
+                     <p>Email:</p>
+                  </div>
+                  <div class="col-sm-8">
+                     <p><%= ec.email %></p>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-sm-4">
+                     <p>Mobile Phone:</p>
+                  </div>
+                  <div class="col-sm-8">
+                     <p><%= ec.mobile_phone %></p>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-sm-4">
+                     <p>Home Phone:</p>
+                  </div>
+                  <div class="col-sm-8">
+                     <p><%= ec.home_phone %></p>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-sm-4">
+                     <p>Work Phone:</p>
+                  </div>
+                  <div class="col-sm-8">
+                     <p><%= ec.work_phone %></p>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-sm-4">
+                     <p>Other Phone:</p>
+                  </div>
+                  <div class="col-sm-8">
+                     <p><%= ec.other_phone %></p>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-sm-4">
+                     <p>Comments:</p>
+                  </div>
+                  <div class="col-sm-8">
+                     <p><%= ec.comment %></p>
+                  </div>
+               </div>
+
             </div>
          </div>
          <br>
