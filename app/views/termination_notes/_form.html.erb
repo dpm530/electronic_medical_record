@@ -111,7 +111,11 @@
    <br>
 
    <div class="actions">
-     <%= f.submit 'Create', class:'btn btn-outline-primary' %>
+      <% if @termination_note.new_record? %>
+         <%= f.submit 'Create', class:'btn btn-outline-primary'%>
+      <% else %>
+         <%= f.submit 'Update', class:'btn btn-outline-primary'%>
+      <% end %>
    </div>
 
 

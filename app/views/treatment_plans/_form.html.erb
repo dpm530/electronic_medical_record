@@ -150,7 +150,11 @@
    <br>
 
    <div class="actions">
-     <%= f.submit class:'btn btn-outline-primary' %>
+      <% if @treatment_plan.new_record? %>
+         <%= f.submit 'Create', class:'btn btn-outline-primary'%>
+      <% else %>
+         <%= f.submit 'Update', class:'btn btn-outline-primary'%>
+      <% end %>
    </div>
 
 

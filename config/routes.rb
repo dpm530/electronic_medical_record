@@ -4,13 +4,19 @@ Rails.application.routes.draw do
 
 
    devise_for :users
-   
-   resources :users do
+
+   resources :users_admin, :controller => 'users' do
       collection do
          patch 'update-user/:id' => 'users#update_user'
          get 'staff' => 'users#staff'
          get 'add-user' => 'users#new'
          post 'add-user' => 'users#create'
+      end
+   end
+
+   resource :profile, :controller => 'users', only: [:show] do
+      collection do
+         get ':id' => 'users#show'
       end
    end
 

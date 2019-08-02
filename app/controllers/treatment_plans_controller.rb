@@ -1,18 +1,18 @@
 class TreatmentPlansController < ApplicationController
-  before_action :set_treatment_plan, only: [:show, :edit, :update, :destroy]
-  layout 'patient_layout'
+   before_action :set_treatment_plan, only: [:show]
+   layout 'patient_layout'
 
-  # GET /treatment_plans
-  # GET /treatment_plans.json
-  def index
-    @treatment_plans = TreatmentPlan.all
-  end
+   # GET /treatment_plans
+   # GET /treatment_plans.json
+   def index
+      @treatment_plans = TreatmentPlan.all
+   end
 
-  # GET /treatment_plans/1
-  # GET /treatment_plans/1.json
-  def show
-     @patient = Patient.find(params[:patient_id])
-  end
+   # GET /treatment_plans/1
+   # GET /treatment_plans/1.json
+   def show
+      @patient = Patient.find(params[:patient_id])
+   end
 
    # GET /treatment_plans/new
    def new
@@ -36,7 +36,7 @@ class TreatmentPlansController < ApplicationController
 
       respond_to do |format|
          if @treatment_plan.save
-            format.html { redirect_to patient_path(@patient), notice: 'Treatment plan was successfully created.'}
+            format.html { redirect_to([@treatment_plan.patient, @treatment_plan], notice: 'Treatment plan was successfully created.')}
             format.json { render :show, status: :created, location: @treatment_plan }
          else
             format.html { render :new }
@@ -53,7 +53,7 @@ class TreatmentPlansController < ApplicationController
 
       respond_to do |format|
          if @treatment_plan.update(treatment_plan_params)
-            format.html { redirect_to patient_path(@patient), notice: 'Treatment plan was successfully updated.' }
+            format.html { redirect_to([@treatment_plan.patient, @treatment_plan], notice: 'Treatment plan was successfully updated.')}
             format.json { render :show, status: :ok, location: @treatment_plan }
          else
             format.html { render :edit }
@@ -70,19 +70,20 @@ class TreatmentPlansController < ApplicationController
       @treatment_plan.destroy
 
       respond_to do |format|
-         format.html { redirect_to patient_path(@patient), notice: 'Treatment plan was successfully destroyed.' }
+         format.html { redirect_to ('/patients/' + (@patient.id).to_s + '/notes'), notice: 'Treatment plan was successfully destroyed.' }
          format.json { head :no_content }
       end
    end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_treatment_plan
-      @treatment_plan = TreatmentPlan.find(params[:id])
-    end
+   private
+      # Use callbacks to share common setup or constraints between actions.
+      def set_treatment_plan
+         @treatment_plan = TreatmentPlan.find(params[:id])
+      end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def treatment_plan_params
-      params.require(:treatment_plan).permit(:user_id, :patient_id, :date, :time, :diagnosis_description, :diagnostic_justification, :presenting_problem, :treatment_goal, :goal_estimated_completion, :objective, :treatment_strategy, :objective_estimated_completion, :treatment_frequency, :clinician_declaration, :clinician_signature)
-    end
+
+      # Never trust parameters from the scary internet, only allow the white list through.
+      def treatment_plan_params
+         params.require(:treatment_plan).permit(:user_id, :patient_id, :date, :time, :diagnosis_description, :diagnostic_justification, :presenting_problem, :treatment_goal, :goal_estimated_completion, :objective, :treatment_strategy, :objective_estimated_completion, :treatment_frequency, :clinician_declaration, :clinician_signature)
+      end
 end

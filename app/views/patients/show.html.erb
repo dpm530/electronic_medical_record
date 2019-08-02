@@ -27,8 +27,11 @@
             <%= link_to 'Edit', edit_patient_path(@patient), class:"btn btn-outline-primary float-right" %>
          </div>
       </div>
+
+      <hr>
+
       <div class="row">
-         <div class="col-md-6">
+         <div class="col-md-6 border-right">
 
             <div class="row">
                <div class="col-sm-4">
@@ -96,9 +99,9 @@
                   <p>Adress:</p>
                </div>
                <div class="col-sm-8">
-                  <p><%= @patient.address_1 %></p>
-                  <p><%= @patient.address_2 %></p>
-                  <p><%= @patient.city %> <%= @patient.state %>, <%= @patient.zipcode %></p>
+                  <p class="mb-0"><%= @patient.address_1 %></p>
+                  <p class="mb-0"><%= @patient.address_2 %></p>
+                  <p class="mb-0"><%= @patient.city %> <%= @patient.state %>, <%= @patient.zipcode %></p>
                </div>
             </div>
 
@@ -208,13 +211,13 @@
             <h4>Emergency Contact:</h4>
          </div>
          <div class="col-md-6">
-            <%= link_to 'New Emergency Contact', new_patient_patient_emergency_contact_path(@patient), class:"btn btn-outline-primary float-right" %>
+            <%= link_to 'Add', new_patient_patient_emergency_contact_path(@patient), class:"btn btn-outline-primary float-right" %>
          </div>
       </div>
       <hr>
       <% @emergency_contacts.each do |ec| %>
          <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 border-right">
 
                <div class="row">
                   <div class="col-sm-4">

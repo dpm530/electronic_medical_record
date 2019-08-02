@@ -1,12 +1,12 @@
 class ProgressNotesController < ApplicationController
-  before_action :set_progress_note, only: [:show, :edit, :update, :destroy]
-  layout 'patient_layout'
+   before_action :set_progress_note, only: [:show]
+   layout 'patient_layout'
 
-  # GET /progress_notes
-  # GET /progress_notes.json
-  def index
-    @progress_notes = ProgressNote.all
-  end
+   # GET /progress_notes
+   # GET /progress_notes.json
+   def index
+      @progress_notes = ProgressNote.all
+   end
 
    # GET /progress_notes/1
    # GET /progress_notes/1.json
@@ -40,7 +40,7 @@ class ProgressNotesController < ApplicationController
 
       respond_to do |format|
          if @progress_note.save
-            format.html { redirect_to patient_path(@patient), notice: 'Progress note was successfully created.'}
+            format.html { redirect_to([@progress_note.patient, @progress_note] , notice: 'Progress note was successfully created.')}
             format.json { render :show, status: :created, location: @progress_note }
          else
             format.html { render :new }
@@ -57,7 +57,7 @@ class ProgressNotesController < ApplicationController
 
       respond_to do |format|
          if @progress_note.update(progress_note_params)
-            format.html { redirect_to patient_path(@patient), notice: 'Progress note was successfully updated.' }
+            format.html { redirect_to([@progress_note.patient, @progress_note], notice: 'Progress note was successfully updated.' )}
             format.json { render :show, status: :ok, location: @progress_note }
          else
             format.html { render :edit }
@@ -74,19 +74,20 @@ class ProgressNotesController < ApplicationController
       @progress_note.destroy
 
       respond_to do |format|
-         format.html { redirect_to patient_path(@patient), notice: 'Progress note was successfully destroyed.' }
+         format.html { redirect_to ('/patients/' + (@patient.id).to_s + '/notes'), notice: 'Progress note was successfully destroyed.' }
          format.json { head :no_content }
       end
    end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_progress_note
-      @progress_note = ProgressNote.find(params[:id])
-    end
+   private
+      # Use callbacks to share common setup or constraints between actions.
+      def set_progress_note
+         @progress_note = ProgressNote.find(params[:id])
+      end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def progress_note_params
-      params.require(:progress_note).permit(:user_id, :patient_id, :date, :time, :duration, :location, :participants, :diagnosis_description, :diagnostic_justification, :cognitive_functioning, :affect, :mood, :interpersonal, :functional_status, :safety_issues, :medications, :symptoms_description, :relevant_content, :interventions_used, :additional_notes, :plan, :recommendation, :treatment_frequency, :clinician_signature)
-    end
+
+      # Never trust parameters from the scary internet, only allow the white list through.
+      def progress_note_params
+         params.require(:progress_note).permit(:user_id, :patient_id, :date, :time, :duration, :location, :participants, :diagnosis_description, :diagnostic_justification, :cognitive_functioning, :affect, :mood, :interpersonal, :functional_status, :safety_issues, :medications, :symptoms_description, :relevant_content, :interventions_used, :additional_notes, :plan, :recommendation, :treatment_frequency, :clinician_signature)
+      end
 end

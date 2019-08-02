@@ -8,72 +8,86 @@
 
    <br>
 
-   <div class="container-fluid bg-white border py-3">
-      <h5>Roles: <small><%= @user.role %></small></h5>
-   </div>
-
-   <br>
-
    <div class="container-fluid bg-white border py-4">
+
       <div class="row">
+
          <div class="col-md-6 border-right">
+
             <div class="row">
                <div class="col-md-6">
                   <h4>User Information:</h4>
                </div>
+
                <div class="col-md-6">
-                  <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary float-right" %>
+                  <div class="dropdown">
+                     <button type="button" class="btn btn-outline-primary float-right" data-toggle="dropdown"><i class="fas fa-ellipsis-v"></i></button>
+                     <div class="dropdown-menu">
+                        <%= link_to 'Edit', edit_users_admin_path(@user), class:"dropdown-item" %>
+                     </div>
+                  </div>
+
                </div>
             </div>
 
-            <br>
+            <hr>
 
             <div class="row">
-               <div class="col-md-6">
-                  <div class="row">
-                     <div class="col-sm-4">
-                        <p>Name:</p>
-                     </div>
-                     <div class="col-sm-8">
-                        <p><%= @user.first_name %> <%= @user.last_name %></p>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-sm-4">
-                        <p>Email:</p>
-                     </div>
-                     <div class="col-sm-8">
-                        <p><%= @user.email %></p>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-sm-4">
-                        <p>Languages:</p>
-                     </div>
-                     <div class="col-sm-8">
-                        <p><%= @user.languages %></p>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-sm-4">
-                        <p>Default Location:</p>
-                     </div>
-                     <div class="col-sm-8">
-                        <p><%= @user.default_location %></p>
-                     </div>
-                  </div>
+               <div class="col-sm-6">
+                  <p>Name:</p>
+               </div>
+               <div class="col-sm-6">
+                  <p><%= @user.first_name %> <%= @user.last_name %></p>
                </div>
             </div>
+
+            <div class="row">
+               <div class="col-sm-6">
+                  <p>Email:</p>
+               </div>
+               <div class="col-sm-6">
+                  <p><%= @user.email %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-6">
+                  <p>Languages:</p>
+               </div>
+               <div class="col-sm-6">
+                  <p><%= @user.languages %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-6">
+                  <p>Default Location:</p>
+               </div>
+               <div class="col-sm-6">
+                  <p><%= @user.default_location %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-6">
+                  <p>Role:</p>
+               </div>
+               <div class="col-sm-6">
+                  <p><%= @user.role %></p>
+               </div>
+            </div>
+
          </div>
 
          <div class="col-md-6">
+
             <div class="row">
                <div class="col-md-6">
                   <h5>Contact Information:</h5>
                </div>
                <div class="col-md-6">
                   <div class="dropdown">
-                     <button type="button" class="btn btn-primary float-right" data-toggle="dropdown"><i class="fas fa-ellipsis-v"></i></button>
+                     <button type="button" class="btn btn-outline-primary float-right" data-toggle="dropdown"><i class="fas fa-ellipsis-v"></i></button>
                      <% if @contact_information %>
                         <div class="dropdown-menu">
                            <%= link_to 'Edit', edit_user_contact_information_path(@contact_information), class:"dropdown-item" %>
@@ -88,25 +102,52 @@
                </div>
             </div>
 
-            <br>
+            <hr>
 
-            <div class="row">
-               <div class="col-md-12">
-                  <% if @contact_information %>
-                     <div class="row">
-                        <div class="col-sm-4">
-                           <p>Address:</p>
-                        </div>
-                        <div class="col-sm-8">
-                           <p><%= @contact_information.address_1 %></p>
-                           <p><%= @contact_information.address_2%></p>
-                           <p><%= @contact_information.city %> <%= @contact_information.state %>, <%= @contact_information.zipcode %></p>
+            <% if @contact_information %>
 
-                        </div>
-                     </div>
-                  <% end %>
+               <div class="row">
+                  <div class="col-sm-6">
+                     <p>Mobile Phone:</p>
+                  </div>
+                  <div class="col-sm-6">
+                     <p><%= @contact_information.mobile_phone %></p>
+                  </div>
                </div>
-            </div>
+
+               <div class="row">
+                  <div class="col-sm-6">
+                     <p>Home Phone:</p>
+                  </div>
+                  <div class="col-sm-6">
+                     <p><%= @contact_information.home_phone %></p>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-sm-6">
+                     <p>Work Phone:</p>
+                  </div>
+                  <div class="col-sm-6">
+                     <p><%= @contact_information.work_phone %></p>
+                  </div>
+               </div>
+
+
+               <div class="row">
+                  <div class="col-sm-6">
+                     <p>Address:</p>
+                  </div>
+                  <div class="col-sm-6">
+                     <p class="mb-0"><%= @contact_information.address_1 %></p>
+                     <p class="mb-0"><%= @contact_information.address_2%></p>
+                     <p class="mb-0"><%= @contact_information.city %> <%= @contact_information.state %>, <%= @contact_information.zipcode %></p>
+
+                  </div>
+               </div>
+
+            <% end %>
+
          </div>
       </div>
    </div>

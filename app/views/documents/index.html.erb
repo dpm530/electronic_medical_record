@@ -5,7 +5,7 @@
             <h4>Files for this Patient:</h4>
          </div>
          <div class="col-md-6">
-            <a href="/patients/<%= @patient.id %>/documents/new" class="btn btn-outline-secondary float-right">Upload Patient Files</a>
+            <a href="/patients/<%= @patient.id %>/documents/new" class="btn btn-outline-primary float-right">Upload Patient Files</a>
          </div>
       </div>
       <br>
@@ -17,19 +17,17 @@
                      <th>Document Name</th>
                      <th>Date</th>
                      <th>Author</th>
-                     <th>file</th>
                   </tr>
                </thead>
                <tbody>
                   <% @documents.each do |document| %>
                      <tr>
                         <td><%= document.name %></td>
-                        <td><%= document.created_at %></td>
-                        <td><%= document.user.first_name %></td>
-                        <td><%= document.file[0] %></td>
-                        <td><%= link_to 'Show', [document.patient, document] %></td>
+                        <td><%= document.created_at.strftime('%D') %></td>
+                        <td><%= document.user.first_name %> <%= document.user.last_name %></td>
+                        <td><a href="<%= (document.file[0]).to_s %>" target='_blank'>Show</a></td>
                         <td><%= link_to 'Edit', edit_patient_document_path(document.patient, document) %></td>
-                        <td><%= link_to 'Destroy', [document.patient, document], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Delete', [document.patient, document], method: :delete, data: { confirm: 'Are you sure?' } %></td>
                      </tr>
                   <% end %>
                </tbody>

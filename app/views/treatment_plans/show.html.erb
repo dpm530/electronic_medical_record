@@ -1,35 +1,61 @@
 <div class="container-fluid py-2">
    <div class="container-fluid bg-white border py-4">
 
-      <h5>Psychotherapy Treatment Plan:</h5>
       <div class="row">
          <div class="col-md-6">
-            <table>
-               <body>
-                  <tr>
-                     <td>Clinician:</td>
-                     <td><%= @treatment_plan.user.first_name %> <%= @treatment_plan.user.last_name %></td>
-                  </tr>
-                  <tr>
-                     <td>Patient:</td>
-                     <td><%= @treatment_plan.patient.first_name %> <%= @treatment_plan.patient.last_name %></td>
-                  </tr>
-               </body>
-            </table>
+            <h5>Psychotherapy Treatent Plan</h5>
          </div>
          <div class="col-md-6">
-            <table>
-               <body>
-                  <tr>
-                     <td>Date:</td>
-                     <td><%= @treatment_plan.date %></td>
-                  </tr>
-                  <tr>
-                     <td>Time:</td>
-                     <td><%= @treatment_plan.time %></td>
-                  </tr>
-               </body>
-            </table>
+            <%= link_to 'Edit', edit_patient_treatment_plan_path(@treatment_plan.patient, @treatment_plan), class:'float-right btn btn-outline-primary' %>
+         </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+         <div class="col-md-6">
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p><strong>Clinician:</strong></p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @treatment_plan.user.first_name %> <%= @treatment_plan.user.last_name %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p><strong>Patient:</strong></p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @treatment_plan.patient.first_name %> <%= @treatment_plan.patient.last_name %></p>
+               </div>
+            </div>
+         </div>
+
+         <div class="col-md-6">
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p><strong>Date:</strong></p>
+               </div>
+               <div class="col-sm-8">
+                  <% if @treatment_plan.date%>
+                     <p><%= @treatment_plan.date.strftime("%D") %></p>
+                  <% end %>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p><strong>Time:</strong></p>
+               </div>
+               <div class="col-sm-8">
+                  <p><%= @treatment_plan.time %></p>
+               </div>
+            </div>
+
          </div>
       </div>
 
@@ -37,16 +63,26 @@
 
       <h5>Diagnosis</h5>
       <div class="row">
-         <div class="col-md-12">
-            <p>
-              <strong>Diagnosis description:</strong>
-              <%= @treatment_plan.diagnosis_description %>
-            </p>
+         <div class="col-md-6">
 
-            <p>
-              <strong>Diagnostic justification:</strong>
-              <%= @treatment_plan.diagnostic_justification %>
-            </p>
+            <div class="row">
+               <div class="col-sm-4">
+                  <p><strong>Description:</strong></p>
+               </div>
+               <div class="col-sm-8">
+                  <p> <%= @treatment_plan.diagnosis_description %></p>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-4">
+                  <p><strong>Justification:</strong></p>
+               </div>
+               <div class="col-sm-8">
+                  <p> <%= @treatment_plan.diagnostic_justification %></p>
+               </div>
+            </div>
+
          </div>
       </div>
 
@@ -69,13 +105,15 @@
       </div>
 
       <div class="row">
-         <div class="col-md-12">
-            <p>
-              <strong>Goal estimated completion:</strong>
-              <%= @treatment_plan.goal_estimated_completion %>
-            </p>
+         <div class="col-sm-4">
+            <p><strong>Estimated Completion:</strong></p>
+         </div>
+         <div class="col-sm-8">
+            <p><%= @treatment_plan.goal_estimated_completion %></p>
          </div>
       </div>
+
+      <hr>
 
       <h5>Objective</h5>
       <div class="row">
@@ -85,18 +123,24 @@
       </div>
 
       <div class="row">
-         <div class="col-md-12">
-            <p>
-              <strong>Treatment strategy:</strong>
-              <%= @treatment_plan.treatment_strategy %>
-            </p>
-
-            <p>
-              <strong>Objective estimated completion:</strong>
-              <%= @treatment_plan.objective_estimated_completion %>
-            </p>
+         <div class="col-sm-4">
+            <p><strong>Treatment Strategy:</strong></p>
+         </div>
+         <div class="col-sm-8">
+            <p><%= @treatment_plan.treatment_strategy %></p>
          </div>
       </div>
+
+      <div class="row">
+         <div class="col-sm-4">
+            <p><strong>Objective Estimated Completion:</strong></p>
+         </div>
+         <div class="col-sm-8">
+            <p> <%= @treatment_plan.objective_estimated_completion %></p>
+         </div>
+      </div>
+
+      <hr>
 
       <h5>Prescribed Frequency of Treatment</h5>
       <div class="row">
@@ -105,102 +149,26 @@
          </div>
       </div>
 
+      <hr>
+
       <div class="row">
          <div class="col-md-12">
-            <p>
-              <strong>Clinician declaration:</strong>
-              <%= @treatment_plan.clinician_declaration %>
-            </p>
+            <% if @treatment_plan.clinician_declaration == true %>
+               <p>I declare that these services are medically necessary and appropriate to the recipient's diagnosis and needs.</p>
+            <% end %>
+         </div>
+      </div>
 
-            <p>
-              <strong>Clinician signature:</strong>
-              <%= @treatment_plan.clinician_signature %>
-            </p>
+      <div class="row">
+         <div class="col-md-12">
+            <% if @treatment_plan.clinician_signature == true %>
+               <p><%= @treatment_plan.user.first_name %> <%= @treatment_plan.user.last_name %>, signed this note and declared this information to be accurate and complete on <%= @treatment_plan.created_at.strftime('%D') %>.</p>
+            <% else %>
+               <p>This note requires the authors signature.</p>
+            <% end %>
          </div>
       </div>
 
 
    </div>
 </div>
-
-
-
-<!--
-
-<p>
-  <strong>User:</strong>
-  <%= @treatment_plan.user %>
-</p>
-
-<p>
-  <strong>Patient:</strong>
-  <%= @treatment_plan.patient %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @treatment_plan.date %>
-</p>
-
-<p>
-  <strong>Time:</strong>
-  <%= @treatment_plan.time %>
-</p>
-
-<p>
-  <strong>Diagnosis description:</strong>
-  <%= @treatment_plan.diagnosis_description %>
-</p>
-
-<p>
-  <strong>Diagnostic justification:</strong>
-  <%= @treatment_plan.diagnostic_justification %>
-</p>
-
-<p>
-  <strong>Presenting problem:</strong>
-  <%= @treatment_plan.presenting_problem %>
-</p>
-
-<p>
-  <strong>Treatment goal:</strong>
-  <%= @treatment_plan.treatment_goal %>
-</p>
-
-<p>
-  <strong>Goal estimated completion:</strong>
-  <%= @treatment_plan.goal_estimated_completion %>
-</p>
-
-<p>
-  <strong>Objective:</strong>
-  <%= @treatment_plan.objective %>
-</p>
-
-<p>
-  <strong>Treatment strategy:</strong>
-  <%= @treatment_plan.treatment_strategy %>
-</p>
-
-<p>
-  <strong>Objective estimated completion:</strong>
-  <%= @treatment_plan.objective_estimated_completion %>
-</p>
-
-<p>
-  <strong>Treatment frequency:</strong>
-  <%= @treatment_plan.treatment_frequency %>
-</p>
-
-<p>
-  <strong>Clinician declaration:</strong>
-  <%= @treatment_plan.clinician_declaration %>
-</p>
-
-<p>
-  <strong>Clinician signature:</strong>
-  <%= @treatment_plan.clinician_signature %>
-</p>
-
-<%= link_to 'Edit', edit_treatment_plan_path(@treatment_plan) %> |
-<%= link_to 'Back', treatment_plans_path %> -->

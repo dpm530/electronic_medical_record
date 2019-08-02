@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md border-bottom navbar-dark mb-2">
 
-   <a class="navbar-brand" href="/users">
+   <a class="navbar-brand" href="/">
       Logo
    </a>
 
@@ -19,7 +19,7 @@
             <a class="nav-link" href="/patients">Patients</a>
          </li>
          <li class="nav-item">
-            <a class="nav-link" href="/users/staff">Staff</a>
+            <a class="nav-link" href="/users_admin/staff">Staff</a>
          </li>
          <li class="nav-item">
             <a class="nav-link" href="/libraries">Library</a>
@@ -31,7 +31,7 @@
                <i class="fas fa-user"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-               <%= link_to 'Profile', user_contact_informations_path, class:"dropdown-item" %>
+               <a href="/profile/<%= current_user.id %>" class="dropdown-item">Profile</a>
                <a class="dropdown-item" href="/users/sign_out" data-method="delete">Sign Out</a>
             </div>
          </li>
