@@ -5,7 +5,7 @@
             <h4>Patient Comments:</h4>
          </div>
          <div class="col-md-6">
-            <%= link_to 'Edit', edit_patient_path(@patient), class:"btn btn-outline-primary float-right" %>
+            <%= link_to '<i class="fas fa-edit"></i> Edit'.html_safe, edit_patient_path(@patient), class:"btn btn-outline-primary float-right" %>
          </div>
       </div>
       <br>
@@ -24,7 +24,7 @@
             <h4>Patient Information</h4>
          </div>
          <div class="col-md-6">
-            <%= link_to 'Edit', edit_patient_path(@patient), class:"btn btn-outline-primary float-right" %>
+            <%= link_to '<i class="fas fa-edit"></i> Edit'.html_safe, edit_patient_path(@patient), class:"btn btn-outline-primary float-right" %>
          </div>
       </div>
 
@@ -208,14 +208,29 @@
    <div class="container-fluid mb-2 bg-white border py-4">
       <div class="row">
          <div class="col-md-6">
-            <h4>Emergency Contact:</h4>
+            <h4>Emergency Contacts:</h4>
          </div>
          <div class="col-md-6">
-            <%= link_to 'Add', new_patient_patient_emergency_contact_path(@patient), class:"btn btn-outline-primary float-right" %>
+            <%= link_to '<i class="far fa-plus-square"></i> Create Contact'.html_safe, new_patient_patient_emergency_contact_path(@patient), class:"btn btn-outline-primary float-right" %>
          </div>
       </div>
+
       <hr>
+
       <% @emergency_contacts.each do |ec| %>
+
+         <div class="row mb-2">
+            <div class="col-md-12">
+               <div class="dropdown">
+                  <button type="button" class="btn btn-outline-primary float-right" data-toggle="dropdown"><i class="fas fa-bars"></i></button>
+                  <div class="dropdown-menu">
+                     <%= link_to 'Edit', edit_patient_patient_emergency_contact_path(ec.patient, ec), class:"dropdown-item"%>
+                     <%= link_to 'Delete', [ec.patient, ec], :confirm => 'Are you sure?', :method => :delete, class:"dropdown-item" %>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          <div class="row">
             <div class="col-md-6 border-right">
 
@@ -334,9 +349,6 @@
 
             </div>
          </div>
-         <br>
-         <td><%= link_to 'Edit', edit_patient_patient_emergency_contact_path(ec.patient, ec), class:'btn btn-primary' %></td>
-         <td><%= link_to 'Delete', [ec.patient, ec], :confirm => 'Are you sure?', :method => :delete, class:'btn btn-primary' %></td>
          <hr>
       <% end %>
    </div>

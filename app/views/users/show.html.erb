@@ -2,8 +2,13 @@
 
 <div class="container-fluid py-4">
 
-   <div class="container-fluid py-2 px-0">
-      <h3>Staff: <small><%= @user.first_name %> <%= @user.last_name %></small></h3>
+   <div class="container-fluid py-2 ">
+      <div class="row">
+         <div class="col-md-12">
+            <h3>Staff: <small><%= @user.first_name %> <%= @user.last_name %></small></h3>
+         </div>
+      </div>
+
    </div>
 
    <br>
@@ -21,7 +26,7 @@
 
                <div class="col-md-6">
                   <div class="dropdown">
-                     <button type="button" class="btn btn-outline-primary float-right" data-toggle="dropdown"><i class="fas fa-ellipsis-v"></i></button>
+                     <button type="button" class="btn btn-outline-primary float-right" data-toggle="dropdown"><i class="fas fa-bars"></i></button>
                      <div class="dropdown-menu">
                         <%= link_to 'Edit', edit_users_admin_path(@user), class:"dropdown-item" %>
                      </div>
@@ -34,7 +39,7 @@
 
             <div class="row">
                <div class="col-sm-6">
-                  <p>Name:</p>
+                  <p><strong>Name:</strong></p>
                </div>
                <div class="col-sm-6">
                   <p><%= @user.first_name %> <%= @user.last_name %></p>
@@ -43,7 +48,7 @@
 
             <div class="row">
                <div class="col-sm-6">
-                  <p>Email:</p>
+                  <p><strong>Email:</strong></p>
                </div>
                <div class="col-sm-6">
                   <p><%= @user.email %></p>
@@ -52,7 +57,7 @@
 
             <div class="row">
                <div class="col-sm-6">
-                  <p>Languages:</p>
+                  <p><strong>Languages:</strong></p>
                </div>
                <div class="col-sm-6">
                   <p><%= @user.languages %></p>
@@ -61,7 +66,7 @@
 
             <div class="row">
                <div class="col-sm-6">
-                  <p>Default Location:</p>
+                  <p><strong>Default Location:</strong></p>
                </div>
                <div class="col-sm-6">
                   <p><%= @user.default_location %></p>
@@ -70,7 +75,7 @@
 
             <div class="row">
                <div class="col-sm-6">
-                  <p>Role:</p>
+                  <p><strong>Role:</strong></p>
                </div>
                <div class="col-sm-6">
                   <p><%= @user.role %></p>
@@ -87,7 +92,7 @@
                </div>
                <div class="col-md-6">
                   <div class="dropdown">
-                     <button type="button" class="btn btn-outline-primary float-right" data-toggle="dropdown"><i class="fas fa-ellipsis-v"></i></button>
+                     <button type="button" class="btn btn-outline-primary float-right" data-toggle="dropdown"><i class="fas fa-bars"></i></button>
                      <% if @contact_information %>
                         <div class="dropdown-menu">
                            <%= link_to 'Edit', edit_user_contact_information_path(@contact_information), class:"dropdown-item" %>
@@ -108,7 +113,7 @@
 
                <div class="row">
                   <div class="col-sm-6">
-                     <p>Mobile Phone:</p>
+                     <p><strong>Mobile Phone:</strong></p>
                   </div>
                   <div class="col-sm-6">
                      <p><%= @contact_information.mobile_phone %></p>
@@ -117,7 +122,7 @@
 
                <div class="row">
                   <div class="col-sm-6">
-                     <p>Home Phone:</p>
+                     <p><strong>Home Phone:</strong></p>
                   </div>
                   <div class="col-sm-6">
                      <p><%= @contact_information.home_phone %></p>
@@ -126,7 +131,7 @@
 
                <div class="row">
                   <div class="col-sm-6">
-                     <p>Work Phone:</p>
+                     <p><strong>Work Phone:</strong></p>
                   </div>
                   <div class="col-sm-6">
                      <p><%= @contact_information.work_phone %></p>
@@ -136,7 +141,7 @@
 
                <div class="row">
                   <div class="col-sm-6">
-                     <p>Address:</p>
+                     <p><strong>Address:</strong></p>
                   </div>
                   <div class="col-sm-6">
                      <p class="mb-0"><%= @contact_information.address_1 %></p>

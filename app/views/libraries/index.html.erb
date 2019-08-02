@@ -8,39 +8,52 @@
          </div>
          <div class="col-md-6">
             <% if admin_role? %>
-               <%= link_to 'Upload File', new_library_path, class:"btn btn-primary float-right" %>
+               <%= link_to '<i class="fas fa-cloud-upload-alt"></i> Upload File'.html_safe, new_library_path, class:"btn btn-primary float-right" %>
             <% end %>
          </div>
       </div>
    </div>
    <div class="container-fluid border bg-white py-4">
-      <h6>Use the Library to store and share documents within your practice, such as blank forms, agreements, and handouts. If the client portal is enabled, you can send documents to patients to be reviewed, completed, and/or electronically signed.</h6>
-      <br>
-      <div class="row">
-         <div class="col-md-12">
-            <table class="table table-bordered table-hover">
-               <thead>
-                  <tr>
-                     <th>Document Name</th>
-                     <th>Date</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <% @libraries.each do |l| %>
-                     <tr>
-                        <td><%= l.name %></td>
-                        <td><%= l.created_at.strftime('%D') %></td>
-                        <td><a href="<%= (l.library_document[0]).to_s %>" target='_blank'>Show</a></td>
-                        <% if admin_role? %>
-                           <td><%= link_to 'Edit', edit_library_path(l) %></td>
-                           <td><%= link_to 'Delete', l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                        <% end %>
-                     </tr>
-                  <% end %>
-               </tbody>
-            </table>
-         </div>
+      <div class="container-fluid">
+         <h6>Use the Library to store and share documents within your practice, such as blank forms, agreements, and handouts. If the client portal is enabled, you can send documents to patients to be reviewed, completed, and/or electronically signed.</h6>
+      </div>
 
+      <br>
+
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-12">
+
+               <table class="table text-center">
+                  <thead>
+                     <tr>
+                        <th>Document Name</th>
+                        <th>Date</th>
+                        <th  class="text-center">Actions</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <% @libraries.each do |l| %>
+                        <tr>
+                           <td><a href="<%= (l.library_document[0]).to_s %>" target='_blank'><%= l.name %></a></td>
+                           <td>
+                              <%= l.created_at.strftime('%D') %>
+                           </td>
+                           <td >
+                              <a class='btn btn-outline-primary btn-sm' href="<%= (l.library_document[0]).to_s %>" target='_blank'> <i class="fas fa-download"></i></a>
+                              <% if admin_role? %>
+                                 <%= link_to '<i class="fas fa-edit"></i> '.html_safe, edit_library_path(l), class:'btn btn-outline-primary btn-sm' %>
+                                 <%= link_to '<i class="fas fa-trash"></i>'.html_safe, l, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-primary btn-sm' %>
+                              <% end %>
+                           </td>
+
+                        </tr>
+                     <% end %>
+                  </tbody>
+               </table>
+            </div>
+
+         </div>
       </div>
 
 

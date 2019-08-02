@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-   root to: 'users#index'
 
+   root to: 'application#index'
 
    devise_for :users
 
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       collection do
          get 'new-user' => 'users#new'
          post 'create-user' => 'users#create'
-         patch 'edit-user/:id' => 'users#update_user'
+         patch 'update-user/:id' => 'users#update_user'
       end
    end
 
@@ -49,6 +49,8 @@ Rails.application.routes.draw do
    resources :progress_notes
    resources :treatment_plans
    resources :termination_notes
+
+
 
 
 end

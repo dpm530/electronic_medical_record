@@ -25,7 +25,7 @@ class UsersController < ApplicationController
    def create
       @user = User.new(user_params)
       if @user.save!
-         redirect_to users_admin_path(@user)
+         redirect_to practice_path(@user)
       else
          redirect_to '/'
       end
@@ -34,16 +34,16 @@ class UsersController < ApplicationController
    def update_user
       @user = User.find(params[:id])
       if @user.update(user_params)
-         redirect_to users_admin_path(@user)
+         redirect_to practice_path(@user)
       else
-         redirect_to
+         redirect_to '/'
       end
    end
 
    def destroy
       @user = User.find(params[:id])
       @user.destroy
-      redirect_to 'users_admin/staff'
+      redirect_to practice_index_path
    end
 
    private

@@ -5,7 +5,7 @@
             <h4>Files for this Patient:</h4>
          </div>
          <div class="col-md-6">
-            <a href="/patients/<%= @patient.id %>/documents/new" class="btn btn-outline-primary float-right">Upload Patient Files</a>
+            <%= link_to '<i class="fas fa-cloud-upload-alt"></i> Upload Patient Files'.html_safe, new_patient_document_path(@patient), class:"btn btn-outline-primary float-right" %>
          </div>
       </div>
       <br>
@@ -17,17 +17,21 @@
                      <th>Document Name</th>
                      <th>Date</th>
                      <th>Author</th>
+                     <th>Actions</th>
                   </tr>
                </thead>
                <tbody>
                   <% @documents.each do |document| %>
                      <tr>
-                        <td><%= document.name %></td>
+                        <td><a href="<%= (document.file[0]).to_s %>" target='_blank'><%= document.name %></a></td>
                         <td><%= document.created_at.strftime('%D') %></td>
-                        <td><%= document.user.first_name %> <%= document.user.last_name %></td>
-                        <td><a href="<%= (document.file[0]).to_s %>" target='_blank'>Show</a></td>
-                        <td><%= link_to 'Edit', edit_patient_document_path(document.patient, document) %></td>
-                        <td><%= link_to 'Delete', [document.patient, document], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><a href="/practice/<%= document.user.id %>"><%= document.user.first_name %> <%= document.user.last_name %></a></td>
+                        <td>
+                           <a class='btn btn-outline-primary btn-sm' href="<%= (document.file[0]).to_s %>" target='_blank'><i class="fas fa-download"></i></a>
+                           <%= link_to '<i class="fas fa-edit"></i> '.html_safe, edit_patient_document_path(document.patient, document), class:'btn btn-outline-primary btn-sm' %>
+                           <%= link_to '<i class="fas fa-trash"></i>'.html_safe, [document.patient, document], method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-primary btn-sm' %>
+                        </td>
+
                      </tr>
                   <% end %>
                </tbody>

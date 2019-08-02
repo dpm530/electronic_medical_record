@@ -1,9 +1,12 @@
 class ApplicationController < ActionController::Base
+   before_action :authenticate_user!
    before_action :configure_permitted_parameters, if: :devise_controller?
    after_action :current_user_role, if: :user_signed_in?
    helper_method :role_url
    helper_method :admin_role?
 
+   def index
+   end
 
    def admin_role?
       if current_user_role == 'Administrator'

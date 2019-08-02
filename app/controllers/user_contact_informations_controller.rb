@@ -25,10 +25,11 @@ class UserContactInformationsController < ApplicationController
   # POST /user_contact_informations.json
   def create
     @user_contact_information = UserContactInformation.new(user_contact_information_params)
+    @user = @user_contact_information.user
 
     respond_to do |format|
       if @user_contact_information.save
-        format.html { redirect_to user_contact_informations_path, notice: 'User contact information was successfully created.' }
+        format.html { redirect_to practice_path(@user), notice: 'User contact information was successfully created.' }
         format.json { render :show, status: :created, location: @user_contact_information }
       else
         format.html { render :new }
@@ -40,9 +41,11 @@ class UserContactInformationsController < ApplicationController
   # PATCH/PUT /user_contact_informations/1
   # PATCH/PUT /user_contact_informations/1.json
   def update
+     @user = @user_contact_information.user
+
     respond_to do |format|
       if @user_contact_information.update(user_contact_information_params)
-        format.html { redirect_to user_contact_informations_url, notice: 'User contact information was successfully updated.' }
+        format.html { redirect_to practice_path(@user), notice: 'User contact information was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_contact_information }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class UserContactInformationsController < ApplicationController
   def destroy
     @user_contact_information.destroy
     respond_to do |format|
-      format.html { redirect_to user_contact_informations_url, notice: 'User contact information was successfully destroyed.' }
+      format.html { redirect_to practice_path, notice: 'User contact information was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
