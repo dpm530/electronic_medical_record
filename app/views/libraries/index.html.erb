@@ -7,34 +7,42 @@
             <h3>Library</h3>
          </div>
          <div class="col-md-6">
-            <%= link_to 'Upload File', new_library_path, class:"btn btn-primary float-right" %>
+            <% if admin_role? %>
+               <%= link_to 'Upload File', new_library_path, class:"btn btn-primary float-right" %>
+            <% end %>
          </div>
       </div>
    </div>
    <div class="container-fluid border bg-white py-4">
       <h6>Use the Library to store and share documents within your practice, such as blank forms, agreements, and handouts. If the client portal is enabled, you can send documents to patients to be reviewed, completed, and/or electronically signed.</h6>
       <br>
-      <table class="table table-bordered table-hover">
-         <thead>
-            <tr>
-               <th>Document Name</th>
-               <th>Date</th>
-            </tr>
-         </thead>
-         <tbody>
-            <% @libraries.each do |l| %>
-               <tr>
-                  <td><%= l.name %></td>
-                  <td><%= l.created_at.strftime('%D') %></td>
-                  <!-- <td><%= link_to 'Show', l %></td> -->
-                  <td><a href="<%= (l.library_document[0]).to_s %>" target='_blank'>Show</a></td>
-                  <td><%= link_to 'Edit', edit_library_path(l) %></td>
-                  <td><%= link_to 'Delete', l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-               </tr>
-            <% end %>
+      <div class="row">
+         <div class="col-md-12">
+            <table class="table table-bordered table-hover">
+               <thead>
+                  <tr>
+                     <th>Document Name</th>
+                     <th>Date</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <% @libraries.each do |l| %>
+                     <tr>
+                        <td><%= l.name %></td>
+                        <td><%= l.created_at.strftime('%D') %></td>
+                        <td><a href="<%= (l.library_document[0]).to_s %>" target='_blank'>Show</a></td>
+                        <% if admin_role? %>
+                           <td><%= link_to 'Edit', edit_library_path(l) %></td>
+                           <td><%= link_to 'Delete', l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
+                     </tr>
+                  <% end %>
+               </tbody>
+            </table>
+         </div>
 
-         </tbody>
-      </table>
+      </div>
+
 
    </div>
 </div>

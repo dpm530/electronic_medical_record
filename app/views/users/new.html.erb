@@ -15,7 +15,7 @@
          <div class="row">
             <div class="col-md-12">
                <div class="container">
-                  <form  action="/users_admin/add-user" method="post" >
+                  <form  action="/practice/create-user" method="post" >
                      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 
                      <div class="form-row">
@@ -51,8 +51,8 @@
                            <label for="user[role]">
                               Role:
                            </label>
-                           <select id="user[role]" class="form-control" name="user[role]">
-                              <option>Select Role</option>
+                           <select id="user[role]" class="form-control" name="user[role]" placeholder='select'>
+                              <option value=''></option>
                               <option values='Administrator'>Administrator</option>
                               <option value='Clinician' >Clinician</option>
                            </select>

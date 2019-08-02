@@ -1,73 +1,48 @@
 <%= render "shared/navbar_signed_in"%>
 
 <div class="container-fluid py-4">
-
-   <div class="container-fluid border bg-whit py-3">
-      <div class="row ">
+   <div class="container-fluid mb-2">
+      <div class="row">
          <div class="col-md-6">
-            <h3>Welcome, <%= current_user.first_name %>  <%= current_user.last_name %> </h3>
+            <h3>Staff</h3>
          </div>
          <div class="col-md-6">
-            <p class="float-right"><%= DateTime.now.strftime('%A, %B %d') %></p>
+            <% if admin_role? %>
+               <a href="/practice/new" class="btn btn-primary float-right" >Create New User</a>
+            <% end %>
          </div>
       </div>
+   </div>
+   <div class="container-fluid border bg-white py-4">
+      <table class="table table-bordered table-hover">
+         <thead>
+            <tr>
+               <th>First Name</th>
+               <th>Last Name</th>
+               <th>Email</th>
+               <th>Default Location</th>
+               <th>Role</th>
+            </tr>
+         </thead>
+         <tbody>
+            <% @users.each do |user| %>
+               <% unless current_user == user %>
+                  <tr>
+                     <td><%= user.first_name %></td>
+                     <td><%= user.last_name %></td>
+                     <td><%= user.email %></td>
+                     <td><%= user.default_location %></td>
+                     <td><%= user.role %></td>
+                     <td><%= link_to 'Show', practice_index_path(user) %></td>
+                     <% if admin_role? %>
+                        <td><%= link_to 'Edit', edit_practice_path(user) %></td>
+                        <td><%= link_to 'Delete', practice_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                     <% end %>
+                  </tr>
+               <% end %>
+            <% end %>
+         </tbody>
+      </table>
 
    </div>
-
-
-   <br>
-
-   <ul class="list-group my-2">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-         Total Patients
-         <span class="badge badge-primary badge-pill">
-            <% if @patients %>
-               <%= @patients.length%>
-            <% else %>
-               0
-            <% end %>
-         </span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-         Total Notes
-         <span class="badge badge-primary badge-pill">
-            <% if @notes %>
-               <%= @notes %>
-            <% else %>
-               0
-            <% end %>
-         </span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-         Total Staff
-         <span class="badge badge-primary badge-pill">
-            <% if @users %>
-               <%= @users.length %>
-            <% else %>
-               0
-            <% end %>
-         </span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-         Total Library Documents
-         <span class="badge badge-primary badge-pill">
-            <% if @library %>
-               <%= @library.length %>
-            <% else %>
-               0
-            <% end %>
-         </span>
-      </li>
-   </ul>
 </div>
-
-
-<!-- <div class="container">
-   <h1>Index</h1>
-   <a href="/patients" class="btn btn-primary">Patients</a>
-   <a href="/patients/new" class="btn btn-primary">New Patient</a>
-   <a href="/user_contact_informations/new" class="btn btn-primary"> User Contact Information</a>
-   <a href="/users/sign_out" data-method="delete" class="btn btn-primary">Sign Out</a>
-</div> -->
-
-<%= render "shared/footer" %>

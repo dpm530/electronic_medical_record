@@ -26,18 +26,20 @@
             </tr>
          </thead>
          <tbody>
-            <% @patients.each do |patient| %>
-               <tr>
-                  <td><%= patient.first_name %></td>
-                  <td><%= patient.last_name %></td>
-                  <td><%= patient.email %></td>
-                  <td><%=  patient.mobile_phone %></td>
-                  <td><%= patient.dob %></td>
-                  <td><%= patient.user.first_name %> <%= patient.user.last_name %></td>
-                  <td><%= link_to 'Show', patient %></td>
-                  <!-- <td><%= link_to 'Edit', edit_patient_path(patient) %></td> -->
-                  <td><%= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-               </tr>
+            <% if @patients %>
+               <% @patients.each do |patient| %>
+                  <tr>
+                     <td><%= patient.first_name %></td>
+                     <td><%= patient.last_name %></td>
+                     <td><%= patient.email %></td>
+                     <td><%=  patient.mobile_phone %></td>
+                     <td><%= patient.dob %></td>
+                     <td><%= patient.user.first_name %> <%= patient.user.last_name %></td>
+                     <td><%= link_to 'Show', patient %></td>
+                     <!-- <td><%= link_to 'Edit', edit_patient_path(patient) %></td> -->
+                     <td><%= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+               <% end %>
             <% end %>
          </tbody>
       </table>

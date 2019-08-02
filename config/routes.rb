@@ -7,10 +7,18 @@ Rails.application.routes.draw do
 
    resources :users_admin, :controller => 'users' do
       collection do
-         patch 'update-user/:id' => 'users#update_user'
          get 'staff' => 'users#staff'
          get 'add-user' => 'users#new'
          post 'add-user' => 'users#create'
+         patch 'update-user/:id' => 'users#update_user'
+      end
+   end
+
+   resources :practice, :controller => 'users' do
+      collection do
+         get 'new-user' => 'users#new'
+         post 'create-user' => 'users#create'
+         patch 'edit-user/:id' => 'users#update_user'
       end
    end
 
@@ -33,10 +41,8 @@ Rails.application.routes.draw do
       resources :documents
    end
 
-
-
-
-
+   resources :administrators
+   resources :clinicians
    resources :user_contact_informations
    resources :libraries
    resources :intake_notes
