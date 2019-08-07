@@ -18,9 +18,11 @@
          <li class="nav-item">
             <a class="nav-link" href="/patients">Patients</a>
          </li>
-         <li class="nav-item">
-            <a class="nav-link" href="/practice">Staff</a>
-         </li>
+         <% if admin_role? %>
+            <li class="nav-item">
+               <a class="nav-link" href="/practice">Staff</a>
+            </li>
+         <% end %>
          <li class="nav-item">
             <a class="nav-link" href="/libraries">Library</a>
          </li>
@@ -31,7 +33,7 @@
                <i class="fas fa-user"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-               <%= link_to '<i class="fas fa-user-circle"></i> Profile'.html_safe, practice_path(current_user), class:'dropdown-item'%>
+               <%= link_to '<i class="fas fa-user-circle"></i> Profile'.html_safe, edit_user_registration_path, class:'dropdown-item'%>
                <hr>
                <%= link_to '<i class="fas fa-sign-out-alt"></i> Sign Out'.html_safe, destroy_user_session_path, method:'delete', class:'dropdown-item'%>
             </div>

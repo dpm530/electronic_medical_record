@@ -28,7 +28,11 @@
                   <div class="dropdown">
                      <button type="button" class="btn btn-outline-primary float-right" data-toggle="dropdown"><i class="fas fa-bars"></i></button>
                      <div class="dropdown-menu">
-                        <%= link_to 'Edit', edit_users_admin_path(@user), class:"dropdown-item" %>
+                        <% unless @user == current_user %>
+                           <%= link_to 'Edit', edit_users_admin_path(@user), class:"dropdown-item" %>
+                        <% else %>
+                           <%= link_to 'Edit', edit_user_registration_path, class:"dropdown-item" %>
+                        <% end %>
                      </div>
                   </div>
 

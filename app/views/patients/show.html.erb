@@ -225,7 +225,9 @@
                   <button type="button" class="btn btn-outline-primary float-right" data-toggle="dropdown"><i class="fas fa-bars"></i></button>
                   <div class="dropdown-menu">
                      <%= link_to 'Edit', edit_patient_patient_emergency_contact_path(ec.patient, ec), class:"dropdown-item"%>
-                     <%= link_to 'Delete', [ec.patient, ec], :confirm => 'Are you sure?', :method => :delete, class:"dropdown-item" %>
+                     <% if admin_role? %>
+                        <%= link_to 'Delete', [ec.patient, ec], :confirm => 'Are you sure?', :method => :delete, class:"dropdown-item" %>
+                     <% end %>
                   </div>
                </div>
             </div>
@@ -266,7 +268,9 @@
                      <p>Release of Information:</p>
                   </div>
                   <div class="col-sm-8">
-                     <p><%= ec.release_of_info.strftime('%D') %></p>
+                     <% if ec.release_of_info %>
+                        <p><%= ec.release_of_info.strftime('%D') %></p>
+                     <% end  %>
                   </div>
                </div>
 
@@ -275,7 +279,9 @@
                      <p>Date of Birth:</p>
                   </div>
                   <div class="col-sm-8">
-                     <p><%= ec.dob.strftime('%D') %></p>
+                     <% if ec.dob %>
+                        <p><%= ec.dob.strftime('%D') %></p>
+                     <% end  %>
                   </div>
                </div>
 

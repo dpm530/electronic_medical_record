@@ -5,7 +5,8 @@ class PatientsController < ApplicationController
    # GET /patients
    # GET /patients.json
    def index
-      @patients = Patient.all
+      @user = current_user
+      @patients = @user.patients
    end
 
    # GET /patients/1
@@ -36,6 +37,17 @@ class PatientsController < ApplicationController
    # GET /patients/new
    def new
       @users=User.all
+      @clinicians = []
+      @users.each do |u|
+         n = "#{u.first_name} #{u.last_name}"
+         @clinicians << n
+      end
+      puts '='*50
+      @clinicians.each do |c|
+         puts c
+      end
+      puts '='*50
+
       @patient = Patient.new
       @states = ['FL', 'TX', 'CO', 'NY']
    end

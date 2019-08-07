@@ -37,24 +37,29 @@ class ApplicationController < ActionController::Base
 
 
 
+
+
    protected
 
       def configure_permitted_parameters
-         devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :password_confirmation, :current_password, :first_name, :last_name])
+         devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :password_confirmation, :current_password, :first_name, :last_name, :languages, :default_location, :role])
       end
+
+
 
 
    private
 
-      def after_sign_in_path_for(resource)
 
+      def after_sign_in_path_for(resource)
          if resource.role == 'Administrator'
             return administrators_path
          elsif resource.role == 'Clinician'
             return clinicians_path
          end
-
       end
+
+
 
 
 
