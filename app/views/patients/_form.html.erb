@@ -22,10 +22,10 @@
             <div class="form-group row">
                <%= form.label 'Name:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-4">
-                  <%= form.text_field :first_name, class:"form-control form-control-sm", input_html: { autocomplete:'off' }, placeholder:'First' %>
+                  <%= form.text_field :first_name, class:"form-control form-control-sm", autocomplete:'new-first-name', placeholder:'First' %>
                </div>
                <div class="col-sm-4">
-                  <%= form.text_field :last_name, class:"form-control form-control-sm", placeholder:'Last' %>
+                  <%= form.text_field :last_name, class:"form-control form-control-sm", placeholder:'Last', autocomplete:'new-last-name' %>
                </div>
             </div>
 
@@ -53,35 +53,35 @@
             <div class="form-group row">
                <%= form.label 'Mobile Phone:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.text_field :mobile_phone, class:"form-control form-control-sm" %>
+                  <%= form.text_field :mobile_phone, class:"form-control form-control-sm", autocomplete:'off' %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'Home Phone:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.text_field :home_phone, class:"form-control form-control-sm" %>
+                  <%= form.text_field :home_phone, class:"form-control form-control-sm", autocomplete:'off' %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'Work Phone:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.text_field :work_phone, class:"form-control form-control-sm" %>
+                  <%= form.text_field :work_phone, class:"form-control form-control-sm", autocomplete:'off' %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'Other Phone:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.text_field :other_phone, class:"form-control form-control-sm" %>
+                  <%= form.text_field :other_phone, class:"form-control form-control-sm", autocomplete:'off' %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'Address 1:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.text_field :address_1, class:"form-control form-control-sm" %>
+                  <%= form.text_field :address_1, class:"form-control form-control-sm", autocomplete:'new-street-address' %>
                </div>
             </div>
 
@@ -93,18 +93,18 @@
             </div>
 
             <div class="form-group row">
-               <%= form.label 'City:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
-               <div class="col-sm-8">
+               <%= form.label 'City/State', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-6">
                   <%= form.text_field :city, class:"form-control form-control-sm" %>
+               </div>
+               <div class="col-sm-2">
+                  <%= form.select :state,['TX', 'CO', 'FL', 'CA'], { include_blank: true }, class:'form-control form-control-sm'%>
                </div>
             </div>
 
             <div class="form-group row">
-               <%= form.label 'State/Zip:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
-               <div class="col-sm-3">
-                  <%= form.select :state, @states.collect{|p| [p,p]}, { include_blank: true }, class:'form-control form-control-sm' %>
-               </div>
-               <div class="col-sm-5">
+               <%= form.label 'Zipcode:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+               <div class="col-sm-6">
                   <%= form.text_field :zipcode, class:"form-control form-control-sm" %>
                </div>
             </div>
@@ -116,28 +116,28 @@
             <div class="form-group row">
                <%= form.label 'Birth Sex:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.select :birth_sex,['Male', 'Female', 'Other'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+                  <%= form.select :birth_sex,['Male', 'Female', 'Unknown'],{ include_blank: true }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'Gender Identity:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.select :gender_identity,['Select Gender Identity', 'Male', 'Female', 'Other'],{ include_blank: false }, class:'form-control form-control-sm'  %>
+                  <%= form.select :gender_identity,['Male', 'Female', 'Other'],{ prompt: 'Select Gender Identity' }, class:'form-control form-control-sm' %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'Sexual Orientation:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.select :sexual_orientation,['Select Sexual Orientation', 'Straight or Heterosexual', 'Lesbian Gay or Homosexual', 'Bisexual'],{ include_blank: false }, class:'form-control form-control-sm'  %>
+                  <%= form.select :sexual_orientation,['Straight or Heterosexual', 'Lesbian Gay or Homosexual', 'Bisexual'],{ prompt: 'Select Sexual Orientation' }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'Race:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.select :race,['Select Race'],{ include_blank: false }, class:'form-control form-control-sm'  %>
+                  <%= form.select :race,['American Indian or Alaska Native'],{ prompt: 'Select Race' }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 
@@ -151,28 +151,31 @@
             <div class="form-group row">
                <%= form.label 'Marital Status:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.text_field :marital_status, class:"form-control form-control-sm", autocomplete:'off' %>
+                  <%= form.select :marital_status,['Married', 'Single', 'Other'],{ include_blank: true }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'Employment:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.text_field :employment, class:"form-control form-control-sm", autocomplete:'off' %>
+                  <%= form.select :employment,['Employed', 'Full-Time Student', 'Part-Time Student', 'Unemployed/Other'],{ prompt: 'Select Employment' }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'HIPAA:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.check_box :hipaa, class:"form-control form-control-sm" %>
+                  <div class="form-check">
+                     <%= form.check_box :hipaa, class:"form-check-input" %>
+                     <%= form.label 'Patient/guardian signed HIPAA NPP', class:'form-check-label'%>
+                  </div>
                </div>
             </div>
 
             <div class="form-group row">
                <%= form.label 'PCP Release:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
                <div class="col-sm-8">
-                  <%= form.text_field :pcp_release, class:"form-control form-control-sm", autocomplete:'off' %>
+                  <%= form.select :pcp_release,['Patient consented to release information', 'Patient declined to release information', 'Not applicable'],{ prompt: 'Not set' }, class:'form-control form-control-sm'  %>
                </div>
             </div>
          </div>
@@ -183,10 +186,19 @@
       <div class="row">
          <div class="col-md-6">
 
-            <div class="form-group row">
+            <!-- <div class="form-group row">
                <%= form.label 'Assigned Clinician:', class:"col-sm-4 col-form-label col-form-label-md"  %>
                <div class="col-sm-8">
-                  <%= form.select 'user_id', @clinicians.collect{|c| c}, { include_blank: true }, class:'form-control form-control-sm' %>
+
+                  <%= form.text_field :user_id, class:"form-control form-control-sm", value: @clinician %>
+
+               </div>
+            </div> -->
+
+            <div class="form-group row">
+               <%= form.label 'Clinician:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+               <div class="col-sm-8">
+                  <%= form.select 'user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }, class:'form-control form-control-sm' %>
                </div>
             </div>
 

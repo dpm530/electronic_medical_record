@@ -35,8 +35,8 @@
                      <td><%= patient.dob %></td>
                      <td><%= patient.user.first_name %> <%= patient.user.last_name %></td>
                      <td>
-                        <%= link_to '<i class="far fa-eye"></i>'.html_safe, patient, class:'btn btn-outline-primary btn-sm' %>
                         <% if admin_role? %>
+                           <%= link_to '<i class="far fa-eye"></i>'.html_safe, patient, class:'btn btn-outline-primary btn-sm' %>
                            <%= link_to '<i class="fas fa-edit"></i> '.html_safe, edit_patient_path(patient), class:'btn btn-outline-primary btn-sm' %>
                            <%= link_to '<i class="fas fa-trash"></i>'.html_safe, patient, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-primary btn-sm' %>
                         <% end %>
