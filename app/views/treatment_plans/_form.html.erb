@@ -3,15 +3,15 @@
    <div class="row">
       <div class="col-md-6">
 
-         <div class="form-group row">
-            <%= f.label 'Clinician:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Clinician:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
                <%= f.select 'user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }, class:'form-control form-control-sm' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Patient:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Patient:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
                <input type="text" name="" value="<%= @treatment_plan.patient.first_name%> <%= @treatment_plan.patient.last_name %>" class="form-control form-control-sm">
             </div>
@@ -20,15 +20,15 @@
       </div>
       <div class="col-md-6">
 
-         <div class="form-group row">
-            <%= f.label 'Date:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Date:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
             <div class="col-sm-8">
                <%= f.date_field :date, class:"form-control form-control-sm" %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Time:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Time:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
             <div class="col-sm-8">
                <%= f.time_field :time, class:"form-control form-control-sm" %>
             </div>
@@ -48,7 +48,7 @@
          </div>
 
          <div class="form-group">
-            <%= f.text_area :diagnostic_justification, class:'form-control form-control-sm', rows:'2', placeholder:'Diagnostic justfication and/or assessment measures'  %>
+            <%= f.text_area :diagnostic_justification, class:'form-control form-control-sm', rows:'1', placeholder:'Diagnostic justfication and/or assessment measures'  %>
          </div>
 
       </div>
@@ -73,11 +73,11 @@
    </div>
 
    <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-6">
          <div class="form-group row">
-            <%= f.label 'Estimated Completion Time:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <%= f.label 'Estimated Completion:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :goal_estimated_completion,['1 month', '2 months', '3 months'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :goal_estimated_completion,['1 week','2 weeks','3 weeks','1 month', '2 months', '3 months','4 months','5 months','6 months'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
       </div>
@@ -93,9 +93,9 @@
    </div>
 
    <div class="row">
-      <div class="col-md-8">
-         <div class="form-group row">
-            <%= f.label 'Treatment Strategy/Interventions:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+      <div class="col-md-6">
+         <div class="form-group row mb-0">
+            <%= f.label 'Treatment Strategy/Interventions:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
                <%= f.text_field :treatment_strategy, class:'form-control form-control-sm' %>
             </div>
@@ -104,24 +104,26 @@
    </div>
 
    <div class="row">
-      <div class="col-md-8">
-         <div class="form-group row">
-            <%= f.label 'Estimated Completion:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+      <div class="col-md-6">
+         <div class="form-group row mb-0">
+            <%= f.label 'Estimated Completion:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :objective_estimated_completion,['1 month', '2 months', '3 months'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :objective_estimated_completion,['1 week','2 weeks','3 weeks','1 month', '2 months', '3 months','4 months','5 months','6 months'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
       </div>
    </div>
 
+   <br>
+
    <h5>Frequency of Treatment:</h5>
 
    <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-6">
          <div class="form-group row">
-            <%= f.label 'Prescribed Frequency of Treatment:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+            <%= f.label 'Prescribed Frequency of Treatment:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :treatment_frequency, class:'form-control form-control-sm' %>
+               <%= f.select :treatment_frequency,['As needed','Twice a week','Weekly','Every two weeks', 'Every month','Every two months'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
       </div>
@@ -131,7 +133,7 @@
       <div class="col-md-12 border bg-light bg-light p-2">
          <div class="form-check">
             <%= f.check_box :clinician_declaration, class:'form-check-input' %>
-            <label for="intake_note[clinician_signature]">I declare that these services are medically necessary and appropriate to the recipient's diagnosis and needs.</label>
+            <label class="form-check-label" for="intake_note[clinician_signature]">I declare that these services are medically necessary and appropriate to the recipient's diagnosis and needs.</label>
          </div>
       </div>
    </div>
@@ -142,7 +144,7 @@
       <div class="col-md-12 border bg-light bg-light p-2">
          <div class="form-check">
             <%= f.check_box :clinician_signature, class:'form-check-input' %>
-            <label class="form-check-label"> Sign this Form: I, <%= current_user.first_name %> <%= current_user.last_name %>, Clinical Psychologist, declare this information to be accurate and complete.</label>
+            <label class="form-check-label"> Sign this Form: <strong> I, <%= current_user.first_name %> <%= current_user.last_name %>, Clinical Psychologist, declare this information to be accurate and complete.</strong></label>
          </div>
       </div>
    </div>
