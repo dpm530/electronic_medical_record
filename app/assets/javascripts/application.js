@@ -17,3 +17,14 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require chartkick
+//= require Chart.bundle
+
+$(document).ready(function(){
+
+   $(".intake-form").click(function(){
+      $(this).attr('rows','2')
+      $(".background-infomration").removeClass("mb-0").addClass("mb-1")
+   });
+
+});

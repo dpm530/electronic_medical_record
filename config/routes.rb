@@ -49,6 +49,8 @@ Rails.application.routes.draw do
    resources :progress_notes
    resources :treatment_plans
    resources :termination_notes
+   resources :statistics
+   
 
 
 

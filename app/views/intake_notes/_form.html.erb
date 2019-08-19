@@ -3,31 +3,31 @@
    <div class="row">
       <div class="col-md-6">
 
-         <div class="form-group row">
-            <%= f.label 'Clinician:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Clinician:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
                <%= f.select 'user_id', @users.collect{|p| [p.first_name, p.id]}, { include_blank: true }, class:'form-control form-control-sm' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Patient:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Patient:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
                <input type="text" name="" value="<%= @intake_note.patient.first_name%> <%= @intake_note.patient.last_name %>" class="form-control form-control-sm">
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Date:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Date:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
                <%= f.date_field :date, class:"form-control form-control-sm" %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Time:', class:"col-sm-4 col-form-label col-form-label-sm"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Time:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.time_field :time, class:"form-control form-control-sm" %>
+               <%= f.time_field :time, class:"form-control form-control-sm"%>
             </div>
          </div>
 
@@ -35,22 +35,27 @@
 
       <div class="col-md-6">
 
-         <div class="form-group row">
-            <%= f.label 'Duration:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Duration:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :duration, class:"form-control form-control-sm" %>
+               <div class="input-group input-group-sm">
+                  <%= f.select :duration,['30', '35', '40', '45', '50', '55', '60'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+                  <div class="input-group-append">
+                     <span class="input-group-text">minutes</span>
+                  </div>
+               </div>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Location:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Location:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
                <%= f.select :location, @location.collect{|l| [l, l]}, { include_blank: true }, class:'form-control form-control-sm' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Participants:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Participants:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
                <%= f.select :participants, @participants.collect{|l| [l, l]}, { include_blank: true }, class:'form-control form-control-sm' %>
             </div>
@@ -65,7 +70,7 @@
       <div class="col-md-12">
          <h5>Presenting Problem</h5>
          <div class="form-group">
-            <%= f.text_area :presenting_problems, class:'form-control' %>
+            <%= f.text_area :presenting_problems, class:'form-control form-control-sm' %>
          </div>
       </div>
    </div>
@@ -77,74 +82,59 @@
    <div class="row">
       <div class="col-md-6">
 
-         <div class="form-group row">
-            <%= f.label 'Genral Apprearance:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Genral Apprearance:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :general_appearance, class:"form-control form-control-sm" %>
+               <%= f.select :general_appearance,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <!-- <div class="input-group mb-3 input-group-sm">
-            <div class="input-group-prepend">
-               <span class="input-group-text">General Appearance:</span>
-            </div>
-            <%= f.text_field :general_appearance, class:'form-control', list:'options1' %>
-            <datalist id="options1">
-               <option value="Appropiate">
-               <option value="Disheveled">
-               <option value="Emaciated">
-               <option value="Obese">
-               <option value="Poor Hygiene">
-               <option value="Not Assessed">
-            </datalist>
-         </div> -->
-
-         <div class="form-group row">
-            <%= f.label 'Dress:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Dress:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :dress, class:"form-control form-control-sm" %>
+               <%= f.select :dress,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Motor Activity:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Motor Activity:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :motor_activity, class:"form-control form-control-sm" %>
+               <%= f.select :motor_activity,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Insight:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Insight:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :insight, class:"form-control form-control-sm" %>
+               <%= f.select :insight,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Judgement:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Judgement:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :judgement, class:"form-control form-control-sm" %>
+               <%= f.select :judgement,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Affect:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Affect:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :affect, class:"form-control form-control-sm" %>
+               <%= f.select :affect,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Mood:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Mood:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :mood, class:"form-control form-control-sm" %>
+               <%= f.select :mood,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Orientation:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Orientation:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :orientation, class:"form-control form-control-sm" %>
+               <%= f.select :orientation,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
@@ -152,52 +142,52 @@
 
       <div class="col-md-6">
 
-         <div class="form-group row">
-            <%= f.label 'Memory:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Memory:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :memory, class:"form-control form-control-sm" %>
+               <%= f.select :memory,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Attention/Concentration:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Attention/Concentration:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :attention_concentration, class:"form-control form-control-sm" %>
+               <%= f.select :attention_concentration,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Thought Content:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Thought Content:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :thought_content, class:"form-control form-control-sm" %>
+               <%= f.select :thought_content,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Perception:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Perception:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :perception, class:"form-control form-control-sm" %>
+               <%= f.select :perception,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Flow of Thought:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Flow of Thought:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :flow_of_thought, class:"form-control form-control-sm" %>
+               <%= f.select :flow_of_thought,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Interview Behavior:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Interview Behavior:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :interview_behavior, class:"form-control form-control-sm" %>
+               <%= f.select :interview_behavior,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Speech:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Speech:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :speech, class:"form-control form-control-sm" %>
+               <%= f.select :speech,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
@@ -210,14 +200,15 @@
 
    <div class="row">
       <div class="col-md-6">
-         <div class="form-group row">
-            <%= f.label 'Safety Issues:', class:"col-sm-4 col-form-label col-form-label-md"  %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Safety Issues:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.text_field :safety_issues, class:"form-control form-control-sm", list:'safety_issues' %>
+               <%= f.text_field :safety_issues, class:"form-control form-control-sm", list:'safety_issues', autocomplete: 'off' %>
                <datalist id="safety_issues">
                   <option value="None">
                   <option value="Suicidal Ideation">
                   <option value="Hommicidal Ideation">
+                  <option value="Other:">
                </datalist>
             </div>
          </div>
@@ -231,108 +222,108 @@
    <div class="row">
       <div class="col-md-12">
 
-         <div class="form-group row">
-            <%= f.label 'Identification:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :identification, class:'form-control form-control-sm', rows:'2', placeholder:'age, ethnicity, religion, marital status, referral status, etc.' %>
+         <div class="form-group row background-information mb-0">
+            <%= f.label 'Identification:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :identification, class:'form-control form-control-sm intake-form', rows:'1', placeholder:'age, ethnicity, religion, marital status, referral status, etc.' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'History of Present Problem:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :history_present_problem, class:'form-control form-control-sm', rows:'2', placeholder:'symptoms, onset, duration, frequency, etc.' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'History of Present Problem:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :history_present_problem, class:'form-control form-control-sm intake-form', rows:'1', placeholder:'symptoms, onset, duration, frequency, etc.' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Past Psychiatric History:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :past_psychiatric_history, class:'form-control form-control-sm', rows:'2', placeholder:'prior treatment, symptoms, diagnoses, hospitalization, suicide attempts, violent history, etc.' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Past Psychiatric History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :past_psychiatric_history, class:'form-control form-control-sm', rows:'1', placeholder:'prior treatment, symptoms, diagnoses, hospitalization, suicide attempts, violent history, etc.' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Trauma History:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :trauma_history, class:'form-control', rows:'2', placeholder:'nature of trauma, when ocurred, persons involved, etc.' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Trauma History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :trauma_history, class:'form-control form-control-sm', rows:'1', placeholder:'nature of trauma, when ocurred, persons involved, etc.' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Family Psychiatric History:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :family_psychiatric_history, class:'form-control form-control-sm', rows:'2' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Family Psychiatric History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :family_psychiatric_history, class:'form-control form-control-sm', rows:'1', placeholder:'history of mental illness in family, diagnosis, etc.' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Medical History:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :medical_history, class:'form-control form-control-sm', rows:'2' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Medical History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :medical_history, class:'form-control form-control-sm', rows:'1', placeholder:'current and past medical conditions, treatments, allergies, etc.' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Current Medications:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :current_medications, class:'form-control form-control-sm', rows:'2' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Current Medications:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :current_medications, class:'form-control form-control-sm', rows:'1', placeholder:'medication, dosage, purpose, prescribing physician' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Substance Use:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :substance_use, class:'form-control form-control-sm', rows:'2' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Substance Use:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :substance_use, class:'form-control form-control-sm', rows:'1', placeholder:'substance, start date, last use, amount, frequency, etc.' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Family History:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :family_history, class:'form-control form-control-sm', rows:'2' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Family History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :family_history, class:'form-control form-control-sm', rows:'1', placeholder:'family of origin, relationship with parents, siblings, significant other(s)' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Social History:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :social_history, class:'form-control form-control-sm', rows:'2' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Social History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :social_history, class:'form-control form-control-sm', rows:'1', placeholder:'significant relationships, social support, nature/quality of relationships, etc.' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Development History:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :development_history, class:'form-control form-control-sm', rows:'2' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Development History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :development_history, class:'form-control form-control-sm', rows:'1', placeholder:'development milestones, delays, etc.' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Educational/Occupatinal History:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :educational_occupational_history, class:'form-control form-control-sm', rows:'2' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Educational/Occupatinal History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :educational_occupational_history, class:'form-control form-control-sm', rows:'1', placeholder:'level of education, current/past employment, etc.' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Legal History:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :legal_history, class:'form-control form-control-sm', rows:'2' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Legal History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :legal_history, class:'form-control form-control-sm', rows:'1', placeholder:'arrest history, sentencing, DUI occurrences, incarceration, litigation' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Strength/Limitations:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :strength_limitations, class:'form-control form-control-sm', rows:'2' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Strength/Limitations:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :strength_limitations, class:'form-control form-control-sm', rows:'1' %>
             </div>
          </div>
 
-         <div class="form-group row">
-            <%= f.label 'Other Information:', class:"col-sm-2 col-form-label col-form-label-md"  %>
-            <div class="col-sm-10">
-               <%= f.text_area :other_information, class:'form-control form-control-sm', rows:'2' %>
+         <div class="form-group row mb-0">
+            <%= f.label 'Other Information:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="col-sm-9">
+               <%= f.text_area :other_information, class:'form-control form-control-sm', rows:'1' %>
             </div>
          </div>
 
@@ -345,22 +336,24 @@
    <div class="row">
       <div class="col-md-12">
 
-         <div class="form-group">
+         <div class="form-group ">
             <%= f.text_field :diagnosis_description, class:'form-control form-control-sm', placeholder:'Description' %>
          </div>
 
-         <div class="form-group">
-            <%= f.text_area :diagnosis_justification, class:'form-control form-control-sm', rows:'2', placeholder:'Diagnostic justfication and/or assessment measures'  %>
+         <div class="form-group mb-0">
+            <%= f.text_area :diagnosis_justification, class:'form-control form-control-sm intake-form', rows:'1', placeholder:'Diagnostic justfication and/or assessment measures'  %>
          </div>
 
       </div>
    </div>
 
+   <hr>
+
    <div class="row px-3">
-      <div class="col-md-12 border bg-light bg-light p-2">
+      <div class="col-md-12 border bg-light p-2">
          <div class="form-check">
             <%= f.check_box :clinician_signature, class:'form-check-input' %>
-            <label class="form-check-label"> Sign this Form: I, <%= current_user.first_name %> <%= current_user.last_name %>, Clinical Psychologist, declare this information to be accurate and complete.</label>
+            <label class="form-check-label"> Sign this Form:<strong> I, <%= current_user.first_name %> <%= current_user.last_name %>, Clinical Psychologist, declare this information to be accurate and complete.</strong></label>
          </div>
       </div>
    </div>
