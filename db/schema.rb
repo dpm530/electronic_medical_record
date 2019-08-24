@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_194550) do
+ActiveRecord::Schema.define(version: 2019_08_24_145427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,6 +165,7 @@ ActiveRecord::Schema.define(version: 2019_08_07_194550) do
     t.boolean "clinician_signature", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "treatment_plan_progress"
     t.index ["patient_id"], name: "index_progress_notes_on_patient_id"
     t.index ["user_id"], name: "index_progress_notes_on_user_id"
   end
@@ -174,7 +175,7 @@ ActiveRecord::Schema.define(version: 2019_08_07_194550) do
     t.bigint "patient_id"
     t.date "date"
     t.time "time"
-    t.string "reason"
+    t.text "reason"
     t.text "main_complaint"
     t.string "most_recent_diagnosis"
     t.text "recent_diagnosis_justification"

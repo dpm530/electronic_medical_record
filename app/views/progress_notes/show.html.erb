@@ -6,7 +6,9 @@
             <h5>Psychotherapy Progress Note</h5>
          </div>
          <div class="col-md-6">
-            <%= link_to 'Edit', edit_patient_progress_note_path(@progress_note.patient, @progress_note), class:'float-right btn btn-outline-primary' %>
+            <% if admin_role? || (@progress_note.clinician_signature == false)%>
+               <%= link_to 'Edit', edit_patient_progress_note_path(@progress_note.patient, @progress_note), class:'float-right btn btn-outline-primary' %>
+            <% end %>
          </div>
       </div>
 

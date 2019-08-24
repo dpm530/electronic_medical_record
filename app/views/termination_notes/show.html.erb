@@ -6,7 +6,9 @@
             <h5>Psychotherapy Termination Note</h5>
          </div>
          <div class="col-md-6">
+            <% if admin_role? || (@termination_note.clinician_signature == false)%>
             <%= link_to 'Edit', edit_patient_termination_note_path(@termination_note.patient, @termination_note), class:'float-right btn btn-outline-primary' %>
+            <% end %>
          </div>
       </div>
 

@@ -6,7 +6,9 @@
             <h5>Psychotherapy Treatent Plan</h5>
          </div>
          <div class="col-md-6">
-            <%= link_to 'Edit', edit_patient_treatment_plan_path(@treatment_plan.patient, @treatment_plan), class:'float-right btn btn-outline-primary' %>
+            <% if admin_role? || (@treatment_plan.clinician_signature == false)%>
+               <%= link_to 'Edit', edit_patient_treatment_plan_path(@treatment_plan.patient, @treatment_plan), class:'float-right btn btn-outline-primary' %>
+            <% end %>
          </div>
       </div>
 

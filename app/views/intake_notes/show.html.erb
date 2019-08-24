@@ -6,7 +6,10 @@
             <h5>Psychotherapy Intake Note</h5>
          </div>
          <div class="col-md-6">
-            <%= link_to 'Edit', edit_patient_intake_note_path(@intake_note.patient, @intake_note), class:'float-right btn btn-outline-primary' %>
+            <% if admin_role? || (@intake_note.clinician_signature == false)%>
+               <%= link_to 'Edit', edit_patient_intake_note_path(@intake_note.patient, @intake_note), class:'float-right btn btn-outline-primary' %>
+            <% end %>
+
          </div>
       </div>
 
