@@ -1,9 +1,147 @@
 <%= render "shared/navbar_signed_in"%>
 
+<%= render "shared/statistics_index_header"%>
+
 <div class="container-fluid">
+   <div class="row">
+      <div class="col-md-6">
+         <ul class="list-group my-2">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Total Patients
+               <span class="badge badge-primary badge-pill">
+                  <% if @patients %>
+                     <%= @patients.length%>
+                  <% else %>
+                     0
+                  <% end %>
+               </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Total Staff
+               <span class="badge badge-primary badge-pill">
+                  <% if @users %>
+                     <%= @users.length %>
+                  <% else %>
+                     0
+                  <% end %>
+               </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Total Staff at Aventura Location
+               <span class="badge badge-primary badge-pill">
+                  <% if @aventura_staff %>
+                     <%= @aventura_staff.length %>
+                  <% else %>
+                     0
+                  <% end %>
+               </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Total Staff at Doral Location
+               <span class="badge badge-primary badge-pill">
+                  <% if @doral_staff %>
+                     <%= @doral_staff.length %>
+                  <% else %>
+                     0
+                  <% end %>
+               </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Total Staff at Plantation Location
+               <span class="badge badge-primary badge-pill">
+                  <% if @plantation_staff %>
+                     <%= @plantation_staff.length %>
+                  <% else %>
+                     0
+                  <% end %>
+               </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Total Library Documents
+               <span class="badge badge-primary badge-pill">
+                  <% if @library %>
+                     <%= @library.length %>
+                  <% else %>
+                     0
+                  <% end %>
+               </span>
+            </li>
+         </ul>
+      </div>
+
+      <div class="col-md-6">
+         <ul class="list-group my-2">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Total Notes
+               <span class="badge badge-primary badge-pill">
+                  <% if @notes %>
+                     <%= @notes %>
+                  <% else %>
+                     0
+                  <% end %>
+               </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Total Intake/Psychosocial Notes
+               <span class="badge badge-primary badge-pill">
+                  <% if @intake_notes %>
+                     <%= @intake_notes.length %>
+                  <% else %>
+                     0
+                  <% end %>
+               </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Total Treatment Plans
+               <span class="badge badge-primary badge-pill">
+                  <% if @treatment_plans %>
+                     <%= @treatment_plans.length %>
+                  <% else %>
+                     0
+                  <% end %>
+               </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Total Progress Notes
+               <span class="badge badge-primary badge-pill">
+                  <% if @progress_notes %>
+                     <%= @progress_notes.length %>
+                  <% else %>
+                     0
+                  <% end %>
+               </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Total Termination Notes
+               <span class="badge badge-primary badge-pill">
+                  <% if @termination_notes %>
+                     <%= @termination_notes.length %>
+                  <% else %>
+                     0
+                  <% end %>
+               </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Total Patient Documents
+               <span class="badge badge-primary badge-pill">
+                  <% if @documents %>
+                     <%= @documents.length %>
+                  <% else %>
+                     0
+                  <% end %>
+               </span>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+
+</div>
+
+<!-- <div class="container-fluid">
    <div class="row">
       <div class="col-md-12">
          <%= line_chart User.group(:email).group_by_day(:created_at).count %>
       </div>
    </div>
-</div>
+</div> -->
