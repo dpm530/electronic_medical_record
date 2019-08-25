@@ -39,7 +39,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Name:</p>
+                  <p class="font-weight-bold">Name:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.first_name %> <%= @patient.last_name %></p>
@@ -48,7 +48,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Preferred Name:</p>
+                  <p class="font-weight-bold">Preferred Name:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.preferred_name %></p>
@@ -57,7 +57,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Date of Birth:</p>
+                  <p class="font-weight-bold">Date of Birth:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.dob.strftime('%D') %></p>
@@ -66,7 +66,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Email Address:</p>
+                  <p class="font-weight-bold">Email Address:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.email %></p>
@@ -75,7 +75,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Mobile Phone:</p>
+                  <p class="font-weight-bold">Mobile Phone:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.mobile_phone %></p>
@@ -84,7 +84,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Home Phone:</p>
+                  <p class="font-weight-bold">Home Phone:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.home_phone %></p>
@@ -92,7 +92,7 @@
             </div>
             <div class="row">
                <div class="col-sm-4">
-                  <p>Work Phone:</p>
+                  <p class="font-weight-bold">Work Phone:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.work_phone %></p>
@@ -100,7 +100,7 @@
             </div>
             <div class="row">
                <div class="col-sm-4">
-                  <p>Adress:</p>
+                  <p class="font-weight-bold">Adress:</p>
                </div>
                <div class="col-sm-8">
                   <p class="mb-0"><%= @patient.address_1 %></p>
@@ -118,7 +118,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Birth Sex:</p>
+                  <p class="font-weight-bold">Birth Sex:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.birth_sex %></p>
@@ -127,7 +127,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Gender Identity:</p>
+                  <p class="font-weight-bold">Gender Identity:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.gender_identity %></p>
@@ -136,7 +136,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Sexual Oritentaion:</p>
+                  <p class="font-weight-bold">Sexual Oritentaion:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.sexual_orientation %></p>
@@ -145,7 +145,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Race:</p>
+                  <p class="font-weight-bold">Race:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.race %></p>
@@ -154,7 +154,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Languages:</p>
+                  <p class="font-weight-bold">Languages:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.languages %></p>
@@ -163,7 +163,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Marital Status:</p>
+                  <p class="font-weight-bold">Marital Status:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.marital_status %></p>
@@ -172,7 +172,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>Employment:</p>
+                  <p class="font-weight-bold">Employment:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.employment %></p>
@@ -181,7 +181,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>HIPPA:</p>
+                  <p class="font-weight-bold">HIPPA:</p>
                </div>
                <div class="col-sm-8">
                   <% if @patient.hipaa == true %>
@@ -194,7 +194,7 @@
 
             <div class="row">
                <div class="col-sm-4">
-                  <p>PCP Release:</p>
+                  <p class="font-weight-bold">PCP Release:</p>
                </div>
                <div class="col-sm-8">
                   <p><%= @patient.pcp_release %></p>
@@ -244,7 +244,7 @@
 
                <div class="row">
                   <div class="col-sm-4">
-                     <p>Name:</p>
+                     <p class="font-weight-bold">Name:</p>
                   </div>
                   <div class="col-sm-8">
                      <p><%= ec.first_name %> <%= ec.last_name %></p>
@@ -253,7 +253,7 @@
 
                <div class="row">
                   <div class="col-sm-4">
-                     <p>Contact Type:</p>
+                     <p class="font-weight-bold">Contact Type:</p>
                   </div>
                   <div class="col-sm-8">
                      <p><%= ec.contact_type %></p>
@@ -262,7 +262,7 @@
 
                <div class="row">
                   <div class="col-sm-4">
-                     <p>Relationship:</p>
+                     <p class="font-weight-bold">Relationship:</p>
                   </div>
                   <div class="col-sm-8">
                      <p><%= ec.relationship %></p>
@@ -271,7 +271,7 @@
 
                <div class="row">
                   <div class="col-sm-4">
-                     <p>Release of Information:</p>
+                     <p class="font-weight-bold">Release of Information:</p>
                   </div>
                   <div class="col-sm-8">
                      <% if ec.release_of_info %>
@@ -282,7 +282,7 @@
 
                <div class="row">
                   <div class="col-sm-4">
-                     <p>Date of Birth:</p>
+                     <p class="font-weight-bold">Date of Birth:</p>
                   </div>
                   <div class="col-sm-8">
                      <% if ec.dob %>
@@ -293,7 +293,7 @@
 
                <div class="row">
                   <div class="col-sm-4">
-                     <p>Address:</p>
+                     <p class="font-weight-bold">Address:</p>
                   </div>
                   <div class="col-sm-8">
                      <p><%= ec.address_1 %></p>
@@ -307,7 +307,7 @@
 
                <div class="row">
                   <div class="col-sm-4">
-                     <p>Email:</p>
+                     <p class="font-weight-bold">Email:</p>
                   </div>
                   <div class="col-sm-8">
                      <p><%= ec.email %></p>
@@ -316,7 +316,7 @@
 
                <div class="row">
                   <div class="col-sm-4">
-                     <p>Mobile Phone:</p>
+                     <p class="font-weight-bold">Mobile Phone:</p>
                   </div>
                   <div class="col-sm-8">
                      <p><%= ec.mobile_phone %></p>
@@ -325,7 +325,7 @@
 
                <div class="row">
                   <div class="col-sm-4">
-                     <p>Home Phone:</p>
+                     <p class="font-weight-bold">Home Phone:</p>
                   </div>
                   <div class="col-sm-8">
                      <p><%= ec.home_phone %></p>
@@ -334,7 +334,7 @@
 
                <div class="row">
                   <div class="col-sm-4">
-                     <p>Work Phone:</p>
+                     <p class="font-weight-bold">Work Phone:</p>
                   </div>
                   <div class="col-sm-8">
                      <p><%= ec.work_phone %></p>
@@ -343,7 +343,7 @@
 
                <div class="row">
                   <div class="col-sm-4">
-                     <p>Other Phone:</p>
+                     <p class="font-weight-bold">Other Phone:</p>
                   </div>
                   <div class="col-sm-8">
                      <p><%= ec.other_phone %></p>
@@ -352,7 +352,7 @@
 
                <div class="row">
                   <div class="col-sm-4">
-                     <p>Comments:</p>
+                     <p class="font-weight-bold">Comments:</p>
                   </div>
                   <div class="col-sm-8">
                      <p><%= ec.comment %></p>
