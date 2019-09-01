@@ -60,7 +60,9 @@
                   <p class="font-weight-bold">Date of Birth:</p>
                </div>
                <div class="col-sm-8">
+                  <% if @patient.dob%>
                   <p><%= @patient.dob.strftime('%D') %></p>
+                  <% end %>
                </div>
             </div>
 

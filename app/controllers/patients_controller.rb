@@ -40,7 +40,9 @@ class PatientsController < ApplicationController
       @users=User.all
       @patient = Patient.new
 
-      @users.each{|u| puts u}
+      @users.each do |u|
+         puts u.first_name
+      end
    end
 
    # GET /patients/1/edit
@@ -49,21 +51,23 @@ class PatientsController < ApplicationController
       @states = ['FL', 'TX', 'CO', 'NY']
    end
 
-  # POST /patients
-  # POST /patients.json
-  def create
-    @patient = Patient.new(patient_params)
+   # POST /patients
+   # POST /patients.json
+   def create
+      @patient = Patient.new(patient_params)
+      @users=User.all
 
-    respond_to do |format|
-      if @patient.save
-        format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
-        format.json { render :show, status: :created, location: @patient }
-      else
-        format.html { render :new }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
+      respond_to do |format|
+         if @patient.save
+            format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
+            format.json { render :show, status: :created, location: @patient }
+         else
+            format.html { render :new }
+            format.json { render json: @patient.errors, status: :unprocessable_entity }
+         end
       end
-    end
-  end
+
+   end
 
   # PATCH/PUT /patients/1
   # PATCH/PUT /patients/1.json

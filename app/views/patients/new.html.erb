@@ -2,6 +2,11 @@
 
 <div class="container-fluid py-2">
    <h3>Create a New Patient</h3>
+   <% if @patient.errors.full_messages.any? %>
+      <% @patient.errors.full_messages.each do |error_message| %>
+         <%= error_message %> <br />
+      <% end %>
+   <% end %>
    <div class="container-fluid bg-white border py-4">
       <%= render 'form', patient: @patient %>
    </div>
