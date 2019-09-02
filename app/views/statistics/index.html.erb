@@ -1,6 +1,6 @@
 <%= render "shared/navbar_signed_in"%>
 
-<%= render "shared/statistics_index_header"%>
+<%= render "shared/general_statistics"%>
 
 <div class="container-fluid">
    <div class="row">
@@ -135,8 +135,85 @@
       </div>
    </div>
 
-
 </div>
+
+<br>
+
+
+<%= render "shared/practice_specific_statistics"%>
+
+<div class="container-fluid mb-2">
+
+   <div class="container-fluid border bg-white py-4">
+      <table class="table table-bordered table-hover">
+         <thead>
+            <tr>
+               <th>Office Location</th>
+               <th>Total Clinicians</th>
+               <th>Total Consults</th>
+               <th>Total Patients</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>Aventura</td>
+               <td><%= @aventura_staff.length %></td>
+               <td><%= @aventura_consults %></td>
+               <td><%= @aventura_patients %></td>
+            </tr>
+            <tr>
+               <td>Doral</td>
+               <td><%= @doral_staff.length %></td>
+               <td><%= @doral_consults %></td>
+               <td><%= @doral_patients %></td>
+            </tr>
+            <tr>
+               <td>Plantation</td>
+               <td><%= @plantation_staff.length %></td>
+               <td><%= @plantation_consults %></td>
+               <td><%= @plantation_patients %></td>
+            </tr>
+         </tbody>
+      </table>
+
+   </div>
+</div>
+
+<br>
+
+<%= render "shared/clinician_specific_statistics"%>
+
+<div class="container-fluid mb-2">
+
+   <div class="container-fluid border bg-white py-4">
+      <table class="table table-bordered table-hover">
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Total Patients</th>
+               <th>Total Consults</th>
+               <th>Default Location</th>
+            </tr>
+         </thead>
+         <tbody>
+            <% @users.each do |user| %>
+               <tr>
+                  <td><%= user.first_name %> <%= user.last_name %></td>
+                  <td><%= user.patients.length %></td>
+                  <td><%= user.progress_notes.length %></td>
+                  <td><%= user.default_location %></td>
+               </tr>
+            <% end %>
+         </tbody>
+      </table>
+
+   </div>
+</div>
+
+
+
+
+
 
 <!-- <div class="container-fluid">
    <div class="row">
