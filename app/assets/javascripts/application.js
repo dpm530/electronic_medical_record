@@ -1,30 +1,32 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
-// vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require rails-ujs
 //= require activestorage
-//= require turbolinks
-//= require_tree .
-//= require jquery3
+//= require jquery
+//= require jquery.turbolinks
+//= require jquery_ujs
+//= require rails-ujs
 //= require popper
+//= require turbolinks
 //= require bootstrap
 //= require chartkick
+//= require_tree .
 //= require Chart.bundle
 
 $(document).ready(function(){
 
-   $(".intake-form").click(function(){
-      $(this).attr('rows','2')
-      $(".background-infomration").removeClass("mb-0").addClass("mb-1")
+
+   $(".note-textarea").click(function(){
+      if($(this).attr("rows") == 1) {
+         $(this).attr('rows','2').addClass("mb-1")
+      } else {
+         $(this).attr('rows','1').addClass("mb-0")
+      }
    });
+
+
+
+   $('button.IN-not-assessed').click(function(){
+      $('.mental-status select').val('Not Assessed').trigger('change');
+   })
+
+
 
 });

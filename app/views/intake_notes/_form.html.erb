@@ -78,14 +78,18 @@
    <hr>
 
    <h5>Current Mental Status</h5>
+   <button type="button" name="button" class="IN-not-assessed btn btn-primary">All Not Assessed</button>
+   <select class="" name="">
+      <option value=""></option>
+   </select>
 
    <div class="row">
       <div class="col-md-6">
 
-         <div class="form-group row mb-0">
+         <div class="mental-status form-group row mb-0">
             <%= f.label 'Genral Apprearance:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :general_appearance,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :general_appearance,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm current-mental-status'  %>
             </div>
          </div>
 
@@ -225,35 +229,35 @@
          <div class="form-group row background-information mb-0">
             <%= f.label 'Identification:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :identification, class:'form-control form-control-sm intake-form', rows:'1', placeholder:'age, ethnicity, religion, marital status, referral status, etc.' %>
+               <%= f.text_area :identification, class:'form-control form-control-sm note-textarea', rows:'1', placeholder:'age, ethnicity, religion, marital status, referral status, etc.' %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'History of Present Problem:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :history_present_problem, class:'form-control form-control-sm intake-form', rows:'1', placeholder:'symptoms, onset, duration, frequency, etc.' %>
+               <%= f.text_area :history_present_problem, class:'form-control form-control-sm note-textarea', rows:'1', placeholder:'symptoms, onset, duration, frequency, etc.' %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Past Psychiatric History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :past_psychiatric_history, class:'form-control form-control-sm', rows:'1', placeholder:'prior treatment, symptoms, diagnoses, hospitalization, suicide attempts, violent history, etc.' %>
+               <%= f.text_area :past_psychiatric_history, class:'form-control form-control-sm note-textarea', rows:'1', placeholder:'prior treatment, symptoms, diagnoses, hospitalization, suicide attempts, violent history, etc.' %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Trauma History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :trauma_history, class:'form-control form-control-sm', rows:'1', placeholder:'nature of trauma, when ocurred, persons involved, etc.' %>
+               <%= f.text_area :trauma_history, class:'form-control form-control-sm note-textarea', rows:'1', placeholder:'nature of trauma, when ocurred, persons involved, etc.' %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Family Psychiatric History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :family_psychiatric_history, class:'form-control form-control-sm', rows:'1', placeholder:'history of mental illness in family, diagnosis, etc.' %>
+               <%= f.text_area :family_psychiatric_history, class:'form-control form-control-sm note-textarea', rows:'1', placeholder:'history of mental illness in family, diagnosis, etc.' %>
             </div>
          </div>
 
@@ -267,14 +271,14 @@
          <div class="form-group row mb-0">
             <%= f.label 'Current Medications:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :current_medications, class:'form-control form-control-sm', rows:'1', placeholder:'medication, dosage, purpose, prescribing physician' %>
+               <%= f.text_area :current_medications, class:'form-control form-control-sm note-textarea', rows:'1', placeholder:'medication, dosage, purpose, prescribing physician' %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Substance Use:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :substance_use, class:'form-control form-control-sm', rows:'1', placeholder:'substance, start date, last use, amount, frequency, etc.' %>
+               <%= f.text_area :substance_use, class:'form-control form-control-sm note-textarea', rows:'1', placeholder:'substance, start date, last use, amount, frequency, etc.' %>
             </div>
          </div>
 
@@ -288,42 +292,42 @@
          <div class="form-group row mb-0">
             <%= f.label 'Social History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :social_history, class:'form-control form-control-sm', rows:'1', placeholder:'significant relationships, social support, nature/quality of relationships, etc.' %>
+               <%= f.text_area :social_history, class:'form-control form-control-sm note-textarea', rows:'1', placeholder:'significant relationships, social support, nature/quality of relationships, etc.' %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Development History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :development_history, class:'form-control form-control-sm', rows:'1', placeholder:'development milestones, delays, etc.' %>
+               <%= f.text_area :development_history, class:'form-control form-control-sm note-textarea', rows:'1', placeholder:'development milestones, delays, etc.' %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Educational/Occupatinal History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :educational_occupational_history, class:'form-control form-control-sm', rows:'1', placeholder:'level of education, current/past employment, etc.' %>
+               <%= f.text_area :educational_occupational_history, class:'form-control form-control-sm note-textarea', rows:'1', placeholder:'level of education, current/past employment, etc.' %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Legal History:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :legal_history, class:'form-control form-control-sm', rows:'1', placeholder:'arrest history, sentencing, DUI occurrences, incarceration, litigation' %>
+               <%= f.text_area :legal_history, class:'form-control form-control-sm note-textarea', rows:'1', placeholder:'arrest history, sentencing, DUI occurrences, incarceration, litigation' %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Strength/Limitations:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :strength_limitations, class:'form-control form-control-sm', rows:'1' %>
+               <%= f.text_area :strength_limitations, class:'form-control form-control-sm note-textarea', rows:'1' %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Other Information:', class:"col-sm-3 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-9">
-               <%= f.text_area :other_information, class:'form-control form-control-sm', rows:'1' %>
+               <%= f.text_area :other_information, class:'form-control form-control-sm note-textarea', rows:'1' %>
             </div>
          </div>
 
@@ -341,7 +345,7 @@
          </div>
 
          <div class="form-group mb-0">
-            <%= f.text_area :diagnosis_justification, class:'form-control form-control-sm intake-form', rows:'1', placeholder:'Diagnostic justfication and/or assessment measures'  %>
+            <%= f.text_area :diagnosis_justification, class:'form-control form-control-sm intake-form note-textarea', rows:'1', placeholder:'Diagnostic justfication and/or assessment measures'  %>
          </div>
 
       </div>

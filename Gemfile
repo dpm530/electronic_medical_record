@@ -32,6 +32,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.8.1'
 gem 'carrierwave', '~> 1.0'
+gem 'jquery-turbolinks'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'chartkick'
