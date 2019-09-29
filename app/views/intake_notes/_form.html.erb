@@ -89,56 +89,56 @@
          <div class="mental-status form-group row mb-0">
             <%= f.label 'Genral Apprearance:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :general_appearance,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm current-mental-status'  %>
+               <%= f.select :general_appearance,['Appropriate','Disheveled','Emaciated','Obese','Poor Hygiene','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm current-mental-status'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Dress:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :dress,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :dress,['Appropriate','Eccentric','Seductive','Bizarre','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Motor Activity:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :motor_activity,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :motor_activity,['Unremarkable','Agitation','Retardation','Posturing','Repetitive actions','Tics','Tremor','Unusual Gait','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Insight:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :insight,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :insight,['Good','Fair','Poor','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Judgement:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :judgement,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :judgement,['Good','Fair','Poor','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Affect:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :affect,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :affect,['Appropriate','Inapropriate','Labile','Constricted','Blunted','Flat','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Mood:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :mood,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :mood,['Euthymic','Depressed','Dusphoric','Anxious','Angry','Irritable','Euphoric','Grandiose','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Orientation:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :orientation,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :orientation,['X0: Impaired ot Person, Place, and Time','X1: Oriented to Time; Impaired to Person, Place','X1: Oriented to Place; Impaired to Person, Time','X1: Oriented to Person; Impaired to Place, Time','X2: Oriented to Time, Place; Impaired to Person','X2: Oriented to Person, Time; Impaired to Place','X2: Oriented to Person, Place; Impaired to Time','X3: Oriented to Person, Place, and Time','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
@@ -149,49 +149,49 @@
          <div class="form-group row mb-0">
             <%= f.label 'Memory:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :memory,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :memory,['Intact','Poor Remote','Poor Recent','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Attention/Concentration:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :attention_concentration,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :attention_concentration,['Good','Distractable','Variable','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Thought Content:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :thought_content,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :thought_content,['Appropriate','Preoccupied','Obsessions','Delusions: Persecutory','Delusions: Bizarre','Delusions:Grandeur','Delusions: Guilt','Delusions: Somatic','Delusions: Ideas of Reference','Delusions: Thought Broadcasting','Delusions: Though Control','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Perception:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :perception,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :perception,['Unremarkable','Auditory Hallucinations','Visual Hallucinations','Olfactory Hallucinations','Tactile Hallucinations','Gustatory Hallucinations','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Flow of Thought:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :flow_of_thought,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :flow_of_thought,['Unremarkable','Blocking','Circumstantial','Flight of Ideas','Loose Associations','Perseveration','Tangential','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Interview Behavior:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :interview_behavior,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :interview_behavior,['Appropriate','Aggressive','Angry','Apathetic','Argumentative','Child-like','Demanding','Dramatic','Evasive','Hostile','Irritable','Passive','Manipulative','Withdrawn','Uncooperative','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
             <%= f.label 'Speech:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
-               <%= f.select :speech,['Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+               <%= f.select :speech,['Normal','Hesitant','Pressured','Slurred','Soft','Sluttering','Mute','Verbose','Not Assessed'],{ include_blank: true }, class:'form-control form-control-sm'  %>
             </div>
          </div>
 
@@ -212,7 +212,7 @@
                   <option value="None">
                   <option value="Suicidal Ideation">
                   <option value="Hommicidal Ideation">
-                  <option value="Other:">
+                  <option value="Other">
                </datalist>
             </div>
          </div>
