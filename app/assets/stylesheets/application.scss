@@ -3,17 +3,31 @@
 @import "font-awesome";
 
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+   font-family: 'Arapey', serif;
+}
+
+p,
+a,
+.btn,
+label,
+li,
+table,
+span{
+   font-family: 'Arapey', serif;
+}
 
 body{
    width: 100%;
    background-color: #f9f9f9;
 }
 nav{
-   background-color: #126ea4;
-}
-footer{
-
-   background-color: #f2f2f2;
+   background-color: #34aeb5;
 }
 .navbar-nav .nav-link,a{
    // color: white;
