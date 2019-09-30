@@ -21,6 +21,7 @@ class ProgressNotesController < ApplicationController
       @progress_note = @patient.progress_notes.build
       @location = ['Aventura', 'Doral', 'Phone', 'Other']
       @participants = ['Client Only', 'Client and Others', 'Others Only']
+      @interventions_used = ['Cognitive Challenging','Cognitive Refocusing','Cognitive Reframing','Comminication Skills','Compliance Skills','Compliance Issues','DBT','Exploration of Coping Paterns','Exploration of Emotions','Exploration of Relationship Patterns','Guided Imagery','Interactive Feedback','Interpersonal Resolutions','Mindfulness Training','Preventative Services','Psycho-Education','Relaxation/Deep Breathing','Review of Treatment Plan/Progress','Role-Play/Behavioral Rehersal','Structured Problem Solving','Supportive Reflection','Symptom Management']
    end
 
    # GET /progress_notes/1/edit
@@ -30,6 +31,7 @@ class ProgressNotesController < ApplicationController
       @progress_note = @patient.progress_notes.find(params[:id])
       @location = ['Aventura', 'Doral', 'Phone', 'Other']
       @participants = ['Client Only', 'Client and Others', 'Others Only']
+      @interventions_used = ['Cognitive Challenging','Cognitive Refocusing','Cognitive Reframing','Comminication Skills','Compliance Skills','Compliance Issues','DBT','Exploration of Coping Paterns','Exploration of Emotions','Exploration of Relationship Patterns','Guided Imagery','Interactive Feedback','Interpersonal Resolutions','Mindfulness Training','Preventative Services','Psycho-Education','Relaxation/Deep Breathing','Review of Treatment Plan/Progress','Role-Play/Behavioral Rehersal','Structured Problem Solving','Supportive Reflection','Symptom Management']
    end
 
    # POST /progress_notes
@@ -37,6 +39,9 @@ class ProgressNotesController < ApplicationController
    def create
       @patient = Patient.find(params[:patient_id])
       @progress_note = @patient.progress_notes.new(progress_note_params)
+      puts "="*100
+      puts @progress_note.interventions_used
+      puts "="*100
 
       respond_to do |format|
          if @progress_note.save
@@ -88,6 +93,6 @@ class ProgressNotesController < ApplicationController
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def progress_note_params
-         params.require(:progress_note).permit(:user_id, :patient_id, :date, :time, :duration, :location, :participants, :diagnosis_description, :diagnostic_justification, :cognitive_functioning, :affect, :mood, :interpersonal, :functional_status, :safety_issues, :medications, :symptoms_description, :relevant_content, :interventions_used, :additional_notes, :treatment_plan_progress, :plan, :recommendation, :treatment_frequency, :clinician_signature)
+         params.require(:progress_note).permit(:user_id, :patient_id, :date, :time, :duration, :location, :participants, :diagnosis_description, :diagnostic_justification, :cognitive_functioning, :affect, :mood, :interpersonal, :functional_status, :safety_issues, :medications, :symptoms_description, :relevant_content, :additional_notes, :treatment_plan_progress, :plan, :recommendation, :treatment_frequency, :clinician_signature,interventions_used: [])
       end
 end

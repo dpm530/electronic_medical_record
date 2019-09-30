@@ -22,14 +22,14 @@
       <div class="col-md-6">
 
          <div class="form-group row mb-0">
-            <%= f.label 'Date:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
+            <%= f.label 'Date:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
                <%= f.date_field :date, class:"form-control form-control-sm" %>
             </div>
          </div>
 
          <div class="form-group row mb-0">
-            <%= f.label 'Time:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
+            <%= f.label 'Time:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
             <div class="col-sm-8">
                <%= f.time_field :time, class:"form-control form-control-sm" %>
             </div>
@@ -45,7 +45,15 @@
       <div class="col-md-12">
 
          <div class="form-group">
-            <%= f.text_area :reason, class:"form-control form-control-sm", rows:'1' %>
+            <%= f.text_field :reason, class:"form-control form-control-sm", rows:'1', list:'reason', autocomplete: 'off' %>
+            <datalist id="reason">
+               <option value="Achieved treatment goals">
+               <option value="Patient discontinued services">
+               <option value="Patient discontinued contact">
+               <option value="Insufficient progress">
+               <option value="Planned pause in treatment">
+               <option value="Patient referred to: ">
+            </datalist>
          </div>
 
       </div>

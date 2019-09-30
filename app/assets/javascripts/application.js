@@ -9,6 +9,8 @@
 //= require_tree .
 //= require Chart.bundle
 
+
+
 $(document).ready(function(){
 
 
