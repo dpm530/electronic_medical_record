@@ -4,8 +4,8 @@
       <div class="row">
          <div class="col-md-6">
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Name:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Name:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-4">
                   <%= f.text_field :first_name, class:"form-control form-control-sm", placeholder:'First' %>
                </div>
@@ -14,57 +14,57 @@
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Contact Type:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Contact Type:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-8">
                   <%= f.select :contact_type,['PCP', 'Emergency Contact', 'Guardian', 'Responsible Party for Billing'],{ include_blank: true }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Relationship:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Relationship:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-8">
-                  <%= f.select :relationship,['Parent', 'Sibling', 'Guardian', 'Friend'],{ include_blank: true }, class:'form-control form-control-sm'  %>
+                  <%= f.select :relationship,['Spouse','Husband','Wife','Partner','Mother','Father','Stepmother','Stepfather','Guardian','Child','Sibling','Grandparent','Aunt','Uncle','Friend','Psychiatrist','Psychologist','Guidance Counselor','Physician','Therapist','Pharmacist','Attorney'],{ include_blank: true }, class:'form-control form-control-sm'  %>
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Release of Information:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Release of Information:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-8">
                   <%= f.date_field :release_of_info, class:"form-control form-control-sm" %>
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Date of Birth:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Date of Birth:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-8">
                   <%= f.date_field :dob, class:"form-control form-control-sm" %>
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Address 1:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Address 1:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-8">
                   <%= f.text_field :address_1, class:"form-control form-control-sm" %>
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Address 2:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Address 2:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-8">
                   <%= f.text_field :address_2, class:"form-control form-control-sm" %>
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Country:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Country:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-6">
                   <%= f.text_field :country, class:"form-control form-control-sm" %>
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'City/State', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'City/State', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-6">
                   <%= f.text_field :city, class:"form-control form-control-sm" %>
                </div>
@@ -73,8 +73,8 @@
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Zipcode:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Zipcode:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-6">
                   <%= f.text_field :zipcode, class:"form-control form-control-sm" %>
                </div>
@@ -84,43 +84,43 @@
 
          <div class="col-md-6">
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Email Address:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Email Address:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-8">
                   <%= f.text_field :email, class:"form-control form-control-sm" %>
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Mobile Phone:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Mobile Phone:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-8">
                   <%= f.text_field :mobile_phone, class:"form-control form-control-sm" %>
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Home Phone:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Home Phone:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-8">
                   <%= f.text_field :home_phone, class:"form-control form-control-sm" %>
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Work Phone:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Work Phone:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-8">
                   <%= f.text_field :work_phone, class:"form-control form-control-sm" %>
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Other Phone:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Other Phone:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-8">
                   <%= f.text_field :other_phone, class:"form-control form-control-sm" %>
                </div>
             </div>
 
-            <div class="form-group row mb-0">
-               <%= f.label 'Comments:', class:"col-sm-4 col-form-label col-form-label-md font-weight-bold"  %>
+            <div class="form-group row mb-1">
+               <%= f.label 'Comments:', class:"col-sm-4 col-form-label col-form-label-sm font-weight-bold"  %>
                <div class="col-sm-8">
                   <%= f.text_area :comment, class:"form-control form-control-sm" %>
                </div>

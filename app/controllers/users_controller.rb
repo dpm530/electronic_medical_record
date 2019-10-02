@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       if @user.save!
          redirect_to practice_path(@user)
       else
-         redirect_to '/'
+         redirect_to '/practice'
       end
    end
 
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       if @user.update(user_params)
          redirect_to practice_path(@user)
       else
-         redirect_to '/'
+         redirect_to '/practice'
       end
    end
 

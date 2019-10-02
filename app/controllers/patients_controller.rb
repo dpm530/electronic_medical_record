@@ -6,7 +6,12 @@ class PatientsController < ApplicationController
    # GET /patients.json
    def index
       @user = current_user
-      @patients = @user.patients
+
+      if admin_role?
+         @patients = Patient.all
+      elsif !(admin_role?)
+         @patients = @user.patients
+      end
    end
 
    # GET /patients/1
