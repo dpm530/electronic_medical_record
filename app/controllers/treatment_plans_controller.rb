@@ -31,6 +31,7 @@ class TreatmentPlansController < ApplicationController
    # POST /treatment_plans
    # POST /treatment_plans.json
    def create
+      @users = User.all
       @patient = Patient.find(params[:patient_id])
       @treatment_plan = @patient.treatment_plans.new(treatment_plan_params)
 
@@ -48,6 +49,7 @@ class TreatmentPlansController < ApplicationController
    # PATCH/PUT /treatment_plans/1
    # PATCH/PUT /treatment_plans/1.json
    def update
+      @users = User.all
       @patient = Patient.find(params[:patient_id])
       @treatment_plan = @patient.treatment_plans.find(params[:id])
 

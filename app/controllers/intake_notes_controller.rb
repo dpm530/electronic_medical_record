@@ -35,6 +35,9 @@ class IntakeNotesController < ApplicationController
    # POST /intake_notes
    # POST /intake_notes.json
    def create
+      @users = User.all
+      @location = ['Aventura', 'Doral', 'Phone', 'Other']
+      @participants = ['Client Only', 'Client and Others', 'Others Only']
       @patient = Patient.find(params[:patient_id])
       @intake_note = @patient.intake_notes.new(intake_note_params)
 
@@ -52,6 +55,9 @@ class IntakeNotesController < ApplicationController
    # PATCH/PUT /intake_notes/1
    # PATCH/PUT /intake_notes/1.json
    def update
+      @users = User.all
+      @location = ['Aventura', 'Doral', 'Phone', 'Other']
+      @participants = ['Client Only', 'Client and Others', 'Others Only']
       @patient = Patient.find(params[:patient_id])
       @intake_note = @patient.intake_notes.find(params[:id])
 

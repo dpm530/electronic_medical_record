@@ -7,6 +7,6 @@ class Patient < ApplicationRecord
    has_many :termination_notes, dependent: :destroy
    has_many :documents, dependent: :destroy
 
-   validates :first_name, :last_name, presence: true 
+   validates :first_name, :last_name, :dob, presence: true
 
 end

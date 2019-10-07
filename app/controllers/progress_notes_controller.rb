@@ -37,6 +37,10 @@ class ProgressNotesController < ApplicationController
    # POST /progress_notes
    # POST /progress_notes.json
    def create
+      @users = User.all
+      @location = ['Aventura', 'Doral', 'Phone', 'Other']
+      @participants = ['Client Only', 'Client and Others', 'Others Only']
+      @interventions_used = ['Cognitive Challenging','Cognitive Refocusing','Cognitive Reframing','Comminication Skills','Compliance Skills','Compliance Issues','DBT','Exploration of Coping Paterns','Exploration of Emotions','Exploration of Relationship Patterns','Guided Imagery','Interactive Feedback','Interpersonal Resolutions','Mindfulness Training','Preventative Services','Psycho-Education','Relaxation/Deep Breathing','Review of Treatment Plan/Progress','Role-Play/Behavioral Rehersal','Structured Problem Solving','Supportive Reflection','Symptom Management']
       @patient = Patient.find(params[:patient_id])
       @progress_note = @patient.progress_notes.new(progress_note_params)
       puts "="*100
@@ -57,6 +61,10 @@ class ProgressNotesController < ApplicationController
    # PATCH/PUT /progress_notes/1
    # PATCH/PUT /progress_notes/1.json
    def update
+      @users = User.all
+      @location = ['Aventura', 'Doral', 'Phone', 'Other']
+      @participants = ['Client Only', 'Client and Others', 'Others Only']
+      @interventions_used = ['Cognitive Challenging','Cognitive Refocusing','Cognitive Reframing','Comminication Skills','Compliance Skills','Compliance Issues','DBT','Exploration of Coping Paterns','Exploration of Emotions','Exploration of Relationship Patterns','Guided Imagery','Interactive Feedback','Interpersonal Resolutions','Mindfulness Training','Preventative Services','Psycho-Education','Relaxation/Deep Breathing','Review of Treatment Plan/Progress','Role-Play/Behavioral Rehersal','Structured Problem Solving','Supportive Reflection','Symptom Management']
       @patient = Patient.find(params[:patient_id])
       @progress_note = @patient.progress_notes.find(params[:id])
 

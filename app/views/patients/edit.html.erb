@@ -1,5 +1,10 @@
 <div class="container-fluid py-2">
    <div class="container-fluid bg-white border py-4">
+      <% if @patient.errors.full_messages.any? %>
+         <% @patient.errors.full_messages.each do |error_message| %>
+            <%= error_message %> <br />
+         <% end %>
+      <% end %>
       <div class="row">
          <div class="col-md-12">
             <%= render 'form', patient: @patient %>

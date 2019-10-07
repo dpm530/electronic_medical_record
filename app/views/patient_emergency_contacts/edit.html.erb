@@ -5,6 +5,11 @@
             <h5>Edit Emergency Contact:</h5>
          </div>
       </div>
+      <% if @patient_emergency_contact.errors.full_messages.any? %>
+         <% @patient_emergency_contact.errors.full_messages.each do |error_message| %>
+            <%= error_message %> <br />
+         <% end %>
+      <% end %>
       <br>
       <div class="row">
          <div class="col-md-12">

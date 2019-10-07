@@ -17,23 +17,26 @@
 
       <%= render "shared/navbar_signed_in" %>
 
-      <div class="container-fluid pt-4 pb-2">
+      <div class="container-fluid pt-4">
          <h3>Patient: <small><%= @patient.first_name %> <%= @patient.last_name %></small></h3>
          <br>
-         <ul class="nav nav-pills border p-2">
-            <li class="nav-item">
-               <a class="nav-link" href="/patients/<%= @patient.id %>">Patient Info</a>
+
+         <ul class="nav nav-pills nav-justified border p-3 rounded bg-white">
+            <li class="nav-item px-2">
+               <a class="shadow-sm nav-link font-weight-bolder btn btn-outline-info" href="/patients/<%= @patient.id %>">Patient Info</a>
             </li>
-            <li class="nav-item">
-               <a class="nav-link" href="/patients/<%= @patient.id %>/notes">Notes</a>
+            <li class="nav-item px-2">
+               <a class="shadow-sm nav-link font-weight-bolder btn btn-outline-info" href="/patients/<%= @patient.id %>/notes">Notes</a>
             </li>
-            <li class="nav-item">
-               <a class="nav-link" href="/patients/<%= @patient.id %>/documents">Documents</a>
+            <li class="nav-item px-2">
+               <a class="shadow-sm nav-link font-weight-bolder btn btn-outline-info" href="/patients/<%= @patient.id %>/documents">Documents</a>
             </li>
-            <li class="nav-item">
-               <a class="nav-link" href="/patients/<%= @patient.id %>/clinician">Clinicians</a>
+            <li class="nav-item px-2">
+               <a class="shadow-sm nav-link font-weight-bolder btn btn-outline-info" href="/patients/<%= @patient.id %>/clinician">Clinicians</a>
             </li>
          </ul>
+
+
       </div>
 
       <%= yield %>

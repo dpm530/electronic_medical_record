@@ -24,20 +24,26 @@ class UsersController < ApplicationController
 
    def create
       @user = User.new(user_params)
-      if @user.save!
-         redirect_to practice_path(@user)
-      else
-         redirect_to '/practice'
+
+      if @user.save
+         return redirect_to practice_path(@user)
       end
+
+      errors = @user.errors.full_messages
+      flash[:errors] = errors
+      return redirect_to new_user_practice_index_path
    end
 
    def update_user
       @user = User.find(params[:id])
+
       if @user.update(user_params)
-         redirect_to practice_path(@user)
-      else
-         redirect_to '/practice'
+         return redirect_to practice_path(@user)
       end
+
+      errors = @user.errors.full_messages
+      flash[:errors] = errors
+      return redirect_to edit_practice_path(@user)
    end
 
    def destroy

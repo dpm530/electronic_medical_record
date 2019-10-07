@@ -78,10 +78,10 @@
    <hr>
 
    <h5>Current Mental Status</h5>
-   <button type="button" name="button" class="IN-not-assessed btn btn-primary">All Not Assessed</button>
+   <!-- <button type="button" name="button" class="IN-not-assessed btn btn-primary">All Not Assessed</button>
    <select class="" name="">
       <option value=""></option>
-   </select>
+   </select> -->
 
    <div class="row">
       <div class="col-md-6">
@@ -366,9 +366,9 @@
 
    <div class="actions">
       <% if @intake_note.new_record? %>
-         <%= f.submit 'Create', class:'btn btn-outline-primary'%>
+         <%= f.submit 'Create', class:'btn btn-info'%>
       <% else %>
-         <%= f.submit 'Update', class:'btn btn-outline-primary'%>
+         <%= f.submit 'Update', class:'btn btn-info'%>
       <% end %>
    </div>
 

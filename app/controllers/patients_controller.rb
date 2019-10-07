@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
-  layout 'patient_layout', :only => [:show, :clinician, :notes, :edit]
+  layout 'patient_layout', :only => [:show, :clinician, :notes, :edit, :update]
 
    # GET /patients
    # GET /patients.json
@@ -74,19 +74,20 @@ class PatientsController < ApplicationController
 
    end
 
-  # PATCH/PUT /patients/1
-  # PATCH/PUT /patients/1.json
-  def update
-    respond_to do |format|
-      if @patient.update(patient_params)
-        format.html { redirect_to @patient, notice: 'Patient was successfully updated.' }
-        format.json { render :show, status: :ok, location: @patient }
-      else
-        format.html { render :edit }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
+
+   def update
+      @users=User.all
+
+      respond_to do |format|
+         if @patient.update(patient_params)
+            format.html { redirect_to @patient, notice: 'Patient was successfully updated.' }
+            format.json { render :show, status: :ok, location: @patient }
+         else
+            format.html { render :edit }
+            format.json { render json: @patient.errors, status: :unprocessable_entity }
+         end
       end
-    end
-  end
+   end
 
   # DELETE /patients/1
   # DELETE /patients/1.json

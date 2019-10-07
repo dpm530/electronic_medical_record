@@ -26,7 +26,7 @@
 
                <div class="col-md-6">
                   <div class="dropdown">
-                     <button type="button" class="btn btn-outline-primary float-right" data-toggle="dropdown"><i class="fas fa-bars"></i></button>
+                     <button type="button" class="btn btn-outline-info float-right" data-toggle="dropdown"><i class="fas fa-bars"></i></button>
                      <div class="dropdown-menu">
                         <% unless @user == current_user %>
                            <%= link_to 'Edit', edit_users_admin_path(@user), class:"dropdown-item" %>
@@ -96,7 +96,7 @@
                </div>
                <div class="col-md-6">
                   <div class="dropdown">
-                     <button type="button" class="btn btn-outline-primary float-right" data-toggle="dropdown"><i class="fas fa-bars"></i></button>
+                     <button type="button" class="btn btn-outline-info float-right" data-toggle="dropdown"><i class="fas fa-bars"></i></button>
                      <% if @contact_information %>
                         <div class="dropdown-menu">
                            <%= link_to 'Edit', edit_user_contact_information_path(@contact_information), class:"dropdown-item" %>

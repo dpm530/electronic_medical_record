@@ -8,6 +8,9 @@ class User < ApplicationRecord
    has_many :termination_notes
    has_many :documents
 
+   validates :first_name, :last_name, :default_location, :role, :password, presence: true
+   validates :email, uniqueness: true
+
    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

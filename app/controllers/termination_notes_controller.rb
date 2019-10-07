@@ -35,6 +35,9 @@ class TerminationNotesController < ApplicationController
    # POST /termination_notes
    # POST /termination_notes.json
    def create
+      @users = User.all
+      @location = ['Aventura', 'Doral', 'Phone', 'Other']
+      @participants = ['Client Only', 'Client and Others', 'Others Only']
       @patient = Patient.find(params[:patient_id])
       @termination_note = @patient.termination_notes.new(termination_note_params)
 
@@ -52,6 +55,9 @@ class TerminationNotesController < ApplicationController
    # PATCH/PUT /termination_notes/1
    # PATCH/PUT /termination_notes/1.json
    def update
+      @users = User.all
+      @location = ['Aventura', 'Doral', 'Phone', 'Other']
+      @participants = ['Client Only', 'Client and Others', 'Others Only']
       @patient = Patient.find(params[:patient_id])
       @termination_note = @patient.termination_notes.find(params[:id])
 
